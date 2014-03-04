@@ -41,8 +41,8 @@ int main() {
     
     ifstream in("data4commands.txt");
     
-    while( !in.eof() ) {
-        cout << in << endl;
-    }
+//    while( !in.eof() ) {
+//        cout << in << endl;
+//    }
     
 }
