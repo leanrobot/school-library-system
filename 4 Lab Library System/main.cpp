@@ -8,6 +8,7 @@
 #include "integer.h"
 #include "hashtable.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 int main() {
@@ -23,7 +24,7 @@ int main() {
     Hashable* h = ht.get(d.hash());
     Integer* down = dynamic_cast<Integer*>(h);
     
-    if(h!=NULL&&down!=NULL&&down->data == d.data) cout << "success\n";
+    if(h!=NULL && down!=NULL && down->data == d.data) cout << "success\n";
     else cout << "failure\n";
     
     
@@ -34,4 +35,14 @@ int main() {
     else cout << "failure\n";
     
     return 0;
+    
+    
+    cout << "TEST TOKENGENERATOR" << endl;
+    
+    ifstream in("data4commands.txt");
+    
+    while( !in.eof() ) {
+        cout << in << endl;
+    }
+    
 }

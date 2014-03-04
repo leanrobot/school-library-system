@@ -11,6 +11,7 @@
 HashTable::HashTable(int initial) {
     table = new Hashable*[initial];
     tableSize = initial;
+    elementCount = 0;
 }
 HashTable::~HashTable() {
     delete table;
@@ -20,6 +21,7 @@ bool HashTable::add(char key, Hashable& value) {
     int index = indexOf(key);
     
     table[index] = &value;
+    elementCount++;
     return true;
 }
 
@@ -31,6 +33,7 @@ Hashable* HashTable::remove(char key) {
     int index = indexOf(key);
     Hashable* toRemove = table[index];
     
+    elementCount--;
     table[index] = NULL;
     return toRemove;
 }
@@ -43,6 +46,17 @@ int HashTable::indexOf(char key) const {
         index = index + (collisions*collisions) % tableSize;
     }
     return index;
+}
+
+bool HashTable::isEmpty() const {
+    return elementCount == 0;
+}
+bool HashTable::contains(char key) const {
+    return get(key) != NULL;
+}
+
+int HashTable::size() const {
+    return elementCount;
 }
 
 /*

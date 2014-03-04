@@ -6,13 +6,11 @@
 //  Copyright (c) 2014 University of Washington, Bothell. All rights reserved.
 //
 
-#ifndef ____Lab_Library_System__hashtable__
-#define ____Lab_Library_System__hashtable__
+#ifndef __HASHTABLE_H
+#define __HASHTABLE_H
 
 #include <iostream>
 #include "hashable.h"
-
-#endif /* defined(____Lab_Library_System__hashtable__) */
 
 /*
  ADT SPEC:
@@ -51,3 +49,6 @@ private:
     
     int indexOf(char key) const;
 };
+
+#endif /* __HASHTABLE_H */
+

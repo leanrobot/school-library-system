@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 University of Washington, Bothell. All rights reserved.
 //
 
-#ifndef ____Lab_Library_System__hashable__
-#define ____Lab_Library_System__hashable__
+#ifndef __HASHABLE_H
+#define __HASHABLE_H
 
 class Hashable {
 public:
     virtual char hash() const = 0;
 };
 
-#endif /* defined(____Lab_Library_System__hashable__) */
+#endif /* __HASHABLE_H */

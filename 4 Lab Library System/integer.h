@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 University of Washington, Bothell. All rights reserved.
 //
 
-#ifndef ____Lab_Library_System__integer__
-#define ____Lab_Library_System__integer__
+#ifndef __INTEGER_H
+#define __INTEGER_H
 
 #include <iostream>
 #include "hashable.h"
@@ -20,4 +20,4 @@ public:
     int data;
 };
 
-#endif /* defined(____Lab_Library_System__integer__) */
+#endif /* __INTEGER_H */

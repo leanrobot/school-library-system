@@ -6,6 +6,14 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2368E3D518C563E2002A8DFC /* hashtable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2368E3D018C563E2002A8DFC /* hashtable.cpp */; };
+		2368E3D618C563E2002A8DFC /* integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2368E3D218C563E2002A8DFC /* integer.cpp */; };
+		2368E3D718C563E2002A8DFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2368E3D418C563E2002A8DFC /* main.cpp */; };
+		2368E3DF18C5B37E002A8DFC /* data4commands.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2368E3DD18C5B2FF002A8DFC /* data4commands.txt */; };
+		2368E3E018C5B380002A8DFC /* data4patrons.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2368E3DE18C5B322002A8DFC /* data4patrons.txt */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		23F0B8FF18B57D2E00613DA0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -13,12 +21,23 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
+				2368E3DF18C5B37E002A8DFC /* data4commands.txt in CopyFiles */,
+				2368E3E018C5B380002A8DFC /* data4patrons.txt in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2368E3CF18C563E2002A8DFC /* hashable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashable.h; sourceTree = "<group>"; };
+		2368E3D018C563E2002A8DFC /* hashtable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hashtable.cpp; sourceTree = "<group>"; };
+		2368E3D118C563E2002A8DFC /* hashtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashtable.h; sourceTree = "<group>"; };
+		2368E3D218C563E2002A8DFC /* integer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = integer.cpp; sourceTree = "<group>"; };
+		2368E3D318C563E2002A8DFC /* integer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integer.h; sourceTree = "<group>"; };
+		2368E3D418C563E2002A8DFC /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2368E3DD18C5B2FF002A8DFC /* data4commands.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data4commands.txt; sourceTree = "<group>"; };
+		2368E3DE18C5B322002A8DFC /* data4patrons.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data4patrons.txt; sourceTree = "<group>"; };
+		2368E3E118C5B390002A8DFC /* data4books.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data4books.txt; sourceTree = "<group>"; };
 		23F0B90118B57D2F00613DA0 /* 4 Lab Library System */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "4 Lab Library System"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -33,6 +52,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2368E3E218C5B394002A8DFC /* Sample data */ = {
+			isa = PBXGroup;
+			children = (
+				2368E3E118C5B390002A8DFC /* data4books.txt */,
+				2368E3DD18C5B2FF002A8DFC /* data4commands.txt */,
+				2368E3DE18C5B322002A8DFC /* data4patrons.txt */,
+			);
+			name = "Sample data";
+			sourceTree = "<group>";
+		};
 		23F0B8F818B57D2E00613DA0 = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +81,13 @@
 		23F0B90318B57D2F00613DA0 /* 4 Lab Library System */ = {
 			isa = PBXGroup;
 			children = (
+				2368E3E218C5B394002A8DFC /* Sample data */,
+				2368E3CF18C563E2002A8DFC /* hashable.h */,
+				2368E3D018C563E2002A8DFC /* hashtable.cpp */,
+				2368E3D118C563E2002A8DFC /* hashtable.h */,
+				2368E3D218C563E2002A8DFC /* integer.cpp */,
+				2368E3D318C563E2002A8DFC /* integer.h */,
+				2368E3D418C563E2002A8DFC /* main.cpp */,
 			);
 			path = "4 Lab Library System";
 			sourceTree = "<group>";
@@ -107,6 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2368E3D618C563E2002A8DFC /* integer.cpp in Sources */,
+				2368E3D518C563E2002A8DFC /* hashtable.cpp in Sources */,
+				2368E3D718C563E2002A8DFC /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +253,7 @@
 				23F0B90C18B57D2F00613DA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
