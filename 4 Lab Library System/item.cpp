@@ -62,3 +62,9 @@ string Item:: getTitle() const{
 void Item:: setTitle(string newTitle){
     title = newTitle;
 }
+
+
+char Item:: hash()const{
+    return itemType;
+}
+

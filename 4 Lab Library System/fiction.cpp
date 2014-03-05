@@ -10,19 +10,19 @@ Fiction:: Fiction(string title,  string author, int year): Book ('F', title, aut
 	
     //overloaded comparison operators
 bool Fiction:: operator<(const Item& item) const{
-        
-    const Fiction* otherFiction = static_cast<const Fiction*>(&item);
-        
-    if (otherFiction == NULL){
-        return false;
-    }
-        
-    if (this->author < otherFiction->author){
+    
+    const Fiction& otherFiction = static_cast<const Fiction&>(item);
+//        
+//    if (otherFiction == NULL){
+//        return false;
+//    }
+    
+    if (this->author.compare(otherFiction.author) < 0){
         return true;
     }
 
-    if (this->author == otherFiction->author){
-        if (this->title < otherFiction->title){
+    if (this->author.compare(otherFiction.author) == 0){
+        if (this->title.compare(otherFiction.title)<0){
             return true;
         }
     }
@@ -31,10 +31,9 @@ bool Fiction:: operator<(const Item& item) const{
 }
 
 bool Fiction:: operator== (const Item& item) const{
-    const Fiction* otherFiction = static_cast<const Fiction*>(&item);
+    const Fiction& otherFiction = static_cast<const Fiction&>(item);
     
-    return (otherFiction != NULL && this->author == otherFiction->author && this->title == otherFiction->title
-            && this->year == otherFiction -> year);
+    return (/*otherFiction != NULL && */ (this->author.compare(otherFiction.author)== 0) && (this->title.compare(otherFiction.title) == 0) && this->year == otherFiction.year);
 }
 	
     //create an item

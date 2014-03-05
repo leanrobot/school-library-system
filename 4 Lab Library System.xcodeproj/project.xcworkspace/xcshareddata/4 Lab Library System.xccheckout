@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D5973032-1CA8-446A-894A-400468C78D86</string>
+	<string>F08D119B-7060-4C85-B4FC-2BE2FD8E61A3</string>
 	<key>IDESourceControlProjectName</key>
 	<string>4 Lab Library System</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>A0B355E7-2B11-4C4F-AFDC-4F39B6CD7DD3</key>
-		<string>https://bitbucket.org/thopet/css-343-lab-4-implementation.git</string>
+		<key>FB497E17-0C9B-4037-8CCF-0610B1D3D5C5</key>
+		<string>https://bitbucket.org/thopet/css-343-lab-4-implementation</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>4 Lab Library System.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>A0B355E7-2B11-4C4F-AFDC-4F39B6CD7DD3</key>
+		<key>FB497E17-0C9B-4037-8CCF-0610B1D3D5C5</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/thopet/css-343-lab-4-implementation.git</string>
+	<string>https://bitbucket.org/thopet/css-343-lab-4-implementation</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>A0B355E7-2B11-4C4F-AFDC-4F39B6CD7DD3</string>
+	<string>FB497E17-0C9B-4037-8CCF-0610B1D3D5C5</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>A0B355E7-2B11-4C4F-AFDC-4F39B6CD7DD3</string>
+			<string>FB497E17-0C9B-4037-8CCF-0610B1D3D5C5</string>
 			<key>IDESourceControlWCCName</key>
-			<string>4 Lab Library System</string>
+			<string>css-343-lab-4-implementation</string>
 		</dict>
 	</array>
 </dict>

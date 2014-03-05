@@ -8,28 +8,28 @@ Youth:: Youth(string title,  string author, int year): Book ('Y', title, author,
 
 //overloaded comparison operators
 bool Youth:: operator<(const Item& item) const{
-    const Youth* otherYouth = static_cast<const Youth*>(&item);
+    const Youth& otherYouth = static_cast<const Youth&>(item);
     
-    if (otherYouth == NULL){
-        return false;
-    }
+//    if (otherYouth == NULL){
+//        return false;
+//    }
     
-    if (this->title < otherYouth->title){
+    if (this->title.compare(otherYouth.title)<0){
         return true;
     }
     
-    if (this->title == otherYouth->title){
-        if (this->author < otherYouth->author){
+    if (this->title.compare(otherYouth.title)==0){
+        if (this->author.compare(otherYouth.author) < 0){
             return true;
         }
     }
     return false;
 }
 
+
 bool Youth:: operator== (const Item& item)const{
-    const Youth* otherYouth = static_cast<const Youth*>(&item);
-    return (otherYouth != NULL && this->title == otherYouth->title && this->author == otherYouth->author
-            && this->year == otherYouth->year);
+    const Youth& otherYouth = static_cast<const Youth&>(item);
+    return (/*otherYouth != NULL &&*/ (this->title.compare(otherYouth.title) == 0) && (this->author.compare(otherYouth.author) == 0) && this->year == otherYouth.year);
 }
 
 //create an item
