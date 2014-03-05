@@ -13,8 +13,9 @@
 #include <iostream>
 #include <string>
 using namespace std;
+#include "hashable.h"
 
-class Item {
+class Item: public Hashable {
 
 public:
 	
@@ -64,6 +65,8 @@ public:
 
     virtual void print()const = 0;
 
+    char hash () const;
+    
 protected:
     
     //default constructor
