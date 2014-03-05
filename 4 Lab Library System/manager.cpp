@@ -1,18 +1,23 @@
 #include "manager.h"
 #include "userfactory.h"
+#include "itemfactory.h"
 
 Manager::Manager() {
     //user map is static constructed.
+    for(int i=0; i < MAX_ITEM_TYPES; i++) {
+        items[i] = NULL;
+    }
 }
-Manager::~Manager() {
+/*Manager::~Manager() {
     //TODO write this
 }
+ */
 
 void Manager::buildUsers(istream& input) {
-    UserFactory userFact;
+    //UserFactory userFact;
     
     while(!input.eof()) {
-        User* user = userFact.createUser(input);
+        User* user = userFactory.createUser(input);
         
         if(user != NULL) {
             users[user->getID()] = user;
@@ -23,5 +28,19 @@ void Manager::buildUsers(istream& input) {
 }
 
 void Manager::buildItems(istream& input) {
-    
+    while(!input.eof()) {
+        Item* item = itemFactory.createItem(input);
+        
+        if(item != NULL) {
+            char itemType = item->hash();
+            int index = itemType - 'A';
+            if(items[index] == NULL) {
+                items[index] = new BinTree;
+            }
+            items[index]->insert(item);
+        }
+        
+        
+        
+    }
 }

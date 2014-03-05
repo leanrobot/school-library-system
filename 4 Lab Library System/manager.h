@@ -21,7 +21,8 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 
-//#include "itemFactory.h"
+#include "itemfactory.h"
+#include "userfactory.h"
 //#include "transactionFactory.h"
 //#include "itemCollection.h"
 //#include "userCollection.h"
@@ -64,7 +65,9 @@ public:
 private:
     
 	// ItemFactory object which will be responsible for creating item
-	//ItemFactory itemFactory;
+	ItemFactory itemFactory;
+    
+    UserFactory userFactory;
     
 	// TransactionFactory object which will be responsible for creating
 	// transactions
@@ -75,7 +78,8 @@ private:
     
     // ItemCollection keeps all Item objects
     
-    //map<Item>* items; TODO
+    static const int MAX_ITEM_TYPES = 26;
+    BinTree* items[MAX_ITEM_TYPES];
     
     
 };
