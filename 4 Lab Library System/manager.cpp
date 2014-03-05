@@ -8,10 +8,9 @@ Manager::Manager() {
         items[i] = NULL;
     }
 }
-/*Manager::~Manager() {
+Manager::~Manager() {
     //TODO write this
 }
- */
 
 void Manager::buildUsers(istream& input) {
     //UserFactory userFact;
@@ -35,7 +34,7 @@ void Manager::buildItems(istream& input) {
             char itemType = item->hash();
             int index = itemType - 'A';
             if(items[index] == NULL) {
-                items[index] = new BinTree;
+                items[index] = new ItemCollection;
             }
             items[index]->insert(item);
         }

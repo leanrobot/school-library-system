@@ -30,6 +30,7 @@
 #include <iostream>
 #include <map>
 #include "user.h"
+#include "itemcollection.h"
 
 using namespace std;
 
@@ -79,7 +80,7 @@ private:
     // ItemCollection keeps all Item objects
     
     static const int MAX_ITEM_TYPES = 26;
-    BinTree* items[MAX_ITEM_TYPES];
+    ItemCollection* items[MAX_ITEM_TYPES];
     
     
 };

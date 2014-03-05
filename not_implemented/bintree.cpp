@@ -1,3 +1,4 @@
+
 //-----------------------------------------------------------------------------
 // BINTREE.CPP
 // BinTree Class Implementaion
@@ -152,6 +153,7 @@ BinTree::Node* BinTree::copy(const Node* otherTree) {
 //            && compare(thisPtr->right, ptr->right);
 //}
 
+/*
 //-----------------------------------------------------------------------------
 // Retrieve
 // Retrieve a NodeData of a given object and assign found NodeData to the
@@ -196,6 +198,7 @@ bool BinTree::retrieve(const Item& item, Item*& ptr) const {
 }
 
 }
+ */
 
 //-----------------------------------------------------------------------------
 // findNode
@@ -398,6 +401,68 @@ void BinTree:: findNthSmallest(int target){
 }
  */
 
+// Retrieve
+//==============================================================================
+// This method will find the NodeData 'data' if it exists within the tree. If
+// it does, then the returnVal reference is changed to point to the value in
+// the tree. return 'true'. If the data is not found, return false.
+//
+// Applicable helper methods: findParent()
+//
+bool BinTree::retrieve(const Item* data, Item*& returnVal) const {
+    
+    bool successfulRetrieve = false;
+    
+    Node* parent = findParent(&data);
+    //check to see if the root contains the data.
+    if(root != NULL && *root->data == *data ) {
+        returnVal = *root->data;
+        successfulRetrieve = true;
+    }
+    // if the parent's left is the desired value, return it.
+    else if ( parent->left != NULL && *(parent->left->data) == data ) {
+        returnVal = parent->left->data;
+        successfulRetrieve = true;
+    }
+    
+    // if the parent's right is the desired value, return it.
+    else if( parent->right != NULL && *(parent->right->data) == data) {
+        returnVal = parent->right->data;
+        successfulRetrieve = true;
+    }
+    
+    return successfulRetrieve;
+}
+
+// findParent -- private helper
+// =============================================================================
+// findParent will find the parent node for the passed node data and return it.
+// if null is returned, either the data wasn't found or it is at the root.
+//
+// Applicable public methods: insert(), retrieve()
+
+BinTree::Node* BinTree::findParent(const NodeData* data) const{
+    Node* last = NULL;
+    Node* current = root;
+    
+    // Walk the tree until the data is found. Return the node's parent.
+    while( current != NULL ) {
+        if ( *data < *current->data) {
+            last = current;
+            current = current->left;
+        }
+        // race condition for handling the root.
+        else if ( *data == *current->data) {
+            return last;
+        }
+        else {
+            last = current;
+            current = current->right;
+        }
+    }
+    return last;
+}
+
 int BinTree:: findNthSmallest(bool find, Node*ptr, Node*& targetptr, int startIndex, int target) {
     if (ptr == NULL && !find) {
         return startIndex;
@@ -420,3 +485,4 @@ int BinTree:: findNthSmallest(bool find, Node*ptr, Node*& targetptr, int startIn
 
     return startIndex;
 }
+

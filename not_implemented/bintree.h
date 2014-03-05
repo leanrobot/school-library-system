@@ -85,6 +85,7 @@ public:
     // The method should return true if Item is found, false otherwise.
     bool retrieve(const Item& item, Item*& ptr) const;
 
+
     //-------------------------------------------------------------------------
     // DisplaySideways
     // Display the tree sideways.
@@ -115,6 +116,8 @@ private:
         Node* right;    // pointer to the right subtree
     };
     Node* root;         // root of the tree
+    
+    Node* findParent(const NodeData* data) const;
 
     //int findNthSmallest(bool find, Node*ptr, Node*& targetPtr, int startIndex, int target);
 
