@@ -12,16 +12,16 @@
 #include "periodical.h"
 
 ItemFactory::ItemFactory() {
-    Item* youth = new Youth;
-    Item* fiction = new Fiction;
-    Item* periodical = new Periodical;
+    Hashable* youth = new Youth;
+    Hashable* fiction = new Fiction;
+    Hashable* periodical = new Periodical;
     
     itemTable.add(youth->hash(), youth);
     itemTable.add(fiction->hash(), fiction);
     itemTable.add(periodical->hash(), periodical);
 }
 ItemFactory::~ItemFactory() {
-    itemTable.clear();
+    //itemTable.clear(); TODO
 }
 
 Item* ItemFactory::createItem(istream& input) {

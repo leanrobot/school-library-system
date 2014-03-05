@@ -32,7 +32,7 @@ public:
     HashTable(int initialSize = 71); // prime #.
     ~HashTable();
     
-    bool add(char key, Hashable& value);
+    bool add(char key, Hashable* value);
     Hashable* remove(char key);
     void clear();
     

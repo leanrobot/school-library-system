@@ -17,10 +17,10 @@ HashTable::~HashTable() {
     delete table;
 }
 
-bool HashTable::add(char key, Hashable& value) {
+bool HashTable::add(char key, Hashable* value) {
     int index = indexOf(key);
     
-    table[index] = &value;
+    table[index] = value;
     elementCount++;
     return true;
 }
@@ -67,7 +67,7 @@ public:
     
     bool add(char key, Hashable& value);
     Hashable* remove(char key);
-    void clear();
+    void clear(); TODO
     
     Hashable& get(char key) const;
     
