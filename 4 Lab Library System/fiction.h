@@ -11,8 +11,9 @@
 #ifndef FICTION_H
 #define FICTION_H
 
-#include "nonperiodical.h"
-#include <string>
+#include "book.h"
+#include <fstream>
+
 
 class Fiction : public Book{
 
@@ -21,15 +22,17 @@ public:
 	Fiction();
 	
     //constructor with parameters for author, title, year
-    Fiction(string, string, int);
+    Fiction(string title,  string author, int year);
 	
     //overloaded comparison operators
     virtual bool operator<(const Item&) const;
     
-    virtual bool operator== (const Item&)const;
+    virtual bool operator== (const Item&) const;
 	
     //create an item
-    virtual Item* create();
+    virtual Item* create(istream&);
+    
+    virtual void print()const;
 	
 };
 

@@ -1,10 +1,23 @@
 #include "item.h"
 
+Item:: Item(){
+}
+
+Item:: ~Item(){
+}
+
+Item:: Item (char type, string title, int year){
+    totalCopies = 5;
+    checkedOutCopies = 0;
+    itemFormat = 'H';
+    this->itemType = type;
+    this ->year = year;
+    this->title = title;
+}
 
 char Item:: getItemType() const{
     return itemType;
 }
-
 
 void Item:: setItemType(char type){
     itemType = type;
@@ -39,7 +52,6 @@ int Item:: getYear() const{
 void Item:: setYear(int newYear){
     year = newYear;
 }
-
 
 //retrieve the title
 string Item:: getTitle() const{

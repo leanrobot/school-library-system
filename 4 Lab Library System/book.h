@@ -13,7 +13,7 @@
 #ifndef BOOK_H
 #define BOOK_H
 #include "item.h"
-#include <string>
+
 using namespace std;
 
 
@@ -21,29 +21,27 @@ class Book : public Item{
 
 public:
 
-    //default constructor
-	//Book();
-
-    //constructor with parameters for title and year
-   // Book(string, int);
-
-    
     //overloaded comparison operators
     virtual bool operator<(const Item&) const = 0;
     
     virtual bool operator== (const Item&) const = 0 ;
 
     //create an item
-    virtual Item* create();
+    virtual Item* create(istream&) = 0;
     
     string getAuthor()const;
     
     void setAuthor(string);
 	
+    virtual void print()const = 0;
 
-
-private:
-
+protected:
+    
+    Book();
+    
+    //default constructor
+    Book(char itemType, string title, string author, int year);
+    
     string author;
 };
 

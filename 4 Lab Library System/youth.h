@@ -11,26 +11,29 @@
 #ifndef YOUTH_H
 #define YOUTH_H
 
-#include "nonPeriodical.h"
-#include <string>
+#include "book.h"
+#include <fstream>
 
-class Youth : public NonPeriodical{
 
+class Youth : public Book{
+    
 public:
 	//default constructor
     Youth();
 	
     //constructor with parameters for author, title, year
-    Youth(string, string, int);
+    Youth(string,  string, int);
 	
     //overloaded comparison operators
     virtual bool operator<(const Item&) const;
 	
+    virtual bool operator== (const Item&)const;
+    
     //create an item
-    virtual Item* create();
+    virtual Item* create(istream&);
+    
+    virtual void print ()const;
 	
-	//get description of a children book, like author, title, date
-	virtual string getDescription() const;
 };
 
 #endif

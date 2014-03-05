@@ -15,6 +15,11 @@
 		237C3C3018C6A49B006FDA37 /* user.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 237C3C2F18C6A49B006FDA37 /* user.cpp */; };
 		237C3C3218C6A659006FDA37 /* lab4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 237C3C3118C6A659006FDA37 /* lab4.cpp */; };
 		237C3C3418C6A6C5006FDA37 /* manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 237C3C3318C6A6C5006FDA37 /* manager.cpp */; };
+		958E82F418C6EEEB0019324A /* item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958E82F318C6EEEB0019324A /* item.cpp */; };
+		958E82F718C6EF020019324A /* book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958E82F618C6EF020019324A /* book.cpp */; };
+		958E82FA18C6EF120019324A /* fiction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958E82F918C6EF120019324A /* fiction.cpp */; };
+		958E82FD18C719380019324A /* youth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958E82FC18C719380019324A /* youth.cpp */; };
+		958E830018C720690019324A /* periodical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 958E82FF18C720690019324A /* periodical.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +53,16 @@
 		237C3C3118C6A659006FDA37 /* lab4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lab4.cpp; sourceTree = "<group>"; };
 		237C3C3318C6A6C5006FDA37 /* manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = manager.cpp; sourceTree = "<group>"; };
 		23F0B90118B57D2F00613DA0 /* 4 Lab Library System */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "4 Lab Library System"; sourceTree = BUILT_PRODUCTS_DIR; };
+		958E82F218C6EED60019324A /* item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = item.h; sourceTree = "<group>"; };
+		958E82F318C6EEEB0019324A /* item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = item.cpp; sourceTree = "<group>"; };
+		958E82F518C6EEFB0019324A /* book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = book.h; sourceTree = "<group>"; };
+		958E82F618C6EF020019324A /* book.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = book.cpp; sourceTree = "<group>"; };
+		958E82F818C6EF090019324A /* fiction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fiction.h; sourceTree = "<group>"; };
+		958E82F918C6EF120019324A /* fiction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fiction.cpp; sourceTree = "<group>"; };
+		958E82FB18C7189E0019324A /* youth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = youth.h; sourceTree = "<group>"; };
+		958E82FC18C719380019324A /* youth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = youth.cpp; sourceTree = "<group>"; };
+		958E82FE18C71F8A0019324A /* periodical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = periodical.h; sourceTree = "<group>"; };
+		958E82FF18C720690019324A /* periodical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = periodical.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +118,16 @@
 				2368E3D318C563E2002A8DFC /* integer.h */,
 				237C3C2B18C6A3BD006FDA37 /* userfactory.cpp */,
 				237C3C2C18C6A3BD006FDA37 /* userfactory.h */,
+				958E82F218C6EED60019324A /* item.h */,
+				958E82F318C6EEEB0019324A /* item.cpp */,
+				958E82F518C6EEFB0019324A /* book.h */,
+				958E82F618C6EF020019324A /* book.cpp */,
+				958E82F818C6EF090019324A /* fiction.h */,
+				958E82F918C6EF120019324A /* fiction.cpp */,
+				958E82FB18C7189E0019324A /* youth.h */,
+				958E82FC18C719380019324A /* youth.cpp */,
+				958E82FE18C71F8A0019324A /* periodical.h */,
+				958E82FF18C720690019324A /* periodical.cpp */,
 			);
 			path = "4 Lab Library System";
 			sourceTree = "<group>";
@@ -159,8 +184,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2368E3D618C563E2002A8DFC /* integer.cpp in Sources */,
+				958E82FA18C6EF120019324A /* fiction.cpp in Sources */,
 				2368E3D518C563E2002A8DFC /* hashtable.cpp in Sources */,
+				958E82F418C6EEEB0019324A /* item.cpp in Sources */,
 				237C3C3218C6A659006FDA37 /* lab4.cpp in Sources */,
+				958E830018C720690019324A /* periodical.cpp in Sources */,
+				958E82FD18C719380019324A /* youth.cpp in Sources */,
+				958E82F718C6EF020019324A /* book.cpp in Sources */,
 				237C3C3418C6A6C5006FDA37 /* manager.cpp in Sources */,
 				237C3C3018C6A49B006FDA37 /* user.cpp in Sources */,
 				237C3C2D18C6A3BD006FDA37 /* userfactory.cpp in Sources */,

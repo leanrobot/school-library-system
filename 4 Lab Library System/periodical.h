@@ -11,35 +11,37 @@
 #define PERIODICAL_H
 
 #include "book.h"
-#include <string>
+#include <fstream>
 
-class Periodical : public Book{
-
+class Periodical : public Item{
+    
 public:
-
+    
     //default constructor
     Periodical();
-
+    
     //constructor with parameters are the title, month, and year
     Periodical(string, int, int);
-
+    
     //retrieve the month of the book's publishing
     int getMonth() const;
-
+    
     //set the month of the book's publishing parameter is month
     void setMonth(int);
-
+    
     //operators for item comparison
     virtual bool operator<(const Item&) const;
-
+    
+    virtual bool operator== (const Item&) const;
+   
     //create item
-    virtual Item* create();
+    virtual Item* create(istream&);
+    
+    virtual void print () const;
 	
-	//get description of a periodical, like title and date
-	virtual string getDescription() const;
-
+    
 private:
-
+    
     //month of publication
     int month;
 };
