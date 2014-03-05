@@ -12,26 +12,28 @@
 #include "itemCollection.h"
 #include "userCollection.h"
 #include <string>
+#include <fstream>
+#include <map>
 
 class Transaction {
 
 public:
     // Constructor
-    Transaction()
+    Transaction();
     
     // Destructor
-    virtual ~Transaction()
+    virtual ~Transaction();
     
 	// create
 	// This is a pure virtual method.
 	// Overridden methods will create the Transaction object
-	virtual Transaction* create(string) = 0;
+	virtual Transaction* create(istream&) = 0;
 
 	// execute
 	// This is a pure virtual method.
 	// Overridden methods will execute certain actions on ItemCollection
     // and UserCollection objects
-	virtual void execute(ItemCollection*, UserCollection*) = 0;
+	virtual void execute(map& itemCollection, map& userCollection) = 0;
 };
 
 #endif 

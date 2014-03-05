@@ -21,12 +21,14 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 
-#include "itemFactory.h"
-#include "transactionFactory.h"
-#include "itemCollection.h"
-#include "userCollection.h"
+//#include "itemFactory.h"
+//#include "transactionFactory.h"
+//#include "itemCollection.h"
+//#include "userCollection.h"
 #include <fstream>
 #include <iostream>
+#include <map>
+#include "user.h"
 
 using namespace std;
 
@@ -49,28 +51,31 @@ public:
 	// This method reads data from file and passes each line to the ItemFactory
 	// which creates Item object out of it. Then calls method insert from
 	// ItemCollection class.
-	void buildItems(istream&);
+	
+    //void buildItems(istream&);
 
 	// ProcessTransaction
 	// This method read data from file and pass each line to the
 	// TransactionFactory object which creates Transaction object out of it.
 	// Then method execute is called on this object.
-	void processTransaction(istream&);
+	
+    //void processTransaction(istream&);
     
 private:
     
 	// ItemFactory object which will be responsible for creating item
-	ItemFactory itemFactory;
+	//ItemFactory itemFactory;
     
 	// TransactionFactory object which will be responsible for creating
 	// transactions
-	TransactionFactory transactionFactory;
+	//TransactionFactory transactionFactory; TODO
     
     // UserCollection keeps all User objects
-    UserCollection* users;
+    map<int, User*> users;
     
     // ItemCollection keeps all Item objects
-    ItemCollection* items;
+    
+    //map<Item>* items; TODO
     
     
 };

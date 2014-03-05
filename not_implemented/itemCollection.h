@@ -19,15 +19,15 @@ using namespace std;
 
 const int MAXSIZE = 26;
 
-class itemCollection {
+class ItemCollection {
 
 public:
 
 	//constructor
-	itemCollection();
+	ItemCollection();
 	
 	//destructor
-	~itemCollection();
+	~ItemCollection();
 	
 	//insert an item into the hashtable
 	bool insert(Item*);
@@ -41,7 +41,7 @@ public:
 private:
 
 	//binary search tree contains items sorted by itemtype
-	itemTree* itemTreeArray[MAXSIZE];
+	ItemTree* itemTreeArray[MAXSIZE];
 
 	//method for hasing items into itemTreeArray
 	int hash(char);

@@ -19,13 +19,15 @@ int main() {
 	Manager manager;
 
 	// check if the file with users exists
-	ifstream infile1("users.txt");
+	ifstream infile1("data4patrons.txt");
 	if (!infile1) {
 		cout << "File could not be opened." << endl;
 		return 1;
 	}
 	manager.buildUsers(infile1);
 
+    
+    /*
 	// check if the file with items exists
 	ifstream infile2("items.txt");
 	if (!infile2) {
@@ -41,7 +43,7 @@ int main() {
 		return 1;
 	}
 	manager.processTransaction(infile3);
-
+*/
 	return 0;
 
 }

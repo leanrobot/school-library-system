@@ -17,12 +17,14 @@
 #ifndef USER_H
 #define USER_H
 #include <string>
-#include "history.h"
+//#include "history.h" TODO
 
+using namespace std;
 class User {
 public:
     // Constructor
-    User( int, string, string);
+    User(int id, string name);
+    //User( int id, string firstName, string lastName);
     
     // Destructor
     ~User( );
@@ -33,40 +35,39 @@ public:
     
     // getLastName
     // Return the last name of the user
-    string getLastName() const;
+    //string getLastName() const;
     
     // getFirstName
     // Return the first name
-    string getFirstName() const;
+    string getName() const;
     
     // getHistory
     // Returns user's transaction history
-    History* getHistory() const;
+    //History* getHistory() const; TODO
  
     // setLastName
     // Changes the user's last name
-    void setLastName(string);
+    //void setLastName(string);
     
     // setFirstName
     // Changes the user's first name
-    void setFirstName(string);
+    void setName(string);
     
     // operator<
     // Overload < operator
-    bool operator<(const User&) const;
+    //bool operator<(const User&) const; 
   
 private:
     // a unique identifier
     int userId;          
     
     // the patron's last name
-    string lastName;
+    //string lastName;
     
     // the patron's first name
-    string firstName;          
-    
+    string name;
     // the patron's transaction history
-    History history;       
+    //History history; TODO
 };
 
 #endif

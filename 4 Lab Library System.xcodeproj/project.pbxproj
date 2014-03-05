@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		2368E3D518C563E2002A8DFC /* hashtable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2368E3D018C563E2002A8DFC /* hashtable.cpp */; };
 		2368E3D618C563E2002A8DFC /* integer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2368E3D218C563E2002A8DFC /* integer.cpp */; };
-		2368E3D718C563E2002A8DFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2368E3D418C563E2002A8DFC /* main.cpp */; };
 		2368E3DF18C5B37E002A8DFC /* data4commands.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2368E3DD18C5B2FF002A8DFC /* data4commands.txt */; };
 		2368E3E018C5B380002A8DFC /* data4patrons.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2368E3DE18C5B322002A8DFC /* data4patrons.txt */; };
+		237C3C2D18C6A3BD006FDA37 /* userfactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 237C3C2B18C6A3BD006FDA37 /* userfactory.cpp */; };
+		237C3C3018C6A49B006FDA37 /* user.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 237C3C2F18C6A49B006FDA37 /* user.cpp */; };
+		237C3C3218C6A659006FDA37 /* lab4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 237C3C3118C6A659006FDA37 /* lab4.cpp */; };
+		237C3C3418C6A6C5006FDA37 /* manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 237C3C3318C6A6C5006FDA37 /* manager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,10 +37,16 @@
 		2368E3D118C563E2002A8DFC /* hashtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashtable.h; sourceTree = "<group>"; };
 		2368E3D218C563E2002A8DFC /* integer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = integer.cpp; sourceTree = "<group>"; };
 		2368E3D318C563E2002A8DFC /* integer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integer.h; sourceTree = "<group>"; };
-		2368E3D418C563E2002A8DFC /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2368E3DD18C5B2FF002A8DFC /* data4commands.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data4commands.txt; sourceTree = "<group>"; };
 		2368E3DE18C5B322002A8DFC /* data4patrons.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data4patrons.txt; sourceTree = "<group>"; };
 		2368E3E118C5B390002A8DFC /* data4books.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data4books.txt; sourceTree = "<group>"; };
+		237C3C2A18C6A13A006FDA37 /* manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = manager.h; sourceTree = "<group>"; };
+		237C3C2B18C6A3BD006FDA37 /* userfactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = userfactory.cpp; sourceTree = "<group>"; };
+		237C3C2C18C6A3BD006FDA37 /* userfactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userfactory.h; sourceTree = "<group>"; };
+		237C3C2E18C6A418006FDA37 /* user.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
+		237C3C2F18C6A49B006FDA37 /* user.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = user.cpp; sourceTree = "<group>"; };
+		237C3C3118C6A659006FDA37 /* lab4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lab4.cpp; sourceTree = "<group>"; };
+		237C3C3318C6A6C5006FDA37 /* manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = manager.cpp; sourceTree = "<group>"; };
 		23F0B90118B57D2F00613DA0 /* 4 Lab Library System */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "4 Lab Library System"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,13 +90,19 @@
 		23F0B90318B57D2F00613DA0 /* 4 Lab Library System */ = {
 			isa = PBXGroup;
 			children = (
+				237C3C3118C6A659006FDA37 /* lab4.cpp */,
+				237C3C2E18C6A418006FDA37 /* user.h */,
+				237C3C2F18C6A49B006FDA37 /* user.cpp */,
+				237C3C2A18C6A13A006FDA37 /* manager.h */,
+				237C3C3318C6A6C5006FDA37 /* manager.cpp */,
 				2368E3E218C5B394002A8DFC /* Sample data */,
 				2368E3CF18C563E2002A8DFC /* hashable.h */,
 				2368E3D018C563E2002A8DFC /* hashtable.cpp */,
 				2368E3D118C563E2002A8DFC /* hashtable.h */,
 				2368E3D218C563E2002A8DFC /* integer.cpp */,
 				2368E3D318C563E2002A8DFC /* integer.h */,
-				2368E3D418C563E2002A8DFC /* main.cpp */,
+				237C3C2B18C6A3BD006FDA37 /* userfactory.cpp */,
+				237C3C2C18C6A3BD006FDA37 /* userfactory.h */,
 			);
 			path = "4 Lab Library System";
 			sourceTree = "<group>";
@@ -145,7 +160,10 @@
 			files = (
 				2368E3D618C563E2002A8DFC /* integer.cpp in Sources */,
 				2368E3D518C563E2002A8DFC /* hashtable.cpp in Sources */,
-				2368E3D718C563E2002A8DFC /* main.cpp in Sources */,
+				237C3C3218C6A659006FDA37 /* lab4.cpp in Sources */,
+				237C3C3418C6A6C5006FDA37 /* manager.cpp in Sources */,
+				237C3C3018C6A49B006FDA37 /* user.cpp in Sources */,
+				237C3C2D18C6A3BD006FDA37 /* userfactory.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
