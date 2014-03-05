@@ -21,9 +21,19 @@ ItemFactory::ItemFactory() {
     itemTable.add(periodical->hash(), periodical);
 }
 ItemFactory::~ItemFactory() {
-    
+    itemTable.clear();
 }
 
 Item* ItemFactory::createItem(istream& input) {
-    return NULL; //TODO
+    
+    char itemType = input.get();
+    input.get(); //throwaway the space.
+    //read the first character
+    if(itemTable.contains(itemType)) {
+        Hashable* hashed = itemTable.get(itemType);
+        //downcast to item class
+        Item* item = static_cast<Item*>(hashed);
+        return item->create(input);
+    }
+    return NULL;
 }

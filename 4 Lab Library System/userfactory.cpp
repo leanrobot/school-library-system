@@ -18,10 +18,10 @@ User* UserFactory::createUser(istream& input) {
     input.get();
     if(input.eof()) return NULL;
     getline(input, name);
-
+    
     
     cout << "USER: Id["<<id<<"], name["<<name<<"]\n";
-
+    
     User* u = new User(id, name);
     return u;
 }

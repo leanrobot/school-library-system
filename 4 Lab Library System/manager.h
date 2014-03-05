@@ -52,7 +52,7 @@ public:
 	// which creates Item object out of it. Then calls method insert from
 	// ItemCollection class.
 	
-    //void buildItems(istream&);
+    void buildItems(istream&);
 
 	// ProcessTransaction
 	// This method read data from file and pass each line to the

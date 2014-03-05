@@ -21,3 +21,7 @@ void Manager::buildUsers(istream& input) {
     cout << users.size() << " users added";
     
 }
+
+void Manager::buildItems(istream& input) {
+    
+}
