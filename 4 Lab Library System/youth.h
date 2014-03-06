@@ -38,6 +38,8 @@ public:
     //create an item
     virtual Item* create(istream&);
     
+    
+    
     virtual void print ()const;
 	
 };

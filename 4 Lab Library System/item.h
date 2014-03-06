@@ -62,7 +62,7 @@ public:
     virtual bool operator!=(const Item &) const = 0;
     
     //create an item
-    virtual Item* create(istream&) = 0;
+    virtual Item* create() = 0;
 	
 	//get description of an Item, like author, title, date
 	//virtual string getDescription() const = 0;
@@ -70,6 +70,9 @@ public:
     virtual void print()const = 0;
 
     char hash () const;
+    
+    virtual void initialize(istream&) = 0;
+    virtual void initializePartial(istream&) = 0;
     
 protected:
     
