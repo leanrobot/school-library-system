@@ -55,7 +55,6 @@ bool Periodical:: operator== (const Item& item) const{
 Item* Periodical:: create(istream& infile){
     string title;
     
-    infile.get();
     getline(infile, title, ',');
     
     int month, year;
@@ -63,6 +62,9 @@ Item* Periodical:: create(istream& infile){
     infile >> year;
     
     Item* newPeriodical = new Periodical (title, month, year);
+    
+    //discard new line character
+    infile.get();
     
     return newPeriodical;
 

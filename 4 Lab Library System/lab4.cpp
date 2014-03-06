@@ -28,15 +28,15 @@ int main() {
 	}
 	manager.buildUsers(infile1);
     
-    /*
+    
 	// check if the file with items exists
-	ifstream infile2("items.txt");
+	ifstream infile2("data4books.txt");
 	if (!infile2) {
 		cout << "File could not be opened." << endl;
 		return 1;
 	}
 	manager.buildItems(infile2);
-
+/*
 	// check if the file with transactions exists
 	ifstream infile3("transactions.txt");
 	if (!infile3) {

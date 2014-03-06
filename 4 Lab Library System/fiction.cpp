@@ -42,7 +42,6 @@ Item* Fiction:: create(istream& infile){
            
     string author, title;
     
-    infile.get();                     // get (and ignore) blank before author
     getline(infile, author, ',');     // input author, looks for comma terminator
             
     infile.get();                     // get (and ignore) blank before title
@@ -50,7 +49,10 @@ Item* Fiction:: create(istream& infile){
             
     int year;
     infile >> year;                     // input year
-            
+    
+    //discard new line character
+    infile.get();
+    
     Item* newFictionBook = new Fiction(title, author, year);
     
     return newFictionBook;

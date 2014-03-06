@@ -38,8 +38,24 @@ void Manager::buildItems(istream& input) {
             }
             items[index]->insert(item);
         }
-        
-        
-        
     }
+    
+    cout << endl;
+    for(int i=0; i<MAX_ITEM_TYPES; i++) {
+        ItemCollection* ic = items[i];
+        if(ic != NULL) {
+            cout << "COLLECTION FOR " << char('A'+i) << endl;
+            for(int j=0; j<ic->size(); j++) {
+                ic->retrieve(j)->print();
+            }
+        }
+
+    }
+    
+    
+    
+    
+    
 }
+
+

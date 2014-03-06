@@ -26,8 +26,9 @@ ItemFactory::~ItemFactory() {
 
 Item* ItemFactory::createItem(istream& input) {
     
-    char itemType = input.get();
+    char itemType = input.get(); //get the item type.
     input.get(); //throwaway the space.
+    
     //read the first character
     if(itemTable.contains(itemType)) {
         Hashable* hashed = itemTable.get(itemType);

@@ -19,6 +19,7 @@ HashTable::~HashTable() {
 
 bool HashTable::add(char key, Hashable* value) {
     int index = indexOf(key);
+    if(index < 0) return false;
     
     table[index] = value;
     elementCount++;
@@ -26,11 +27,14 @@ bool HashTable::add(char key, Hashable* value) {
 }
 
 Hashable* HashTable::get(char key) const {
-    return table[indexOf(key)];
+    int index = indexOf(key);
+    if(index < 0) return NULL;
+    return table[index];
 }
 
 Hashable* HashTable::remove(char key) {
     int index = indexOf(key);
+    if(index < 0) return NULL;
     Hashable* toRemove = table[index];
     
     elementCount--;
@@ -39,6 +43,7 @@ Hashable* HashTable::remove(char key) {
 }
 
 int HashTable::indexOf(char key) const {
+    if(!('A' <= key && key <= 'Z')) return -1;
     int index = (key - 'A') % tableSize;
     
     //Quadratic probing, closed hashing.
