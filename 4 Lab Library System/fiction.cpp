@@ -39,7 +39,8 @@ bool Fiction:: operator>(const Item& item) const{
 bool Fiction:: operator== (const Item& item) const{
     const Fiction& otherFiction = static_cast<const Fiction&>(item);
     
-    return (/*otherFiction != NULL && */ (this->author.compare(otherFiction.author)== 0) && (this->title.compare(otherFiction.title) == 0));
+    return ((this->author.compare(otherFiction.author)== 0) &&
+            (this->title.compare(otherFiction.title) == 0));
 }
 
 bool Fiction:: operator!= (const Item& item) const{

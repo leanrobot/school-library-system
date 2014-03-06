@@ -5,7 +5,8 @@ Periodical:: Periodical(){
     itemType = 'P';
 }
 
-Periodical:: Periodical(string title, int month, int year): Item('P', title, year){
+Periodical:: Periodical(string title, int month, int year)
+: Item('P', title, year){
     this->month = month;
 }
 
@@ -51,8 +52,9 @@ bool Periodical::operator>(const Item& item) const {
 bool Periodical:: operator== (const Item& item) const{
     const Periodical& otherPeriodical = static_cast <const Periodical&> (item);
 
-    return (/*otherPeriodical != NULL && */(this -> title.compare(otherPeriodical.title)==0)
-            && this->month == otherPeriodical.month && this->year == otherPeriodical.year);
+    return ((this -> title.compare(otherPeriodical.title)==0)
+            && this->month == otherPeriodical.month
+            && this->year == otherPeriodical.year);
 }
 
 bool Periodical:: operator!= (const Item& item) const{

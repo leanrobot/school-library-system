@@ -4,7 +4,8 @@ Book:: Book(): Item(){
 }
 
 
-Book:: Book(char itemType, string title, string author, int year):Item (itemType, title, year){
+Book:: Book(char itemType, string title, string author, int year)
+        :Item (itemType, title, year){
     this->author = author;
 };
 

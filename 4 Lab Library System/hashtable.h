@@ -24,7 +24,9 @@
  contains(itemKey: KeyType): boolean
  traverse(visit(item: ItemType): void): void
  
- Carrano, Frank M. (2012-11-05). Data Abstraction & Problem Solving with C++: Walls and Mirrors (2-download) (6th Edition) (Page 529). Prentice Hall. Kindle Edition.
+ Carrano, Frank M. (2012-11-05). Data Abstraction & Problem Solving with C++:
+ Walls and Mirrors (2-download) (6th Edition) (Page 529). Prentice Hall. 
+ Kindle Edition.
 */
 
 class HashTable {

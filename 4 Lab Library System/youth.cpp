@@ -34,7 +34,9 @@ bool Youth:: operator>(const Item& item) const{
 
 bool Youth:: operator== (const Item& item)const{
     const Youth& otherYouth = static_cast<const Youth&>(item);
-    return (/*otherYouth != NULL &&*/ (this->title.compare(otherYouth.title) == 0) && (this->author.compare(otherYouth.author) == 0));
+    
+    return ((this->title.compare(otherYouth.title) == 0) &&
+            (this->author.compare(otherYouth.author) == 0));
 }
 
 bool Youth:: operator!= (const Item& item)const{
