@@ -2,6 +2,7 @@
 
     
 Fiction:: Fiction(): Book(){
+    itemType = 'F';
 }
 
 Fiction:: Fiction(string title,  string author, int year): Book ('F', title, author, year){

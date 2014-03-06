@@ -39,7 +39,7 @@ Hashable* HashTable::remove(char key) {
 }
 
 int HashTable::indexOf(char key) const {
-    int index = key - 'A';
+    int index = (key - 'A') % tableSize;
     
     //Quadratic probing, closed hashing.
     for(int collisions = 1; table[index] != NULL && table[index]->hash() != key; collisions++) {

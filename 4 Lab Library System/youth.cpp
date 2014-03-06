@@ -1,6 +1,7 @@
 #include "youth.h"
 
 Youth:: Youth(){
+    itemType = 'Y';
 }
 
 Youth:: Youth(string title,  string author, int year): Book ('Y', title, author, year){

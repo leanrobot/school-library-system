@@ -19,6 +19,8 @@ public:
     ~ItemCollection();
     bool insert(Item* item);
     Item* retrieve(Item* item);
+    Item* retrieve(int index);
+    int size() const;
 private:
     vector<Item*> items;
 };

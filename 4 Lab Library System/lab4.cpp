@@ -12,6 +12,8 @@
 #include "manager.h"
 #include <fstream>
 #include <iostream>
+#include "itemcollection.h"
+#include "youth.h"
 using namespace std;
 
 int main() {
@@ -25,7 +27,6 @@ int main() {
 		return 1;
 	}
 	manager.buildUsers(infile1);
-
     
     /*
 	// check if the file with items exists
@@ -45,6 +46,29 @@ int main() {
 	manager.processTransaction(infile3);
 */
 	return 0;
+    
+    /*
+    //TEST ITEM COLLECTION
+    ItemCollection ic;
+    Item* one = new Youth("aTitle",  "aAuthor", 2000);
+    Item* two = new Youth("aaadfds", "bAuthor", 2000);
+    Item* three = new Youth("bbbb", "bAuthor", 2000);
+    
+    cout << "\none less than 2?" << (*one < *two) << endl;
+    cout << "\none less than 2?" << (*two < *one) << endl;
+    
+    ic.insert(three);
+    ic.insert(two);
+    ic.insert(one);
+    
+    cout << "retrieve " <<  ic.retrieve(two) << endl;
+    
+    cout << endl;
+    for(int i=0; i<ic.size(); i++) {
+        Youth* it = static_cast<Youth*>(ic.retrieve(i));
+        cout << it->getTitle() << " " << it->getAuthor()<< " " << it << endl;
+    }
 
+     */
 }
 

@@ -2,6 +2,7 @@
 
 
 Periodical:: Periodical(){
+    itemType = 'P';
 }
 
 Periodical:: Periodical(string title, int month, int year): Item('P', title, year){
