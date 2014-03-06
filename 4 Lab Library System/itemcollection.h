@@ -10,19 +10,53 @@
 #define ____Lab_Library_System__itemcollection__
 
 #include <iostream>
-#include <vector>
+//#include <vector>
 #include "item.h"
 
 class ItemCollection {
 public:
     ItemCollection();
+   
     ~ItemCollection();
+    
     bool insert(Item* item);
-    Item* retrieve(Item* item);
-    Item* retrieve(int index);
-    int size() const;
+    
+    Item* retrieve(const Item* item)const;
+    
+    int getHeight()const;
+    
+    void print()const;
+    
+    void makeEmpty();
+    
+    //Item* retrieve(int index);
+    //int size() const;
 private:
-    vector<Item*> items;
+    //vector<Item*> items;
+    struct Node{
+        Item* itemData;
+        Node* left;
+        Node* right;
+        int height;
+    };
+    Node* root;
+    
+    void insertHelper(Node*& current, Item* item);
+    
+    void printHelper(Node* ptr) const;
+    
+    int getHeightNode(Node* ptr)const;
+    
+    void leftLeft(Node*& k2);
+    
+    void rightRight(Node*&k2);
+    
+    void leftRight(Node*&k3);
+    
+    void rightLeft(Node*&k3);
+    
+    void removeNodes(Node* ptr);
+    
 };
 
 #endif /* defined(____Lab_Library_System__itemcollection__) */

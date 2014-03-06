@@ -24,6 +24,7 @@ public:
   
 private:
     HashTable itemTable;
+    
 };
 
 #endif

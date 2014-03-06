@@ -21,13 +21,15 @@ ItemFactory::ItemFactory() {
     itemTable.add(periodical->hash(), periodical);
 }
 ItemFactory::~ItemFactory() {
-    //itemTable.clear(); TODO
 }
+
 
 Item* ItemFactory::createItem(istream& input) {
     
     char itemType = input.get(); //get the item type.
     input.get(); //throwaway the space.
+    
+    //cout << "looking for " << itemType << endl;
     
     //read the first character
     if(itemTable.contains(itemType)) {
@@ -35,6 +37,11 @@ Item* ItemFactory::createItem(istream& input) {
         //downcast to item class
         Item* item = static_cast<Item*>(hashed);
         return item->create(input);
+    }
+    else {
+        // read the rest of the line
+        string throwAway;
+        getline(input, throwAway);
     }
     return NULL;
 }

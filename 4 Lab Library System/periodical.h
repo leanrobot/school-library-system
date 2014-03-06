@@ -32,7 +32,12 @@ public:
     //operators for item comparison
     virtual bool operator<(const Item&) const;
     
+    virtual bool operator>(const Item&) const;
+
+    
     virtual bool operator== (const Item&) const;
+    
+     virtual bool operator!= (const Item&) const;
    
     //create item
     virtual Item* create(istream&);

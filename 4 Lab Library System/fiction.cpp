@@ -31,10 +31,19 @@ bool Fiction:: operator<(const Item& item) const{
     return false;
 }
 
+bool Fiction:: operator>(const Item& item) const{
+    return !(*this < item) && *this != item;
+}
+
+
 bool Fiction:: operator== (const Item& item) const{
     const Fiction& otherFiction = static_cast<const Fiction&>(item);
     
-    return (/*otherFiction != NULL && */ (this->author.compare(otherFiction.author)== 0) && (this->title.compare(otherFiction.title) == 0) && this->year == otherFiction.year);
+    return (/*otherFiction != NULL && */ (this->author.compare(otherFiction.author)== 0) && (this->title.compare(otherFiction.title) == 0));
+}
+
+bool Fiction:: operator!= (const Item& item) const{
+    return !(*this==item);
 }
 	
     //create an item

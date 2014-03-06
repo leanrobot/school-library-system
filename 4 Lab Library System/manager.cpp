@@ -9,7 +9,18 @@ Manager::Manager() {
     }
 }
 Manager::~Manager() {
-    //TODO write this
+    for (int i = 0; i < MAX_ITEM_TYPES; i++){
+        if (items[i]!=NULL){
+        delete items[i];
+        }
+    }
+    
+    for (std::map<int,User*>::iterator it=users.begin(); it!=users.end(); ++it)
+        delete it->second;
+
+    users.clear();
+    
+    
 }
 
 void Manager::buildUsers(istream& input) {
@@ -43,19 +54,21 @@ void Manager::buildItems(istream& input) {
     cout << endl;
     for(int i=0; i<MAX_ITEM_TYPES; i++) {
         ItemCollection* ic = items[i];
-        if(ic != NULL) {
-            cout << "COLLECTION FOR " << char('A'+i) << endl;
-            for(int j=0; j<ic->size(); j++) {
-                ic->retrieve(j)->print();
-            }
+        
+        if (ic != NULL){
+         cout << "COLLECTION FOR " << char('A'+i) << endl;
+            ic->print();
         }
-
     }
     
-    
-    
-    
-    
+        //if(ic != NULL) {
+         //   cout << "COLLECTION FOR " << char('A'+i) << endl;
+//            for(int j=0; j<ic->size(); j++) {
+//                ic->retrieve(j)->print();
+//            }
+  //      }
+
+//    }
 }
 
 

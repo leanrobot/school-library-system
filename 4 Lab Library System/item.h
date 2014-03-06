@@ -54,8 +54,12 @@ public:
 
     //overloaded comparison operators
     virtual bool operator<(const Item &) const = 0;
+    
+    virtual bool operator>(const Item &) const = 0;
 
     virtual bool operator==(const Item &) const = 0;
+    
+    virtual bool operator!=(const Item &) const = 0;
     
     //create an item
     virtual Item* create(istream&) = 0;

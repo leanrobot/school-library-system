@@ -12,9 +12,19 @@ HashTable::HashTable(int initial) {
     table = new Hashable*[initial];
     tableSize = initial;
     elementCount = 0;
+    for (int i = 0; i< tableSize; i++){
+        table[i] = NULL;
+    }
 }
 HashTable::~HashTable() {
-    delete table;
+    for (int i = 0; i < tableSize; i++)
+    {
+        if (table[i] != NULL)
+        {
+            delete table[i];
+        }
+    }
+    delete []table;
 }
 
 bool HashTable::add(char key, Hashable* value) {

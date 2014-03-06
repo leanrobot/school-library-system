@@ -43,6 +43,9 @@ bool Periodical::operator<(const Item& item) const {
     return false;
 }
 
+bool Periodical::operator>(const Item& item) const {
+    return !(*this < item) && *this != item;
+}
 
 
 bool Periodical:: operator== (const Item& item) const{
@@ -50,6 +53,10 @@ bool Periodical:: operator== (const Item& item) const{
 
     return (/*otherPeriodical != NULL && */(this -> title.compare(otherPeriodical.title)==0)
             && this->month == otherPeriodical.month && this->year == otherPeriodical.year);
+}
+
+bool Periodical:: operator!= (const Item& item) const{
+    return !(*this == item);
 }
 
 Item* Periodical:: create(istream& infile){

@@ -11,6 +11,10 @@ int User::getID() const {
     return userId;
 }
 
+User:: ~User(){
+    
+}
+
 /*
 string User::getFirstName() const {
     return firstName;

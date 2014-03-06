@@ -30,7 +30,7 @@
 class HashTable {
 public:
     HashTable(int initialSize = 71); // prime #.
-    ~HashTable();
+    virtual ~HashTable();
     
     bool add(char key, Hashable* value);
     Hashable* remove(char key);
@@ -42,6 +42,7 @@ public:
     bool contains(char key) const;
     
     int size() const;
+
 private:
     Hashable** table; //array used for table in the hashtable.
     int tableSize;

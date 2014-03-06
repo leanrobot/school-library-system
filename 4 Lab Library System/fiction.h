@@ -27,7 +27,11 @@ public:
     //overloaded comparison operators
     virtual bool operator<(const Item&) const;
     
+     virtual bool operator>(const Item&) const;
+    
     virtual bool operator== (const Item&) const;
+    
+     virtual bool operator!=(const Item&) const;
 	
     //create an item
     virtual Item* create(istream&);
