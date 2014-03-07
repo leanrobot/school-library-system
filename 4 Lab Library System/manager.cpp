@@ -4,6 +4,9 @@
 
 Manager::Manager() {
     //user map is static constructed.
+    userFactory = UserFactory::instance();
+    itemFactory = ItemFactory::instance();
+    transactionFactory = TransactionFactory::instance();
     
 }
 Manager::~Manager() {
@@ -17,7 +20,7 @@ void Manager::buildUsers(istream& input) {
     //UserFactory userFact;
     
     while(!input.eof()) {
-        User* user = userFactory.createUser(input);
+        User* user = userFactory->createUser(input);
         
         if(user != NULL) {
             users[user->getID()] = user;
@@ -29,7 +32,7 @@ void Manager::buildUsers(istream& input) {
 
 void Manager::buildItems(istream& input) {
     while(!input.eof()) {
-        Item* item = itemFactory.createItem(input);
+        Item* item = itemFactory->createItem(input);
         
         if(item != NULL) {
             item->initialize(input);

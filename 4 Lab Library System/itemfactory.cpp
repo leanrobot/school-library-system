@@ -11,6 +11,10 @@
 #include "fiction.h"
 #include "periodical.h"
 
+ItemFactory* ItemFactory::instance() {
+    static ItemFactory instance;
+    return &instance;
+}
 ItemFactory::ItemFactory() {
     Hashable* youth = new Youth;
     Hashable* fiction = new Fiction;
@@ -21,6 +25,7 @@ ItemFactory::ItemFactory() {
     itemTable.add(periodical->hash(), periodical);
 }
 ItemFactory::~ItemFactory() {
+    //TODO
 }
 
 
@@ -29,10 +34,11 @@ Item* ItemFactory::createItem(istream& input) {
     char itemType = input.get(); //get the item type.
     input.get(); //throwaway the space.
     
-    cout << "looking for " << itemType << endl;
+    //cout << "looking for " << itemType << endl;
     
     //read the first character
     if(itemTable.contains(itemType)) {
+        //cout << "found!\n";
         Hashable* hashed = itemTable.get(itemType);
         //downcast to item class
         Item* item = static_cast<Item*>(hashed);

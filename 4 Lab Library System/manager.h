@@ -23,7 +23,7 @@
 
 #include "itemfactory.h"
 #include "userfactory.h"
-//#include "transactionFactory.h"
+#include "transactionfactory.h"
 //#include "itemCollection.h"
 //#include "userCollection.h"
 #include <fstream>
@@ -67,13 +67,13 @@ public:
 private:
     
 	// ItemFactory object which will be responsible for creating item
-	ItemFactory itemFactory;
+	ItemFactory* itemFactory;
     
-    UserFactory userFactory;
+    UserFactory* userFactory;
     
 	// TransactionFactory object which will be responsible for creating
 	// transactions
-	//TransactionFactory transactionFactory; TODO
+	TransactionFactory* transactionFactory;
     
     // UserCollection keeps all User objects
     map<int, User*> users;

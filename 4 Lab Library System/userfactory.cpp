@@ -7,7 +7,12 @@
 //
 
 #include "userfactory.h"
+UserFactory::UserFactory() {}
 
+UserFactory* UserFactory::instance() {
+    static UserFactory userFact;
+    return &userFact;
+}
 
 User* UserFactory::createUser(istream& input) {
     int id;
