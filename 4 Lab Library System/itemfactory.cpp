@@ -29,7 +29,7 @@ Item* ItemFactory::createItem(istream& input) {
     char itemType = input.get(); //get the item type.
     input.get(); //throwaway the space.
     
-    //cout << "looking for " << itemType << endl;
+    cout << "looking for " << itemType << endl;
     
     //read the first character
     if(itemTable.contains(itemType)) {

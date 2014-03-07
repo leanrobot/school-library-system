@@ -40,9 +40,10 @@ void Manager::buildUsers(istream& input) {
 void Manager::buildItems(istream& input) {
     while(!input.eof()) {
         Item* item = itemFactory.createItem(input);
-        item->initialize(input);
         
         if(item != NULL) {
+            item->initialize(input);
+            
             char itemType = item->hash();
             int index = itemType - 'A';
             if(items[index] == NULL) {
