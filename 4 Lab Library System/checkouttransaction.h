@@ -14,7 +14,6 @@
 #define CHECKOUTTRANSACTION_H
 
 #include "transaction.h"
-#include <string>
 
 class CheckOutTransaction: public Transaction {
     
@@ -23,7 +22,7 @@ public:
 	CheckOutTransaction();
     
 	// Destructor
-	~CheckOutTransaction();
+	//~CheckOutTransaction();
     
 	// create
 	// This method parses the data out of the string and then checks the data.
@@ -36,26 +35,18 @@ public:
     // UserCollection objects
 	virtual void execute(ItemCollection& items, map <int, User*> & userCollection);
     
+    virtual void print() const;
+    
 private:
     
     // Unique identification number of a user
 	int userId;
     
+    User*user;
+    
     Item* item;
-    
-    char transactionType;
-    
-    // The type of an Item, like, periodical, youth
-	//char itemType;
-    
-    // The format of an Item, like, hard copy or soft copy
-	//char itemFormat;
-    
-    // Description of an Item
-	//string itemDescription;
-    
-	// Constructor used by create method
-	//CheckOutTransaction(int, char, char, string);
+
+    Item* lookUpItem;
     
 };
 

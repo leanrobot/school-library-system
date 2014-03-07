@@ -1,6 +1,14 @@
 #include "transaction.h"
 
-char Transaction::hash() const {
-    // TODO return transactionType;
-    return 'A';
+
+Transaction:: Transaction(){
+}
+
+
+Transaction:: ~Transaction(){
+    
+}
+
+char Transaction:: hash() const{
+    return transactionType;
 }

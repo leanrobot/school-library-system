@@ -1,10 +1,10 @@
-#include "checkouttransaction.h"
+#include "returntransaction.h"
 #include "itemfactory.h"
 
 
-CheckOutTransaction:: CheckOutTransaction (){
-    transactionType = 'C';
-    user=NULL;
+ReturnTransaction:: ReturnTransaction (){
+    transactionType = 'R';
+    user = NULL;
 }
 
 //CheckOutTransaction:: ~CheckOutTransaction (){
@@ -12,9 +12,9 @@ CheckOutTransaction:: CheckOutTransaction (){
 //}
 
 
-/*
-Transaction* CheckOutTransaction:: create(istream&infile){
-    CheckOutTransaction * newTransaction = new CheckOutTransaction;
+
+Transaction* ReturnTransaction:: create(istream&infile){
+    ReturnTransaction* newTransaction = new ReturnTransaction;
     
     int userId;
     infile >>userId;
@@ -27,8 +27,8 @@ Transaction* CheckOutTransaction:: create(istream&infile){
     return newTransaction;
 }
 
-void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & userCollection){
-   
+void ReturnTransaction:: execute(ItemCollection& items, map <int, User*> & userCollection){
+    
     
     if (userCollection.count(this->userId)>0){      // check if the user with the given id is in the map
         user = userCollection[this->userId];     // and if exist assign it to the oneUser
@@ -36,13 +36,13 @@ void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & use
         item = items.retrieve(this->lookUpItem); // get the item from itemCollection
         
         
-        if (item != NULL){ // if item exist in the itemCollection
+        if (item == NULL){ // if item exist in the itemCollection
             
             int checkout = item->getCheckedOutCopies(); // get the numbero of checkout copies
             
-            if (checkout < item->getTotalCopies()){ // if they are still available copies, perform operation
+            if (checkout > 0 && checkout <= item->getTotalCopies()){ // if they are still available copies, perform operation
                 
-                item->setCheckedOutCopies (checkout+1);
+                item->setCheckedOutCopies (checkout-1);
                 
                 //oneUser->getHistory.add(*this); // add trnsaction to user history;
                 
@@ -51,10 +51,8 @@ void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & use
     }
 }
 
-void CheckOutTransaction:: print() const{
-    cout << "Checkout"<< setw (10);
-    item->print();
+void ReturnTransaction:: print() const{
+    cout << "Return"<< setw (10);
+    item->print(); // we have to write one more method for print to adjust the output with what Zander wants
     cout<<endl;
 }
-
-

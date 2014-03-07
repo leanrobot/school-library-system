@@ -10,11 +10,12 @@
 #define TRANSACTION_H
 
 #include "itemcollection.h"
-#include <string>
 #include <fstream>
 #include <map>
 #include "hashable.h"
 #include "user.h"
+#include <iostream>
+#include <iomanip>
 
 class Transaction: public Hashable {
 
@@ -36,7 +37,12 @@ public:
     // and UserCollection objects
 	virtual void execute(ItemCollection& items, map<int, User*> & userCollection) = 0;
     
-    char hash() const;
+    virtual char hash() const;
+    
+    virtual void print() const=0;
+    
+protected:
+    char transactionType;
 };
 
 #endif 
