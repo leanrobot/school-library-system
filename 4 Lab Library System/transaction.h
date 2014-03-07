@@ -21,10 +21,10 @@ class Transaction: public Hashable {
 
 public:
     // Constructor
-    //Transaction();
+    Transaction();
     
     // Destructor
-    //virtual ~Transaction();
+    virtual ~Transaction();
     
 	// create
 	// This is a pure virtual method.
@@ -35,11 +35,11 @@ public:
 	// This is a pure virtual method.
 	// Overridden methods will execute certain actions on ItemCollection
     // and UserCollection objects
-	virtual void execute(ItemCollection& items, map<int, User*> & userCollection) = 0;
+	//virtual void execute(ItemCollection& items, map<int, User*> & userCollection) = 0;
     
     virtual char hash() const;
     
-    virtual void print() const=0;
+    //virtual void print() const=0;
     
 protected:
     char transactionType;

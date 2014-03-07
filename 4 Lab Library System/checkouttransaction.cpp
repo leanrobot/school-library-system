@@ -56,5 +56,5 @@ void CheckOutTransaction:: print() const{
     item->print();
     cout<<endl;
 }
-
+*/
 

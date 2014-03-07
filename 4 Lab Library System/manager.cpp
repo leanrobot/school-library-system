@@ -69,7 +69,7 @@ void Manager::buildItems(istream& input) {
 
 void Manager::testTransactions() {
     Transaction* t = new DisplayTransaction;
-    t->execute( this->items, this->users);
+    //t->execute( this->items, this->users);
 }
 
 

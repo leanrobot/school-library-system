@@ -8,8 +8,9 @@
 
 #include "displaytransaction.h"
 
+
 DisplayTransaction::DisplayTransaction() {
-   // transactionType = 'D'; TODO
+   transactionType = 'D';
 }
 DisplayTransaction::~DisplayTransaction() {
     //TODO
@@ -31,6 +32,7 @@ void DisplayTransaction::execute(ItemCollection& items, map<int, User*> & userCo
         }
     }
 }
+ 
 
 
 
