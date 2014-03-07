@@ -42,7 +42,7 @@ private:
     // Unique identification number of a user
 	int userId;
     
-    User*user;
+    User* user;
     
     Item* item;
 

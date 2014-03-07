@@ -1,5 +1,5 @@
 #include "history.h"
-
+/*
 // constructor
 History:: History( ){
     
@@ -23,3 +23,4 @@ void History:: display( ) const{
     }
     
 }
+*/

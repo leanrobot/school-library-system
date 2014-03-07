@@ -15,6 +15,11 @@ User:: ~User(){
     
 }
 
+//History* User:: getHistory(){
+//    return userHistory;
+//}
+
+
 /*
 string User::getFirstName() const {
     return firstName;

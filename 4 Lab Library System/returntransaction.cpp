@@ -44,7 +44,7 @@ void ReturnTransaction:: execute(ItemCollection& items, map <int, User*> & userC
                 
                 item->setCheckedOutCopies (checkout-1);
                 
-                //oneUser->getHistory.add(*this); // add trnsaction to user history;
+                //user->getHistory()->add(*this); // add trnsaction to user history;
                 
             }
         }
