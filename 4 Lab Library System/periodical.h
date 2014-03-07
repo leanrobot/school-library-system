@@ -40,7 +40,9 @@ public:
      virtual bool operator!= (const Item&) const;
    
     //create item
-    virtual Item* create(istream&);
+    virtual Item* create();
+    virtual void initialize(istream&);
+    virtual void initializePartial(istream&);
     
     virtual void print () const;
 	

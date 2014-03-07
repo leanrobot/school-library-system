@@ -63,6 +63,8 @@ public:
     
     //create an item
     virtual Item* create() = 0;
+    virtual void initialize(istream&) = 0;
+    virtual void initializePartial(istream&) = 0;
 	
 	//get description of an Item, like author, title, date
 	//virtual string getDescription() const = 0;
@@ -71,8 +73,7 @@ public:
 
     char hash () const;
     
-    virtual void initialize(istream&) = 0;
-    virtual void initializePartial(istream&) = 0;
+
     
 protected:
     
