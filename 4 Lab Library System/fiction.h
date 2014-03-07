@@ -30,11 +30,15 @@ public:
      virtual bool operator>(const Item&) const;
     
     virtual bool operator== (const Item&) const;
-    
+
      virtual bool operator!=(const Item&) const;
 	
     //create an item
-    virtual Item* create(istream&);
+    virtual Item* create();
+    
+    virtual void initialize(istream&);
+
+    virtual void initializePartial(istream&);
     
     virtual void print()const;
 	

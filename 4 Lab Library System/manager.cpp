@@ -39,7 +39,8 @@ void Manager::buildUsers(istream& input) {
 
 void Manager::buildItems(istream& input) {
     while(!input.eof()) {
-        Item* item = itemFactory.createItem(input);
+        Item* item = itemFactory.createItem();
+        item->initialize(input);
         
         if(item != NULL) {
             char itemType = item->hash();

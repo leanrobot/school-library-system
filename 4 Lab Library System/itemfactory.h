@@ -20,7 +20,7 @@ class ItemFactory {
 public:
     ItemFactory( );                      // constructor
     ~ItemFactory( );                     // destructor
-    Item* createItem(istream& infile);   // creates an item of the desired type
+    Item* createItem();   // creates an item of the desired type
   
 private:
     HashTable itemTable;

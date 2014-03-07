@@ -36,7 +36,7 @@ Item* ItemFactory::createItem(istream& input) {
         Hashable* hashed = itemTable.get(itemType);
         //downcast to item class
         Item* item = static_cast<Item*>(hashed);
-        return item->create(input);
+        return item->create();
     }
     else {
         // read the rest of the line

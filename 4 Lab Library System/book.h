@@ -31,13 +31,19 @@ public:
     virtual bool operator!= (const Item&) const = 0 ;
 
     //create an item
-    virtual Item* create(istream&) = 0;
+    virtual Item* create() = 0;
+    
+    
     
     string getAuthor()const;
     
     void setAuthor(string);
 	
     virtual void print()const = 0;
+    
+    virtual void initialize(istream&) = 0;
+    
+    virtual void initializePartial(istream&) = 0;
 
 protected:
     
