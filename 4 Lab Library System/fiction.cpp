@@ -1,8 +1,11 @@
 #include "fiction.h"
+#include <iomanip>
+#include <iostream>
 
     
 Fiction:: Fiction(): Book(){
     itemType = 'F';
+    itemCategoryFriendlyName = "Fiction";
 }
 
 //Fiction:: Fiction(string title,  string author, int year): Book ('F', title, author, year){
@@ -93,5 +96,20 @@ void Fiction:: initializePartial(istream& infile){
 
 
 void Fiction:: print()const {
-    cout<< itemType<< ", " << author<< ", "<<title<< ", "<< year<<endl;
+    cout <<
+        " " << setw(AVAILABLE_COL_WIDTH) << (totalCopies - checkedOutCopies) <<
+        " " << setw(AUTHOR_COL_WIDTH) << author.substr(0, AUTHOR_COL_WIDTH) <<
+        " " << setw(TITLE_COL_WIDTH) << title.substr(0, TITLE_COL_WIDTH) <<
+        " " << setw(YEAR_COL_WIDTH) << year << endl;
+}
+
+void Fiction:: printHeader() const {
+    cout << "Fiction:" << endl;
+    cout <<
+        setw(AVAILABLE_COL_WIDTH+2) << "AVAIL" <<
+        setw(AUTHOR_COL_WIDTH+1) << "AUTHOR" <<
+        setw(TITLE_COL_WIDTH+1) << "TITLE" <<
+        setw(YEAR_COL_WIDTH+1) << "YEAR" << endl;
+    
+    
 }

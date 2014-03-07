@@ -186,6 +186,10 @@ void ItemTree::rightLeft(Node*&k3){
 }
 
 void ItemTree:: print()const{
+    if(root != NULL) {
+        Item* item = root->itemData;
+        item->printHeader();
+    }
     printHelper (root);
 }
 

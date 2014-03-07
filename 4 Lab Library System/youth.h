@@ -43,6 +43,7 @@ public:
     
     
     virtual void print ()const;
+    virtual void printHeader() const;
 	
 };
 

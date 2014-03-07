@@ -41,6 +41,7 @@ public:
     virtual void initializePartial(istream&);
     
     virtual void print()const;
+    virtual void printHeader() const;
 	
 };
 

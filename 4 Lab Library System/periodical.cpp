@@ -1,8 +1,10 @@
 #include "periodical.h"
+#include <iomanip>
 
 
 Periodical:: Periodical(){
     itemType = 'P';
+    itemCategoryFriendlyName = "Periodicals";
 }
 
 Periodical:: Periodical(string title, int month, int year)
@@ -103,7 +105,21 @@ void Periodical::initializePartial(istream& infile) {
     this->setMonth(month);
 }
 
-void Periodical:: print ()const{
-    cout<< itemType<< ", " << title<< ", "<< month<< ", "<< year<<endl;
+void Periodical:: print()const {
+    cout <<
+    " " << setw(AVAILABLE_COL_WIDTH) << (totalCopies - checkedOutCopies) <<
+    " " << setw(YEAR_COL_WIDTH) << year <<
+    " " << right << setw(MONTH_COL_WIDTH) << month << left <<
+    " " << setw(TITLE_COL_WIDTH) << title.substr(0, TITLE_COL_WIDTH) << endl;
 }
 
+void Periodical:: printHeader() const {
+    cout << "Periodical:" << endl;
+    cout <<
+        setw(AVAILABLE_COL_WIDTH+2) << "AVAIL" <<
+        setw(YEAR_COL_WIDTH+1) << "YEAR" <<
+        setw(MONTH_COL_WIDTH+1) << "MONTH" <<
+        setw(TITLE_COL_WIDTH+1) << "TITLE" << endl;
+    
+    
+}

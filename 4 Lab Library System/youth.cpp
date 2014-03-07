@@ -1,7 +1,9 @@
 #include "youth.h"
+#include <iomanip>
 
 Youth:: Youth(){
     itemType = 'Y';
+    itemCategoryFriendlyName = "Youth";
 }
 
 Youth:: Youth(string title,  string author, int year): Book ('Y', title, author, year){
@@ -86,6 +88,21 @@ void Youth::initializePartial(istream& infile) {
     this->setAuthor(title);
 }
 
-void Youth:: print ()const{
-    cout<< itemType<< ", "<< author<< ", "<< title<< endl;
+void Youth:: print()const {
+    cout <<
+    " " << setw(AVAILABLE_COL_WIDTH) << (totalCopies - checkedOutCopies) <<
+    " " << setw(TITLE_COL_WIDTH) << title.substr(0, TITLE_COL_WIDTH) <<
+    " " << setw(AUTHOR_COL_WIDTH) << author.substr(0, AUTHOR_COL_WIDTH) <<
+    " " << setw(YEAR_COL_WIDTH) << year << endl;
+}
+
+void Youth:: printHeader() const {
+    cout << "Youth:" << endl;
+    cout <<
+    setw(AVAILABLE_COL_WIDTH+2) << "AVAIL" <<
+    setw(TITLE_COL_WIDTH+1) << "TITLE" <<
+    setw(AUTHOR_COL_WIDTH+1) << "AUTHOR" <<
+    setw(YEAR_COL_WIDTH+1) << "YEAR" << endl;
+    
+    
 }

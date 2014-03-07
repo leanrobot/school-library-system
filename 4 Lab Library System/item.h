@@ -22,6 +22,8 @@ public:
 	//destructor
 	virtual ~Item();
 
+    string getItemCategoryFriendlyName();
+    
     //retrieve the item type
     char getItemType() const;
 
@@ -70,6 +72,7 @@ public:
 	//virtual string getDescription() const = 0;
 
     virtual void print()const = 0;
+    virtual void printHeader() const = 0;
 
     char hash () const;
     
@@ -89,17 +92,24 @@ protected:
     //designates what the item is (in this case 'i' for item)
     char itemType;
     
-private:
+    string itemCategoryFriendlyName;
     
-     //format is the format of the item (i.e. hardcopy, digital)
+    //format is the format of the item (i.e. hardcopy, digital)
     char itemFormat;
-
+    
     //totalcopies keeps track of the number of copies of an item there are
     int totalCopies;
-
+    
     //checkedoutcopies keeps track of how many of the copies are
     //checked out
     int checkedOutCopies;
+    
+    const static int
+    YEAR_COL_WIDTH = 6,
+    MONTH_COL_WIDTH = 5,
+    TITLE_COL_WIDTH = 30,
+    AUTHOR_COL_WIDTH = 15,
+    AVAILABLE_COL_WIDTH = 6;
     
 };
 

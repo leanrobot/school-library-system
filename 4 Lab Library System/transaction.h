@@ -12,7 +12,7 @@
 #include "itemcollection.h"
 #include <string>
 #include <fstream>
-#include <map>]
+#include <map>
 #include "hashable.h"
 #include "user.h"
 
@@ -20,21 +20,23 @@ class Transaction: public Hashable {
 
 public:
     // Constructor
-    Transaction();
+    //Transaction();
     
     // Destructor
-    virtual ~Transaction();
+    //virtual ~Transaction();
     
 	// create
 	// This is a pure virtual method.
 	// Overridden methods will create the Transaction object
-	virtual Transaction* create(istream&) = 0;
+	//virtual Transaction* create(istream&) = 0;
 
 	// execute
 	// This is a pure virtual method.
 	// Overridden methods will execute certain actions on ItemCollection
     // and UserCollection objects
 	virtual void execute(ItemCollection& items, map<int, User*> & userCollection) = 0;
+    
+    char hash() const;
 };
 
 #endif 

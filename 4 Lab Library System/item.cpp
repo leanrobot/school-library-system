@@ -1,18 +1,23 @@
 #include "item.h"
 
 Item:: Item(){
+    totalCopies = 5;
+    checkedOutCopies = 0;
+    itemFormat = 'H';
+    cout.setf(ios::left, ios::adjustfield);
 }
 
 Item:: ~Item(){
 }
 
-Item:: Item (char type, string title, int year){
-    totalCopies = 5;
-    checkedOutCopies = 0;
-    itemFormat = 'H';
+Item:: Item (char type, string title, int year) {
     this->itemType = type;
     this ->year = year;
     this->title = title;
+}
+
+string Item:: getItemCategoryFriendlyName() {
+    return itemCategoryFriendlyName;
 }
 
 char Item:: getItemType() const{

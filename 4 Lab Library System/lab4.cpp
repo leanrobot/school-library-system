@@ -36,6 +36,10 @@ int main() {
 		return 1;
 	}
 	manager.buildItems(infile2);
+    
+    //Test DisplayTransaction
+    manager.testTransactions();
+    
 /*
 	// check if the file with transactions exists
 	ifstream infile3("transactions.txt");

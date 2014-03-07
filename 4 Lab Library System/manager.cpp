@@ -2,6 +2,8 @@
 #include "userfactory.h"
 #include "itemfactory.h"
 
+#include "displaytransaction.h"
+
 Manager::Manager() {
     //user map is static constructed.
     userFactory = UserFactory::instance();
@@ -26,7 +28,7 @@ void Manager::buildUsers(istream& input) {
             users[user->getID()] = user;
         }
     }
-    cout << users.size() << " users added";
+    cout << users.size() << " users added\n";
     
 }
 
@@ -63,6 +65,11 @@ void Manager::buildItems(istream& input) {
   //      }
 
 //    }
+}
+
+void Manager::testTransactions() {
+    Transaction* t = new DisplayTransaction;
+    t->execute( this->items, this->users);
 }
 
 

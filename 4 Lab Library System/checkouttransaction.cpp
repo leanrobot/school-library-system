@@ -1,6 +1,6 @@
 #include "checkouttransaction.h"
 
-
+/*
 Transaction* CheckOutTransaction:: create(istream&infile){
     
     infile >> userId;
@@ -11,4 +11,4 @@ Transaction* CheckOutTransaction:: create(istream&infile){
 
 void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & userCollection){
     
-}
+}*/

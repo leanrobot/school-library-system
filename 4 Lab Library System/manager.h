@@ -64,6 +64,9 @@ public:
 	
     //void processTransaction(istream&);
     
+    //Test Functions
+    void testTransactions();
+    
 private:
     
 	// ItemFactory object which will be responsible for creating item
