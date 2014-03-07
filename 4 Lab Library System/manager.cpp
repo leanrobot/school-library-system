@@ -7,14 +7,10 @@ Manager::Manager() {
     
 }
 Manager::~Manager() {
-
-    
     for (std::map<int,User*>::iterator it=users.begin(); it!=users.end(); ++it)
         delete it->second;
 
     users.clear();
-    
-    
 }
 
 void Manager::buildUsers(istream& input) {
