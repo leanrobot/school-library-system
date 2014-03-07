@@ -4,16 +4,10 @@
 
 Manager::Manager() {
     //user map is static constructed.
-    for(int i=0; i < MAX_ITEM_TYPES; i++) {
-        items[i] = NULL;
-    }
+    
 }
 Manager::~Manager() {
-    for (int i = 0; i < MAX_ITEM_TYPES; i++){
-        if (items[i]!=NULL){
-        delete items[i];
-        }
-    }
+
     
     for (std::map<int,User*>::iterator it=users.begin(); it!=users.end(); ++it)
         delete it->second;
@@ -44,24 +38,23 @@ void Manager::buildItems(istream& input) {
         if(item != NULL) {
             item->initialize(input);
             
-            char itemType = item->hash();
-            int index = itemType - 'A';
-            if(items[index] == NULL) {
-                items[index] = new ItemCollection;
-            }
-            items[index]->insert(item);
+            items.insert(item);
         }
     }
     
+    /*
     cout << endl;
-    for(int i=0; i<MAX_ITEM_TYPES; i++) {
-        ItemCollection* ic = items[i];
+    int size;
+    ItemTree** its = items.retrieveAll(size);
+    for(int i=0; i<size; i++) {
+        ItemTree* ic = its[i];
         
         if (ic != NULL){
          cout << "COLLECTION FOR " << char('A'+i) << endl;
             ic->print();
         }
     }
+     */
     
         //if(ic != NULL) {
          //   cout << "COLLECTION FOR " << char('A'+i) << endl;

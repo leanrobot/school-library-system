@@ -2,7 +2,7 @@
 //  itemcollection.h
 //  4 Lab Library System
 //
-//  Created by Tom Petit on 3/5/14.
+//  Created by Tom Petit on 3/6/14.
 //  Copyright (c) 2014 University of Washington, Bothell. All rights reserved.
 //
 
@@ -10,53 +10,21 @@
 #define ____Lab_Library_System__itemcollection__
 
 #include <iostream>
-//#include <vector>
-#include "item.h"
+#include "itemtree.h"
 
 class ItemCollection {
+private:
+    
+    static const int MAX_ITEM_TYPES = 26;
+    ItemTree* items[MAX_ITEM_TYPES];
+    int hash(char ch);
 public:
     ItemCollection();
-   
     ~ItemCollection();
-    
-    bool insert(Item* item);
-    
-    Item* retrieve(const Item* item)const;
-    
-    int getHeight()const;
-    
-    void print()const;
-    
-    void makeEmpty();
-    
-    //Item* retrieve(int index);
-    //int size() const;
-private:
-    //vector<Item*> items;
-    struct Node{
-        Item* itemData;
-        Node* left;
-        Node* right;
-        int height;
-    };
-    Node* root;
-    
-    void insertHelper(Node*& current, Item* item);
-    
-    void printHelper(Node* ptr) const;
-    
-    int getHeightNode(Node* ptr)const;
-    
-    void leftLeft(Node*& k2);
-    
-    void rightRight(Node*&k2);
-    
-    void leftRight(Node*&k3);
-    
-    void rightLeft(Node*&k3);
-    
-    void removeNodes(Node* ptr);
-    
+    bool insert(Item*);
+    Item* retrieve(Item*);
+    ItemTree** retrieveAll(int& arraySize); //returns items array.
+
 };
 
 #endif /* defined(____Lab_Library_System__itemcollection__) */

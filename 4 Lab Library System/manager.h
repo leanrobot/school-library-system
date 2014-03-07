@@ -31,6 +31,7 @@
 #include <map>
 #include "user.h"
 #include "itemcollection.h"
+#include "itemtree.h"
 
 using namespace std;
 
@@ -78,9 +79,8 @@ private:
     map<int, User*> users;
     
     // ItemCollection keeps all Item objects
-    
-    static const int MAX_ITEM_TYPES = 26;
-    ItemCollection* items[MAX_ITEM_TYPES];
+    ItemCollection items;
+
     
     
 };
