@@ -18,6 +18,8 @@ private:
     static const int MAX_ITEM_TYPES = 26;
     ItemTree* items[MAX_ITEM_TYPES];
     int hash(char ch);
+
+
 public:
     ItemCollection();
     ~ItemCollection();
