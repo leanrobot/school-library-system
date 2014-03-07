@@ -9,13 +9,14 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 
-#include "itemCollection.h"
-#include "userCollection.h"
+#include "itemcollection.h"
 #include <string>
 #include <fstream>
-#include <map>
+#include <map>]
+#include "hashable.h"
+#include "user.h"
 
-class Transaction {
+class Transaction: public Hashable {
 
 public:
     // Constructor
@@ -33,7 +34,7 @@ public:
 	// This is a pure virtual method.
 	// Overridden methods will execute certain actions on ItemCollection
     // and UserCollection objects
-	virtual void execute(map& itemCollection, map& userCollection) = 0;
+	virtual void execute(ItemCollection& items, map<int, User*> & userCollection) = 0;
 };
 
 #endif 
