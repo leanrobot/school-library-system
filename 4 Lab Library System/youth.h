@@ -36,7 +36,9 @@ public:
 
     
     //create an item
-    virtual Item* create(istream&);
+    virtual Item* create();
+    virtual void initialize(istream& infile);
+    virtual void initializePartial(istream& infile);
     
     
     

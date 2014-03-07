@@ -61,7 +61,13 @@ bool Periodical:: operator!= (const Item& item) const{
     return !(*this == item);
 }
 
-Item* Periodical:: create(istream& infile){
+Item* Periodical:: create(){
+    Item* newPeriodical = new Periodical;
+    return newPeriodical;
+
+}
+
+void Periodical::initialize(istream& infile) {
     string title;
     
     getline(infile, title, ',');
@@ -69,14 +75,32 @@ Item* Periodical:: create(istream& infile){
     int month, year;
     infile >> month;
     infile >> year;
-    
-    Item* newPeriodical = new Periodical (title, month, year);
-    
+
     //discard new line character
     infile.get();
     
-    return newPeriodical;
-
+    this->setTitle(title);
+    this->setMonth(month);
+    this->setYear(year);
+}
+void Periodical::initializePartial(istream& infile) {
+    string  title;
+    int year, month;
+    
+    //discard the "Hardcopy" and extra space.
+    infile.get(); infile.get();
+    
+    infile >> year;
+    infile >> month;
+    
+    getline(infile, title, ',');
+    
+    //discard the newline
+    infile.get();
+    
+    this->setTitle(title);
+    this->setYear(year);
+    this->setMonth(month);
 }
 
 void Periodical:: print ()const{
