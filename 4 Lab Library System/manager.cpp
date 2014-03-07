@@ -39,7 +39,7 @@ void Manager::buildUsers(istream& input) {
 
 void Manager::buildItems(istream& input) {
     while(!input.eof()) {
-        Item* item = itemFactory.createItem();
+        Item* item = itemFactory.createItem(input);
         item->initialize(input);
         
         if(item != NULL) {
