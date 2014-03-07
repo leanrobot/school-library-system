@@ -74,8 +74,6 @@ void Fiction:: initialize(istream& infile){
 }
 
 void Fiction:: initializePartial(istream& infile){
-    char itemType = infile.get(); // read item type
-    infile.get();                  // read and igonore blanke space
     infile.get(); // read and ignore itemformat
     infile.get(); // read blank space
     
@@ -89,7 +87,6 @@ void Fiction:: initializePartial(istream& infile){
     //Item* newFictionBook = new Fiction(title, author, year);
     //return newFictionBook;
     
-    this->setItemType(itemType);
     this->setAuthor(author);
     this -> setTitle(title);
 }
