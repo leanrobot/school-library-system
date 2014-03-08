@@ -32,6 +32,10 @@ void DisplayTransaction::execute(ItemCollection& items, map<int, User*> & userCo
         }
     }
 }
+
+void DisplayTransaction::print() const {
+    //TODO
+}
  
 
 

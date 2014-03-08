@@ -10,6 +10,7 @@
 #define TRANSACTION_FACTORY_H
 #include <fstream>
 #include "transaction.h"
+#include "hashtable.h"
 using namespace std;
 const int FACTORY_MAX_SIZE = 26;
 
@@ -26,6 +27,8 @@ private:
     // Declared, but not implemented, to prevent singleton cloning.
     TransactionFactory(TransactionFactory const&);
     void operator=(TransactionFactory const&);
+    
+    HashTable transactions;
 };
 
 #endif

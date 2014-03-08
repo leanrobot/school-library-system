@@ -3,6 +3,7 @@
 User::User(int id, string name /*string firstName, string lastName*/) {
     this->userId = id;
     this->name = name;
+    userHistory = new History;
     //this->firstName = firstName;
     //this->lastName = lastName;
 }
@@ -15,9 +16,9 @@ User:: ~User(){
     
 }
 
-//History* User:: getHistory(){
-//    return userHistory;
-//}
+History* User:: getHistory(){
+    return userHistory;
+}
 
 
 /*

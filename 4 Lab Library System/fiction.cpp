@@ -89,9 +89,11 @@ void Fiction:: initializePartial(istream& infile){
     
     //Item* newFictionBook = new Fiction(title, author, year);
     //return newFictionBook;
+    //discard new line character.
+    infile.get();
     
     this->setAuthor(author);
-    this -> setTitle(title);
+    this->setTitle(title);
 }
 
 

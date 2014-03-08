@@ -17,7 +17,7 @@
 #ifndef USER_H
 #define USER_H
 #include <string>
-//#include "history.h"
+#include "history.h"
 
 using namespace std;
 class User {
@@ -43,7 +43,7 @@ public:
     
     // getHistory
     // Returns user's transaction history
-  //  History* getHistory();
+    History* getHistory();
  
     // setLastName
     // Changes the user's last name
@@ -68,7 +68,7 @@ private:
     string name;
     
     // the patron's transaction history
-    //History* userHistory;
+    History* userHistory;
 };
 
 #endif

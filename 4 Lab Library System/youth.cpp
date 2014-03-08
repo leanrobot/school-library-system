@@ -74,10 +74,12 @@ void Youth::initializePartial(istream& infile) {
     string title, author;
     
     //discard hardcopy and space.
-    infile.get(); infile.get();
+    infile.get();
+    infile.get();
     
     //get the title
     getline(infile, title, ',');
+    infile.get();
     //get the author
     getline(infile, author, ',');
     
@@ -85,10 +87,10 @@ void Youth::initializePartial(istream& infile) {
     infile.get();
     
     this->setTitle(title);
-    this->setAuthor(title);
+    this->setAuthor(author);
 }
 
-void Youth:: print()const {
+void Youth:: print() const {
     cout <<
     " " << setw(AVAILABLE_COL_WIDTH) << (totalCopies - checkedOutCopies) <<
     " " << setw(TITLE_COL_WIDTH) << title.substr(0, TITLE_COL_WIDTH) <<

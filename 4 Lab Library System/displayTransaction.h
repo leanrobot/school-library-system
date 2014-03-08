@@ -37,6 +37,8 @@ public:
 	// This method executes display operation on an ItemCollection object
     virtual void execute(ItemCollection& items, map<int, User*> & userCollection);
     
+    virtual void print() const;
+    
 };
 
 #endif

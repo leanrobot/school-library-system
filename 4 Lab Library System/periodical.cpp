@@ -95,6 +95,8 @@ void Periodical::initializePartial(istream& infile) {
     infile >> year;
     infile >> month;
     
+    infile.get();
+    
     getline(infile, title, ',');
     
     //discard the newline

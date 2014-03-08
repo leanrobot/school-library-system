@@ -14,6 +14,7 @@
 #define CHECKOUTTRANSACTION_H
 
 #include "transaction.h"
+#include "user.h"
 
 class CheckOutTransaction: public Transaction {
     

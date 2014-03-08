@@ -3,6 +3,7 @@
 #include "itemfactory.h"
 
 #include "displaytransaction.h"
+#include "checkouttransaction.h"
 
 Manager::Manager() {
     //user map is static constructed.
@@ -67,9 +68,21 @@ void Manager::buildItems(istream& input) {
 //    }
 }
 
+void Manager::processTransaction(istream& infile) {
+    while(!infile.eof()) {
+        Transaction* trans = transactionFactory->createTransaction(infile);
+        
+        if(trans != NULL) {
+            trans->execute(items, users);
+        }
+    }
+}
+
 void Manager::testTransactions() {
     Transaction* t = new DisplayTransaction;
-    //t->execute( this->items, this->users);
+    t->execute( this->items, this->users);
+    
+    t = new CheckOutTransaction;
 }
 
 

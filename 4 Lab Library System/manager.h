@@ -62,7 +62,7 @@ public:
 	// TransactionFactory object which creates Transaction object out of it.
 	// Then method execute is called on this object.
 	
-    //void processTransaction(istream&);
+    void processTransaction(istream&);
     
     //Test Functions
     void testTransactions();

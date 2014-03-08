@@ -12,7 +12,7 @@ CheckOutTransaction:: CheckOutTransaction (){
 //}
 
 
-/*
+
 Transaction* CheckOutTransaction:: create(istream&infile){
     CheckOutTransaction * newTransaction = new CheckOutTransaction;
     
@@ -28,35 +28,32 @@ Transaction* CheckOutTransaction:: create(istream&infile){
 }
 
 void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & userCollection){
-   
     
-    if (userCollection.count(this->userId)>0){      // check if the user with the given id is in the map
+    
+    if (userCollection.count(this->userId)>0) {      // check if the user with
+                                        //the given id is in the map
         user = userCollection[this->userId];     // and if exist assign it to the oneUser
         
         item = items.retrieve(this->lookUpItem); // get the item from itemCollection
-        
-        
+    
         if (item != NULL){ // if item exist in the itemCollection
-            
             int checkout = item->getCheckedOutCopies(); // get the numbero of checkout copies
             
-            if (checkout < item->getTotalCopies()){ // if they are still available copies, perform operation
-                
+            if (checkout < item->getTotalCopies()) { // if they are still available copies, perform operation
                 item->setCheckedOutCopies (checkout+1);
-                
-                
-                
-               // user->getHistory()->add(*this); // add trnsaction to user history;
-                
+                user->getHistory()->add(this); // add transaction to user history;
+            }
+            else {
+                cout << "Command not executed: No copies available\n";
+                print();
             }
         }
     }
 }
 
 void CheckOutTransaction:: print() const{
-    cout << "Checkout"<< setw (10);
+    cout << setw (COMMAND_COL_WIDTH) << "Checkout" ;
     item->print();
-    cout<<endl;
 }
-*/
+
 

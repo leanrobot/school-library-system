@@ -17,6 +17,7 @@
 #include <iostream>
 #include <iomanip>
 
+//class User; //forward reference.
 class Transaction: public Hashable {
 
 public:
@@ -29,20 +30,21 @@ public:
 	// create
 	// This is a pure virtual method.
 	// Overridden methods will create the Transaction object
-	//virtual Transaction* create(istream&) = 0;
+	virtual Transaction* create(istream&) = 0;
 
 	// execute
 	// This is a pure virtual method.
 	// Overridden methods will execute certain actions on ItemCollection
     // and UserCollection objects
-	//virtual void execute(ItemCollection& items, map<int, User*> & userCollection) = 0;
+	virtual void execute(ItemCollection& items, map<int, User*> & userCollection) = 0;
     
     virtual char hash() const;
     
-    //virtual void print() const=0;
+    virtual void print() const =0;
     
 protected:
     char transactionType;
+    const static int COMMAND_COL_WIDTH = 9;
 };
 
 #endif 

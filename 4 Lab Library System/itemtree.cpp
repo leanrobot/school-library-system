@@ -81,15 +81,18 @@ Item* ItemTree:: retrieve(const Item* item)const{
     }
    
     Node* current = root;
-    Item * findItem = NULL;
+    Item* findItem = NULL;
    
-    while(current != NULL && !(*findItem == *item)){
+    /*current != NULL && (findItem == NULL || findItem!= item) TODO*/
+    while(current != NULL /*|| !(findItem != NULL && *findItem == *item)*/){
        if (*current->itemData == *item){
            findItem = current->itemData;
+           current = NULL;
        }
        else if (*current->itemData < *item){
            current = current->right;
-       }else{
+       }
+       else {
            current = current->left;
        }
     }
