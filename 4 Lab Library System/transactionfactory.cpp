@@ -30,7 +30,7 @@ TransactionFactory::TransactionFactory() {
 TransactionFactory::~TransactionFactory() {
     if(instanceFlag) {
         instanceFlag = false;
-        delete _instance;
+        _instance = NULL;
     }
 }
 

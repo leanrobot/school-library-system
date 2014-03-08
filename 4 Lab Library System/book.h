@@ -40,6 +40,7 @@ public:
     void setAuthor(string);
 	
     virtual void print()const = 0;
+    virtual void display()const = 0;
     
     virtual void initialize(istream&) = 0;
     

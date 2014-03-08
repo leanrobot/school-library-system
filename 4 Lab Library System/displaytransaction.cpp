@@ -32,7 +32,8 @@ void DisplayTransaction::execute(ItemCollection& items, map<int, User*> & userCo
 }
 
 void DisplayTransaction::print() const {
-    //TODO
+    //noop
+    //it should never be called since it is never be added to user's history
 }
  
 

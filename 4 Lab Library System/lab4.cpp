@@ -21,8 +21,8 @@ int main() {
 	Manager manager;
 
 	// check if the file with users exists
-    ifstream infile1("testpatrons.txt");
-	//ifstream infile1("data4patrons.txt");
+    //ifstream infile1("testpatrons.txt");
+	ifstream infile1("data4patrons.txt");
 	if (!infile1) {
 		cout << "File could not be opened." << endl;
 		return 1;
@@ -31,8 +31,8 @@ int main() {
     
     
 	// check if the file with items exists
-    ifstream infile2("testbooks.txt");
-	//ifstream infile2("data4books.txt");
+    //ifstream infile2("testbooks.txt");
+	ifstream infile2("data4books.txt");
 	if (!infile2) {
 		cout << "File could not be opened." << endl;
 		return 1;
@@ -43,8 +43,8 @@ int main() {
     //manager.testTransactions();
     
 	// check if the file with transactions exists
-    ifstream infile3("testcommands.txt");
-//	ifstream infile3("data4commands.txt");
+    //ifstream infile3("testcommands.txt");
+	ifstream infile3("data4commands.txt");
 	if (!infile3) {
 		cout << "File could not be opened." << endl;
 		return 1;

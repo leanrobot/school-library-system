@@ -114,6 +114,15 @@ void Periodical:: print()const {
     " " << setw(TITLE_COL_WIDTH) << title.substr(0, TITLE_COL_WIDTH) << endl;
 }
 
+
+
+void Periodical:: display()const {
+    cout <<
+    " " << setw(YEAR_COL_WIDTH) << year <<
+    " " << right << setw(MONTH_COL_WIDTH) << month << left <<
+    " " << setw(TITLE_COL_WIDTH) << title.substr(0, TITLE_COL_WIDTH) << endl;
+}
+
 void Periodical:: printHeader() const {
     cout << "Periodical:" << endl;
     cout <<

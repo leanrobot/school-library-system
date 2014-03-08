@@ -8,7 +8,7 @@ HistoryTransaction:: HistoryTransaction (){
 }
 
 HistoryTransaction:: ~HistoryTransaction (){
-    delete user;
+    // delete user;
 }
 
 
@@ -20,7 +20,7 @@ Transaction* HistoryTransaction:: create(istream&infile){
     infile >>userId;
     newTransaction->userId = userId;
     infile.get(); // read the blank space
-    ItemFactory* factory = ItemFactory::instance();
+    //ItemFactory* factory = ItemFactory::instance();
     //newTransaction->lookUpItem = factory -> createItem (infile);
     //newTransaction->lookUpItem->initializePartial(infile);
     
@@ -50,6 +50,6 @@ void HistoryTransaction:: execute(ItemCollection& items, map <int, User*> & user
 }
 
 void HistoryTransaction:: print() const{
-    cout << setw (COMMAND_COL_WIDTH) << "Checkout" ;
-    // item->print();
+    //noop
+    //it should never be called since it is never be added to user's history
 }

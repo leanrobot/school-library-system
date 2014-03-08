@@ -30,10 +30,11 @@ ItemFactory::ItemFactory() {
     itemTable.add(fiction->hash(), fiction);
     itemTable.add(periodical->hash(), periodical);
 }
+
 ItemFactory::~ItemFactory() {
     if(instanceFlag) {
         instanceFlag = false;
-        delete _instance;
+        _instance = NULL;
     }
 }
 

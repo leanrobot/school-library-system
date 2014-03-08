@@ -31,8 +31,9 @@ Transaction* CheckOutTransaction:: create(istream&infile){
     infile.get(); // read the blank space
     ItemFactory* factory = ItemFactory::instance();
     newTransaction->lookUpItem = factory -> createItem (infile);
-    newTransaction->lookUpItem->initializePartial(infile);
-    
+    if(newTransaction->lookUpItem!=NULL){
+        newTransaction->lookUpItem->initializePartial(infile);
+    }
     return newTransaction;
 }
 
@@ -40,30 +41,36 @@ void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & use
     
     
     if (userCollection.count(this->userId)>0) {      // check if the user with
-                                        //the given id is in the map
+        //the given id is in the map
         user = userCollection[this->userId];     // and if exist assign it to the oneUser
         
-        item = items.retrieve(this->lookUpItem); // get the item from itemCollection
-    
-        if (item != NULL){ // if item exist in the itemCollection
-            int checkout = item->getCheckedOutCopies(); // get the numbero of checkout copies
+        if (this->lookUpItem !=NULL){
+            item = items.retrieve(this->lookUpItem); // get the item from itemCollection
             
-            if (checkout < item->getTotalCopies()) { // if they are still available copies, perform operation
-                item->setCheckedOutCopies (checkout+1);
-                CheckOutTransaction* copy = new CheckOutTransaction(*this);
-                user->getHistory()->add(copy); // add transaction to user history;
+            if (item != NULL){ // if item exist in the itemCollection
+                int checkout = item->getCheckedOutCopies(); // get the numbero of checkout copies
+                
+                if (checkout < item->getTotalCopies()) { // if they are still available copies, perform operation
+                    item->setCheckedOutCopies (checkout+1);
+                    CheckOutTransaction* copy = new CheckOutTransaction(*this);
+                    user->getHistory()->add(copy); // add transaction to user history;
+                }
+                else {
+                    cout << "Command not executed: No copies available\n";
+                    print();
+                }
             }
-            else {
-                cout << "Command not executed: No copies available\n";
-                print();
-            }
+        }else{
+            cout<< "Wrong item type"<<endl;
+            
         }
     }
 }
 
+
 void CheckOutTransaction:: print() const{
     cout << setw (COMMAND_COL_WIDTH) << "Checkout" ;
-    item->print();
+    item->display();
 }
 
 

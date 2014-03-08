@@ -20,7 +20,15 @@ UserFactory* UserFactory::instance() {
     }
     return _instance;
 }
-UserFactory::~UserFactory() {/*do nothing*/}
+
+UserFactory::~UserFactory() {
+    /*do nothing*/
+    if(instanceFlag) {
+        instanceFlag = false;
+        _instance = NULL;
+    }
+}
+
 
 User* UserFactory::createUser(istream& input) {
     int id;

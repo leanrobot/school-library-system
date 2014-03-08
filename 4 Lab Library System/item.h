@@ -72,6 +72,7 @@ public:
 	//virtual string getDescription() const = 0;
 
     virtual void print() const = 0;
+    virtual void display()const =0;
     virtual void printHeader() const = 0;
 
     char hash () const;

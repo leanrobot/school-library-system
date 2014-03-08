@@ -97,6 +97,13 @@ void Youth:: print() const {
     " " << setw(YEAR_COL_WIDTH) << year << endl;
 }
 
+void Youth:: display() const {
+    cout <<
+    " " << setw(TITLE_COL_WIDTH) << title.substr(0, TITLE_COL_WIDTH) <<
+    " " << setw(AUTHOR_COL_WIDTH) << author.substr(0, AUTHOR_COL_WIDTH) <<
+    " " << setw(YEAR_COL_WIDTH) << year << endl;
+}
+
 void Youth:: printHeader() const {
     cout << "Youth:" << endl;
     cout <<

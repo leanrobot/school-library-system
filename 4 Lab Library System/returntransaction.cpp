@@ -32,9 +32,12 @@ Transaction* ReturnTransaction:: create(istream&infile){
     infile.get(); // read the blank space
     ItemFactory* factory = ItemFactory::instance();
     newTransaction->lookUpItem = factory -> createItem (infile);
-    newTransaction->lookUpItem->initializePartial(infile);
     
+    if(newTransaction->lookUpItem!=NULL){
+        newTransaction->lookUpItem->initializePartial(infile);
+    }
     return newTransaction;
+
 }
 
 void ReturnTransaction:: execute(ItemCollection& items, map <int, User*> & userCollection){
@@ -42,27 +45,33 @@ void ReturnTransaction:: execute(ItemCollection& items, map <int, User*> & userC
     
     if (userCollection.count(this->userId)>0){      // check if the user with the given id is in the map
         user = userCollection[this->userId];     // and if exist assign it to the oneUser
-        item = items.retrieve(this->lookUpItem); // get the item from itemCollection
         
-        if (item != NULL){ // if item exist in the itemCollection
-            int checkout = item->getCheckedOutCopies(); // get the numbero of checkout copies
+        if (this->lookUpItem!= NULL){
+            item = items.retrieve(this->lookUpItem); // get the item from itemCollection
             
-            // if they are still available copies, perform operation
-            if (checkout > 0 && checkout <= item->getTotalCopies()){
-                item->setCheckedOutCopies (checkout-1);
+            if (item != NULL){ // if item exist in the itemCollection
+                int checkout = item->getCheckedOutCopies(); // get the numbero of checkout copies
                 
-                ReturnTransaction* copy = new ReturnTransaction(*this);
-                user->getHistory()->add(copy); // add trnsaction to user history;
+                // if they are still available copies, perform operation
+                if (checkout > 0 && checkout <= item->getTotalCopies()){
+                    item->setCheckedOutCopies (checkout-1);
+                    
+                    ReturnTransaction* copy = new ReturnTransaction(*this);
+                    user->getHistory()->add(copy); // add trnsaction to user history;
+                }
+                else {
+                    cout << "Command not executed: All copies are returned" << endl;
+                    print();
+                }
             }
-            else {
-                cout << "Command not executed: All copies are returned" << endl;
-                print();
-            }
+        }
+        else {
+            cout<<"Wrong item type"<<endl;
         }
     }
 }
 
 void ReturnTransaction:: print() const{
     cout << setw(COMMAND_COL_WIDTH) << "Return";
-    item->print();
+    item->display();
 }

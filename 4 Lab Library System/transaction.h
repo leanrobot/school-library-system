@@ -42,6 +42,7 @@ public:
     
     virtual void print() const =0;
     
+    
 protected:
     char transactionType;
     const static int COMMAND_COL_WIDTH = 9;

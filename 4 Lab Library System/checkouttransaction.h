@@ -47,7 +47,7 @@ private:
     User* user;
     
     Item* item;
-
+    
     Item* lookUpItem;
     
 };

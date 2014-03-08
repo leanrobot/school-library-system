@@ -104,6 +104,13 @@ void Fiction:: print()const {
         " " << setw(YEAR_COL_WIDTH) << year << endl;
 }
 
+void Fiction:: display()const {
+    cout <<
+    " " << setw(AUTHOR_COL_WIDTH) << author.substr(0, AUTHOR_COL_WIDTH) <<
+    " " << setw(TITLE_COL_WIDTH) << title.substr(0, TITLE_COL_WIDTH) <<
+    " " << setw(YEAR_COL_WIDTH) << year << endl;
+}
+
 void Fiction:: printHeader() const {
     cout << "Fiction:" << endl;
     cout <<

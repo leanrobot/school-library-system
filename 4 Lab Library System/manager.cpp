@@ -13,8 +13,9 @@ Manager::Manager() {
     
 }
 Manager::~Manager() {
-    //for (std::map<int,User*>::iterator it=users.begin(); it!=users.end(); ++it)
-      //  delete it->second;
+    for (std::map<int,User*>::iterator it=users.begin(); it!=users.end(); ++it)
+        delete it->second;
+    
     delete userFactory;
     delete itemFactory;
     delete transactionFactory;
@@ -57,11 +58,11 @@ void Manager::processTransaction(istream& infile) {
     }
 }
 
-void Manager::testTransactions() {
-    Transaction* t = new DisplayTransaction;
-    t->execute( this->items, this->users);
-    
-    t = new CheckOutTransaction;
-}
+//void Manager::testTransactions() {
+//    Transaction* t = new DisplayTransaction;
+//    t->execute( this->items, this->users);
+//    
+//    t = new CheckOutTransaction;
+//}
 
 
