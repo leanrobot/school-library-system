@@ -22,7 +22,7 @@ public:
 	Fiction();
 	
     //constructor with parameters for author, title, year
-    Fiction(string title,  string author, int year);
+    //Fiction(string title,  string author, int year);
 	
     //overloaded comparison operators
     virtual bool operator<(const Item&) const;

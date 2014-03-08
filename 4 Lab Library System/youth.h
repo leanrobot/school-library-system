@@ -22,7 +22,7 @@ public:
     Youth();
 	
     //constructor with parameters for author, title, year
-    Youth(string, string, int);
+    //Youth(string, string, int);
 	
     //overloaded comparison operators
     virtual bool operator<(const Item&) const;

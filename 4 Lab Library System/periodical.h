@@ -21,7 +21,7 @@ public:
     Periodical();
     
     //constructor with parameters are the title, month, and year
-    Periodical(string, int, int);
+    //Periodical(string, int, int);
     
     //retrieve the month of the book's publishing
     int getMonth() const;

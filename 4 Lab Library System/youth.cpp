@@ -5,8 +5,8 @@ Youth:: Youth(){
     itemType = 'Y';
 }
 
-Youth:: Youth(string title,  string author, int year): Book ('Y', title, author, year){
-}
+//Youth:: Youth(string title,  string author, int year): Book ('Y', title, author, year){
+//}
 
 //overloaded comparison operators
 bool Youth:: operator<(const Item& item) const{

@@ -50,7 +50,7 @@ protected:
     Book();
     
     //default constructor
-    Book(char itemType, string title, string author, int year);
+   // Book(char itemType, string title, string author, int year);
     
     string author;
 };

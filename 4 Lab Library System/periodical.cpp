@@ -6,10 +6,10 @@ Periodical:: Periodical(){
     itemType = 'P';
 }
 
-Periodical:: Periodical(string title, int month, int year)
-: Item('P', title, year){
-    this->month = month;
-}
+//Periodical:: Periodical(string title, int month, int year)
+//: Item('P', title, year){
+//    this->month = month;
+//}
 
 int Periodical:: getMonth() const{
     return this->month;
