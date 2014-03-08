@@ -1,0 +1,10 @@
+C 1000 Y H Danny Dunn & the Homework Machine, Williams Jay,
+C 1000 F H Daheim Mary, Fowl Prey,
+C 1000 P H 2010 3 Communications of the ACM,
+R 1000 Y H Danny Dunn & the Homework Machine, Williams Jay,
+R 1000 Y H Danny Dunn & the Homework Machine, Williams Jay,
+R 1000 P H 2010 3 Communications of the ACM,
+R 1000 P H 2010 3 Communications of the ACM,
+R 1000 F H Daheim Mary, Fowl Prey,
+R 1000 F H Daheim Mary, Fowl Prey,
+D
