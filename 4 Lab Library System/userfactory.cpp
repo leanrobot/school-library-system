@@ -7,11 +7,18 @@
 //
 
 #include "userfactory.h"
+
+bool UserFactory::instanceFlag = false;
+UserFactory* UserFactory::_instance = NULL;
+
 UserFactory::UserFactory() {}
 
 UserFactory* UserFactory::instance() {
-    static UserFactory userFact;
-    return &userFact;
+    if(!instanceFlag) {
+        instanceFlag = true;
+        _instance = new UserFactory;
+    }
+    return _instance;
 }
 UserFactory::~UserFactory() {/*do nothing*/}
 

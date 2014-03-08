@@ -5,11 +5,15 @@
 #include "returntransaction.h"
 #include "historytransaction.h"
 
+bool TransactionFactory::instanceFlag = false;
+TransactionFactory* TransactionFactory::_instance = NULL;
 
 TransactionFactory* TransactionFactory::instance() {
-    static TransactionFactory transFact;
-    
-    return &transFact;
+    if(!instanceFlag) {
+        TransactionFactory::instanceFlag = true;
+        TransactionFactory::_instance = new TransactionFactory;
+    }
+    return _instance;
 }
 TransactionFactory::TransactionFactory() {
     Hashable* checkoutTrans = new CheckOutTransaction;
@@ -23,7 +27,12 @@ TransactionFactory::TransactionFactory() {
     transactions.add(historyTrans->hash(), historyTrans);
     
 }
-TransactionFactory::~TransactionFactory() {/*do nothing*/}
+TransactionFactory::~TransactionFactory() {
+    if(instanceFlag) {
+        instanceFlag = false;
+        delete _instance;
+    }
+}
 
 Transaction* TransactionFactory::createTransaction(istream& infile) {
     char itemType = infile.get(); //get the item type.

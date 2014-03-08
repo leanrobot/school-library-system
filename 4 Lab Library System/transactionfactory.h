@@ -23,6 +23,8 @@ public:
   
 private:
     TransactionFactory( );         // constructor
+    static bool instanceFlag;
+    static TransactionFactory* _instance;
     
     // Declared, but not implemented, to prevent singleton cloning.
     TransactionFactory(TransactionFactory const&);

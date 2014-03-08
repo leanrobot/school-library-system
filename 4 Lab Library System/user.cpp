@@ -1,11 +1,9 @@
 #include "user.h"
 
-User::User(int id, string name /*string firstName, string lastName*/) {
+User::User(int id, string name) {
     this->userId = id;
     this->name = name;
     userHistory = new History;
-    //this->firstName = firstName;
-    //this->lastName = lastName;
 }
 
 int User::getID() const {

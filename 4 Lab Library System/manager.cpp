@@ -44,29 +44,6 @@ void Manager::buildItems(istream& input) {
             items.insert(item);
         }
     }
-    
-    /*
-    cout << endl;
-    int size;
-    ItemTree** its = items.retrieveAll(size);
-    for(int i=0; i<size; i++) {
-        ItemTree* ic = its[i];
-        
-        if (ic != NULL){
-         cout << "COLLECTION FOR " << char('A'+i) << endl;
-            ic->print();
-        }
-    }
-     */
-    
-        //if(ic != NULL) {
-         //   cout << "COLLECTION FOR " << char('A'+i) << endl;
-//            for(int j=0; j<ic->size(); j++) {
-//                ic->retrieve(j)->print();
-//            }
-  //      }
-
-//    }
 }
 
 void Manager::processTransaction(istream& infile) {

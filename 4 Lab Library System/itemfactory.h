@@ -24,6 +24,8 @@ public:
   
 private:
     HashTable itemTable;
+    static bool instanceFlag;
+    static ItemFactory* _instance;
     
     ItemFactory();   // constructor
     //These are declared, but not implemented to prevent copies of

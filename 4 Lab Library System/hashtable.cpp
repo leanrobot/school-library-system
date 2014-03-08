@@ -23,6 +23,7 @@ HashTable::~HashTable() {
         {
             delete table[i];
         }
+        table[i] = NULL;
     }
     delete []table;
 }

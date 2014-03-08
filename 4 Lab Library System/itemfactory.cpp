@@ -11,9 +11,15 @@
 #include "fiction.h"
 #include "periodical.h"
 
+bool ItemFactory::instanceFlag = false;
+ItemFactory* ItemFactory::_instance = NULL;
+
 ItemFactory* ItemFactory::instance() {
-    static ItemFactory instance;
-    return &instance;
+    if(!instanceFlag) {
+        _instance = new ItemFactory;
+        instanceFlag = true;
+    }
+    return _instance;
 }
 ItemFactory::ItemFactory() {
     Hashable* youth = new Youth;
@@ -25,7 +31,10 @@ ItemFactory::ItemFactory() {
     itemTable.add(periodical->hash(), periodical);
 }
 ItemFactory::~ItemFactory() {
-    //TODO
+    if(instanceFlag) {
+        instanceFlag = false;
+        delete _instance;
+    }
 }
 
 
