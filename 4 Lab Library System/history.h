@@ -38,6 +38,8 @@ public:
     // display the transaction history
     void display( ) const;
     
+    list<Transaction*>& getHistory();
+    
 private:
     
     // list of transaction history items

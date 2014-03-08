@@ -27,7 +27,7 @@ public:
     HistoryTransaction();
 
     // Destructor
-    ~HistoryTransaction();
+   // ~HistoryTransaction();
 
     // create
     // This method parses the date out of the string and then checks the data.
@@ -38,14 +38,20 @@ public:
     // execute
     // This method executes history operation on an UserCollection object
     virtual void execute(ItemCollection&, map<int, User*>&);
+    
+    virtual void print() const;
+    
 
 private:
     // Unique user identificaton number
-    int userID;
+    int userId;
     User* user;
+    
+    Item* lookUpItem;
+   // Item* item;
 
     // Constructor used by create method.
-    HistoryTransaction(int);
+    //HistoryTransaction(int);
 
 };
 

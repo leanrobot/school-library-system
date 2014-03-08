@@ -21,11 +21,16 @@ History* User:: getHistory(){
 }
 
 
-/*
-string User::getFirstName() const {
-    return firstName;
+
+string User::getName() const {
+    return name;
 }
-void User::setFirstName(string firstName) {
+
+void User:: setName(string newName){
+    name = newName;
+}
+
+/*void User::setFirstName(string firstName) {
     this->firstName = firstName;
 }
 

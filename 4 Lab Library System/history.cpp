@@ -1,4 +1,5 @@
 #include "history.h"
+#include <list>
 
 // constructor
 History:: History( ){
@@ -13,4 +14,8 @@ History:: ~History( ){
 // add a new item
 void History:: add( Transaction* oneTransaction){
        data.push_back(oneTransaction);
+}
+
+list<Transaction*>& History::getHistory() {
+    return data;
 }
