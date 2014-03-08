@@ -3,6 +3,8 @@
 #include "checkouttransaction.h"
 #include "displayTransaction.h"
 #include "returntransaction.h"
+#include "historytransaction.h"
+
 
 TransactionFactory* TransactionFactory::instance() {
     static TransactionFactory transFact;
@@ -13,10 +15,12 @@ TransactionFactory::TransactionFactory() {
     Hashable* checkoutTrans = new CheckOutTransaction;
     Hashable* returnTrans = new ReturnTransaction;
     Hashable* displayLibrary = new DisplayTransaction;
+    Hashable* historyTrans = new HistoryTransaction;
     
     transactions.add(checkoutTrans->hash(), checkoutTrans);
     transactions.add(returnTrans->hash(), returnTrans);
     transactions.add(displayLibrary->hash(), displayLibrary);
+    transactions.add(historyTrans->hash(), historyTrans);
     
 }
 TransactionFactory::~TransactionFactory() {

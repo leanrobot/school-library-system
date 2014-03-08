@@ -47,7 +47,7 @@ private:
     int userId;
     User* user;
     
-    Item* lookUpItem;
+    //Item* lookUpItem;
    // Item* item;
 
     // Constructor used by create method.

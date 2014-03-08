@@ -3,7 +3,7 @@
 
 
 HistoryTransaction:: HistoryTransaction (){
-    transactionType = 'C';
+    transactionType = 'H';
     user=NULL;
 }
 
@@ -21,8 +21,8 @@ Transaction* HistoryTransaction:: create(istream&infile){
     newTransaction->userId = userId;
     infile.get(); // read the blank space
     ItemFactory* factory = ItemFactory::instance();
-    newTransaction->lookUpItem = factory -> createItem (infile);
-    newTransaction->lookUpItem->initializePartial(infile);
+    //newTransaction->lookUpItem = factory -> createItem (infile);
+    //newTransaction->lookUpItem->initializePartial(infile);
     
     return newTransaction;
 }
@@ -37,14 +37,14 @@ void HistoryTransaction:: execute(ItemCollection& items, map <int, User*> & user
         list<Transaction*>& userHistory = user->getHistory()->getHistory();
         
         list<Transaction*>::iterator iter = userHistory.begin();
+        cout<< "*** Patron ID = " << userId << " " <<user->getName() << endl;
         for(; iter!=userHistory.end(); iter++) {
-            cout<< "*** Patron ID = " << userId << " " <<user->getName() << endl;
             (*iter)->print();
         }
         
     }else {
         cout << "Command not executed: No copies available\n";
-        print();
+        print(); //TODO
     }
     
 }
