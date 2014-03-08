@@ -15,7 +15,9 @@ Manager::Manager() {
 Manager::~Manager() {
     //for (std::map<int,User*>::iterator it=users.begin(); it!=users.end(); ++it)
       //  delete it->second;
-
+    delete userFactory;
+    delete itemFactory;
+    delete transactionFactory;
 }
 
 void Manager::buildUsers(istream& input) {
