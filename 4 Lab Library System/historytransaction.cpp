@@ -7,9 +7,9 @@ HistoryTransaction:: HistoryTransaction (){
     user=NULL;
 }
 
-//CheckOutTransaction:: ~CheckOutTransaction (){
-//    //todo
-//}
+HistoryTransaction:: ~HistoryTransaction (){
+    delete user;
+}
 
 
 

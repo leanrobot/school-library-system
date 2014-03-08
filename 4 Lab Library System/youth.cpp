@@ -3,7 +3,6 @@
 
 Youth:: Youth(){
     itemType = 'Y';
-    itemCategoryFriendlyName = "Youth";
 }
 
 Youth:: Youth(string title,  string author, int year): Book ('Y', title, author, year){

@@ -20,9 +20,10 @@ class ReturnTransaction: public Transaction {
 public:
 	// Default constructor
 	ReturnTransaction();
+    ReturnTransaction(const ReturnTransaction& rhs);
     
 	// Destructor
-	//~ReturnTransaction();
+	~ReturnTransaction();
     
 	// create
 	// This method parses the date out of the string and then checks the data.

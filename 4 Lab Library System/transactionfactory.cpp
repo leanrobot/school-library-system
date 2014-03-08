@@ -1,7 +1,7 @@
 #include "transactionfactory.h"
 
 #include "checkouttransaction.h"
-#include "displayTransaction.h"
+#include "displaytransaction.h"
 #include "returntransaction.h"
 #include "historytransaction.h"
 
@@ -23,9 +23,7 @@ TransactionFactory::TransactionFactory() {
     transactions.add(historyTrans->hash(), historyTrans);
     
 }
-TransactionFactory::~TransactionFactory() {
-    //TODO
-}
+TransactionFactory::~TransactionFactory() {/*do nothing*/}
 
 Transaction* TransactionFactory::createTransaction(istream& infile) {
     char itemType = infile.get(); //get the item type.

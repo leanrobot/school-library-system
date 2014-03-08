@@ -6,10 +6,20 @@ ReturnTransaction:: ReturnTransaction (){
     transactionType = 'R';
     user = NULL;
 }
+ReturnTransaction::ReturnTransaction(const ReturnTransaction& rhs) {
+    item = rhs.item;
+    user = rhs.user;
+    lookUpItem = rhs.lookUpItem;
+    userId = rhs.userId;
+    transactionType = 'R';
+}
 
-//CheckOutTransaction:: ~CheckOutTransaction (){
-//    //todo
-//}
+
+ReturnTransaction::~ReturnTransaction() {
+    item = NULL; // handled by other class.
+    user = NULL; // handled by other class.
+    delete lookUpItem;
+}
 
 
 
@@ -40,7 +50,9 @@ void ReturnTransaction:: execute(ItemCollection& items, map <int, User*> & userC
             // if they are still available copies, perform operation
             if (checkout > 0 && checkout <= item->getTotalCopies()){
                 item->setCheckedOutCopies (checkout-1);
-                user->getHistory()->add(this); // add trnsaction to user history;
+                
+                ReturnTransaction* copy = new ReturnTransaction(*this);
+                user->getHistory()->add(copy); // add trnsaction to user history;
             }
             else {
                 cout << "Command not executed: All copies are returned" << endl;

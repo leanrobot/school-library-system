@@ -18,6 +18,7 @@ class UserFactory {
 public:
     static UserFactory* instance(); // Singleton controlled creation function
     User* createUser(istream&);
+    ~UserFactory();
 private:
     UserFactory(); // private to prevent singleton creation.
     //declared, but not implemented, to prevent singleton cloning.

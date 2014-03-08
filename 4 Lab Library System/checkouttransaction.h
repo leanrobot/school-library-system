@@ -21,9 +21,10 @@ class CheckOutTransaction: public Transaction {
 public:
 	// Default constructor
 	CheckOutTransaction();
+    CheckOutTransaction(const CheckOutTransaction& rhs);
     
 	// Destructor
-	//~CheckOutTransaction();
+	~CheckOutTransaction();
     
 	// create
 	// This method parses the data out of the string and then checks the data.

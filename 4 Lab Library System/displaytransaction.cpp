@@ -12,9 +12,7 @@
 DisplayTransaction::DisplayTransaction() {
    transactionType = 'D';
 }
-DisplayTransaction::~DisplayTransaction() {
-    //TODO
-}
+DisplayTransaction::~DisplayTransaction() {/* do nothing */}
 
 Transaction* DisplayTransaction::create(istream& infile) {
     return new DisplayTransaction;

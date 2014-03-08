@@ -16,9 +16,6 @@ Item:: Item (char type, string title, int year) {
     this->title = title;
 }
 
-string Item:: getItemCategoryFriendlyName() {
-    return itemCategoryFriendlyName;
-}
 
 char Item:: getItemType() const{
     return itemType;

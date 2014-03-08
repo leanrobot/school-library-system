@@ -4,7 +4,6 @@
 
 Periodical:: Periodical(){
     itemType = 'P';
-    itemCategoryFriendlyName = "Periodicals";
 }
 
 Periodical:: Periodical(string title, int month, int year)

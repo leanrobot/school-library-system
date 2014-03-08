@@ -13,7 +13,7 @@ int User::getID() const {
 }
 
 User:: ~User(){
-    
+    delete userHistory;
 }
 
 History* User:: getHistory(){

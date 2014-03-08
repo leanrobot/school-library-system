@@ -21,8 +21,6 @@ public:
 	
 	//destructor
 	virtual ~Item();
-
-    string getItemCategoryFriendlyName();
     
     //retrieve the item type
     char getItemType() const;
@@ -94,7 +92,6 @@ protected:
     //designates what the item is (in this case 'i' for item)
     char itemType;
     
-    string itemCategoryFriendlyName;
     
     //format is the format of the item (i.e. hardcopy, digital)
     char itemFormat;

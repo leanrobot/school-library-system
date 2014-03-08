@@ -13,6 +13,7 @@ UserFactory* UserFactory::instance() {
     static UserFactory userFact;
     return &userFact;
 }
+UserFactory::~UserFactory() {/*do nothing*/}
 
 User* UserFactory::createUser(istream& input) {
     int id;

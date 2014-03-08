@@ -13,10 +13,9 @@ Manager::Manager() {
     
 }
 Manager::~Manager() {
-    for (std::map<int,User*>::iterator it=users.begin(); it!=users.end(); ++it)
-        delete it->second;
+    //for (std::map<int,User*>::iterator it=users.begin(); it!=users.end(); ++it)
+      //  delete it->second;
 
-    users.clear();
 }
 
 void Manager::buildUsers(istream& input) {
@@ -74,6 +73,7 @@ void Manager::processTransaction(istream& infile) {
         
         if(trans != NULL) {
             trans->execute(items, users);
+            delete trans;
         }
     }
 }

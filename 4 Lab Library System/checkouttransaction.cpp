@@ -6,10 +6,19 @@ CheckOutTransaction:: CheckOutTransaction (){
     transactionType = 'C';
     user=NULL;
 }
+CheckOutTransaction::CheckOutTransaction(const CheckOutTransaction& rhs) {
+    user = rhs.user;
+    item = rhs.item;
+    lookUpItem = rhs.lookUpItem;
+    userId = rhs.userId;
+    transactionType = 'C';
+}
 
-//CheckOutTransaction:: ~CheckOutTransaction (){
-//    //todo
-//}
+CheckOutTransaction:: ~CheckOutTransaction (){
+    user = NULL;
+    item = NULL;
+    delete lookUpItem;
+}
 
 
 
@@ -41,7 +50,8 @@ void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & use
             
             if (checkout < item->getTotalCopies()) { // if they are still available copies, perform operation
                 item->setCheckedOutCopies (checkout+1);
-                user->getHistory()->add(this); // add transaction to user history;
+                CheckOutTransaction* copy = new CheckOutTransaction(*this);
+                user->getHistory()->add(copy); // add transaction to user history;
             }
             else {
                 cout << "Command not executed: No copies available\n";

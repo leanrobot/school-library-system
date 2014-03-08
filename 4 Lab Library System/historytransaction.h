@@ -27,7 +27,7 @@ public:
     HistoryTransaction();
 
     // Destructor
-   // ~HistoryTransaction();
+    ~HistoryTransaction();
 
     // create
     // This method parses the date out of the string and then checks the data.

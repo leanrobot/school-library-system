@@ -5,7 +5,6 @@
     
 Fiction:: Fiction(): Book(){
     itemType = 'F';
-    itemCategoryFriendlyName = "Fiction";
 }
 
 //Fiction:: Fiction(string title,  string author, int year): Book ('F', title, author, year){
