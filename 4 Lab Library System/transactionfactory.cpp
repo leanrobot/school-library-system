@@ -37,9 +37,7 @@ TransactionFactory::~TransactionFactory() {
 Transaction* TransactionFactory::createTransaction(istream& infile) {
     char itemType = infile.get(); //get the item type.
     infile.get(); //throwaway the space.
-    
-    //cout << "looking for " << itemType << endl;
-    
+        
     //read the first character
     if(transactions.contains(itemType)) {
         //cout << "found!\n";

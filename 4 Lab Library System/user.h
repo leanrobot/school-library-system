@@ -33,24 +33,16 @@ public:
     // Returns the user ID
     int getID( ) const;
     
-    // getLastName
-    // Return the last name of the user
-    //string getLastName() const;
-    
-    // getFirstName
-    // Return the first name
+    // getName
+    // Return the name
     string getName() const;
     
     // getHistory
     // Returns user's transaction history
     History* getHistory();
- 
-    // setLastName
-    // Changes the user's last name
-    //void setLastName(string);
     
-    // setFirstName
-    // Changes the user's first name
+    // setName
+    // Changes the user's name
     void setName(string);
     
     // operator<

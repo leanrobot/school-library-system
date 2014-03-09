@@ -1,35 +1,53 @@
 #include "historytransaction.h"
 #include "itemfactory.h"
 
-
+/*-----------------------------------------------------------------------------
+ ===== Constructor
+ Descripton: sets the specific transaction type for identification purposes.
+ Pre:
+ Post:
+ -----------------------------------------------------------------------------*/
 HistoryTransaction:: HistoryTransaction (){
     transactionType = 'H';
-    user=NULL;
+    user = NULL;
 }
+/*-----------------------------------------------------------------------------
+ ===== Destructor
+ Descripton: All items stored in the history transactions are destroyed
+    by other destructors.
+ Pre:
+ Post:
+ -----------------------------------------------------------------------------*/
+HistoryTransaction:: ~HistoryTransaction (){}
 
-HistoryTransaction:: ~HistoryTransaction (){
-    // delete user;
-}
 
-
-
+/*-----------------------------------------------------------------------------
+ ===== Create History Transaction
+ Descripton: This functions creates a new history transaction. The data for the
+    transaction is read from the istream, which points to the command file.
+ Pre:
+ Post: returns an initialized history transaction.
+ -----------------------------------------------------------------------------*/
 Transaction* HistoryTransaction:: create(istream&infile){
     HistoryTransaction * newTransaction = new HistoryTransaction;
-    
     int userId;
-    infile >>userId;
-    newTransaction->userId = userId;
-    infile.get(); // read the blank space
-    //ItemFactory* factory = ItemFactory::instance();
-    //newTransaction->lookUpItem = factory -> createItem (infile);
-    //newTransaction->lookUpItem->initializePartial(infile);
     
+    infile >>userId;
+    infile.get(); // read the blank space
+    
+    newTransaction->userId = userId;
     return newTransaction;
 }
-
-void HistoryTransaction:: execute(ItemCollection& items, map <int, User*> & userCollection){
-    
-    
+/*-----------------------------------------------------------------------------
+ ===== Execute ( run command )
+ Descripton: executes the transaction. For a history transaction, this will 
+    display the history for a specific user.
+ Pre:
+ Post:
+ -----------------------------------------------------------------------------*/
+void HistoryTransaction:: execute(
+                                  ItemCollection& items,
+                                  map <int, User*> & userCollection) {
     if (userCollection.count(this->userId)>0) {      // check if the user with
         //the given id is in the map
         user = userCollection[this->userId]; // and if exist assign it to the oneUser
@@ -43,13 +61,14 @@ void HistoryTransaction:: execute(ItemCollection& items, map <int, User*> & user
         }
         
     }else {
-        cout << "Command not executed: No copies available\n";
-        print(); //TODO
+        cout << "Command not executed: Invalid User ["<<userId<<"].\n";
     }
     
 }
-
-void HistoryTransaction:: print() const{
-    //noop
-    //it should never be called since it is never be added to user's history
-}
+/*-----------------------------------------------------------------------------
+ ===== Print
+ Descripton: Not implemented for history transaction, it will never be printed.
+ Pre:
+ Post:
+ -----------------------------------------------------------------------------*/
+void HistoryTransaction:: print() const{ }
