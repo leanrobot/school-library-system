@@ -1,5 +1,12 @@
 #include "item.h"
 
+/*---------------------------------------------------------------------------
+ ===== Constructor
+ Descripton: Constructor for Item class. Set the number of total copies to 5, 
+ the bumber of checkout copies to 0 and item formato to 'H' (hardcopy)
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 Item:: Item(){
     totalCopies = 5;
     checkedOutCopies = 0;
@@ -7,65 +14,121 @@ Item:: Item(){
     cout.setf(ios::left, ios::adjustfield);
 }
 
+/*---------------------------------------------------------------------------
+ ===== Destructor
+ Descripton: Destructor for Item class.
+ Pre:
+ Post: deallocated.
+ ----------------------------------------------------------------------------*/
 Item:: ~Item(){
 }
 
-Item:: Item (char type, string title, int year) {
-    this->itemType = type;
-    this ->year = year;
-    this->title = title;
-}
-
-
-char Item:: getItemType() const{
+/*---------------------------------------------------------------------------
+ ===== getItemType
+ Descripton: Retrieve the item type
+ Pre:
+ Post: Returns the item type
+ ----------------------------------------------------------------------------*/
+char Item:: getItemType()const{
     return itemType;
 }
 
+/*---------------------------------------------------------------------------
+ ===== setItemType
+ Descripton: Set the item type
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void Item:: setItemType(char type){
     itemType = type;
 }
 
-//set the total number of copies of item
-void Item:: setTotalCopies(int newTotalCopies){
-    totalCopies = newTotalCopies;
-}
-
-//retrieve the total copies of item
+/*---------------------------------------------------------------------------
+ ===== getTotalCopies
+ Descripton: Retrieve the total copies of item
+ Pre:
+ Post: Returns the total copies of item
+ ----------------------------------------------------------------------------*/
 int Item:: getTotalCopies() const{
     return totalCopies;
 }
 
-//set the number of copies checked out
-void Item:: setCheckedOutCopies (int newCheckOutCopies){
-    checkedOutCopies = newCheckOutCopies;
+/*---------------------------------------------------------------------------
+ ===== setTotalCopies
+ Descripton: Set the total number of copies of item
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
+void Item:: setTotalCopies(int newTotalCopies){
+    totalCopies = newTotalCopies;
 }
 
-//retrieve number of copies checked out
+/*---------------------------------------------------------------------------
+ ===== getCheckedOutCopies
+ Descripton: Retrieve the number of copies checked out
+ Pre:
+ Post: Returns the number of copies checked out
+ ----------------------------------------------------------------------------*/
 int Item:: getCheckedOutCopies() const{
     return checkedOutCopies;
 }
 
-//retrieve the publication date of the media
+/*---------------------------------------------------------------------------
+ ===== setCheckedOutCopies
+ Descripton: Set the number of copies checked out
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
+void Item:: setCheckedOutCopies(int newCheckOutCopies){
+    checkedOutCopies = newCheckOutCopies;
+}
+
+/*---------------------------------------------------------------------------
+ ===== getYear
+ Descripton: Retrive the publication year of the item
+ Pre:
+ Post: Returns the publication year of the item
+ ----------------------------------------------------------------------------*/
 int Item:: getYear() const{
     return year;
 }
 
-//set the year with the int parameter
+/*---------------------------------------------------------------------------
+ ===== setYear
+ Descripton: Set the publication year
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void Item:: setYear(int newYear){
     year = newYear;
 }
 
-//retrieve the title
+/*---------------------------------------------------------------------------
+ ===== getTitle
+ Descripton: Retrive the title of the item
+ Pre:
+ Post: Returns the title of the item
+ ----------------------------------------------------------------------------*/
 string Item:: getTitle() const{
     return title;
 }
 
-//set the title to the string parameter
+/*---------------------------------------------------------------------------
+ ===== setTitle
+ Descripton: Set the title of the item
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void Item:: setTitle(string newTitle){
     title = newTitle;
 }
 
-
+/*---------------------------------------------------------------------------
+ ===== hash
+ Descripton: Hash function
+ Pre:
+ Post: Return the item type
+ ----------------------------------------------------------------------------*/
 char Item:: hash()const{
     return itemType;
 }

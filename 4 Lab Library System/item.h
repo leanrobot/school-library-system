@@ -1,109 +1,164 @@
-//-----------------------------------------------------------------------
-//item is an object that represents a generic item that can be checked out
-//Includes:
-//--records the number of copies of an item and the number checked out
-//--Item is the parent class for book objects (and possibly others if added)
-//Assumptions:
-//--assumes correct and valid input of item data (total copies ect.)
-//------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+// ITEM.H
+// Item class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// Item class: is an abstract class that defines an item object
+// -- it is a parent class of Book and Periodical classes
+// Includes following features:
+// -- Get and set methods for private data members
+// -- Pure virtual methods for comparing two objects (==, !=, >, <)
+// -- Pure virtual method for creating an item object which is implemented in
+//    each child class
+// -- Pure virtual methods for initializing the item object which are
+//    implementd in each child class
+// -- Pure virtual method for printing information about the given type of the
+//    item which is implemented in each child class.
+// -- Pure virtual method for printing information about the item object in
+//     user's history
+// Assumptions:
+// -- Assumes that valid input is given for datamembers
+//-----------------------------------------------------------------------------
 
 #ifndef ITEM_H
 #define ITEM_H
 
 #include <iostream>
 #include <string>
-using namespace std;
 #include "hashable.h"
+using namespace std;
 
 class Item: public Hashable {
 
 public:
 	
-	//destructor
+	// Virtual destructor
 	virtual ~Item();
     
-    //retrieve the item type
-    char getItemType() const;
+    // getItemType
+    // Returns the item type
+    char getItemType()const;
 
-    //manually set the itemtype
+    // setItemType
+    // Set the itemtype
     void setItemType(char);
 
-    //set the total number of copies of item
+    // getTotalCopies
+    // Returns the number of copies of the item
+    int getTotalCopies()const;
+    
+    // setTotalCopies
+    // Set the number of total copies of item
     void setTotalCopies(int);
 
-    //retrieve the total copies of item
-    int getTotalCopies() const;
-
-    //set the number of copies checked out
-    void setCheckedOutCopies(int);
-
-    //retrieve number of copies checked out
+    // getCheckOutCopies
+    // Returns the number of check out copies of item
     int getCheckedOutCopies() const;
     
-    //retrieve the publication date of the media
+    // setCheckOutCopies
+    // Set the number of check out copies
+    void setCheckedOutCopies(int);
+    
+    // getYear
+    // Return the publication year of the item
     int getYear() const;
     
-    //set the year with the int parameter
+    // setYear
+    // Set the publication year of the item
     void setYear(int);
     
-    //retrieve the title
+    // getTitle
+    // Returns the title of the item
     string getTitle() const;
     
-    //set the title to the string parameter
+    // setTitle
+    // Set the title of the item
     void setTitle(string);
 
-    //overloaded comparison operators
-    virtual bool operator<(const Item &) const = 0;
+    // Overloaded less than operator
+    // Pure virtul method which will be implemented by child classes
+    // to determine if given object is less than the other given object
+    virtual bool operator<(const Item&)const = 0;
     
-    virtual bool operator>(const Item &) const = 0;
+    // Overloaded greater than operator
+    // Pure virtul method which will be implemented by child classes
+    // to determine if given object is greater than the other given object
+    virtual bool operator>(const Item&)const = 0;
 
-    virtual bool operator==(const Item &) const = 0;
+    // Overloaded equal operator
+    // Pure virtul method which will be implemented by child classes
+    // to determine if two given objects are equal
+    virtual bool operator==(const Item&)const = 0;
     
-    virtual bool operator!=(const Item &) const = 0;
+    // Overloaded not equal operator
+    // Pure virtul method which will be implemented by child classes
+    // to determine if two given objects are not equal
+    virtual bool operator!=(const Item&)const = 0;
     
-    //create an item
+    // create
+    // Pure virtul method which will be implemented by child classes
+    // to create a given object
     virtual Item* create() = 0;
     
+    // initialize
+    // Pure virtual method which will implemented by child classes
+    // to initialized object when new object is added to the
+    // library
     virtual void initialize(istream&) = 0;
     
+    // initialize partial
+    // Pure virtual method which will implemented by child classes
+    // to initialized object to perform given transaction on it
     virtual void initializePartial(istream&) = 0;
-	
-	//get description of an Item, like author, title, date
-	//virtual string getDescription() const = 0;
 
+    // print
+    // Pure virtual method which will be implemented by child classes
+    // to print information about the object
     virtual void print() const = 0;
-    virtual void display()const =0;
-    virtual void printHeader() const = 0;
-
-    char hash () const;
     
-
+    // printHeader
+    // Pure virtual method which will be implemented by child classes
+    // to print header for the print method
+    virtual void printHeader() const = 0;
+    
+    // display
+    // Pure wirtual method which will be implemented by child classes
+    // to print information about the object which is used in the
+    // print method in the history transaction method
+    virtual void display()const = 0;
+    
+    // hash
+    // Return the item type
+    char hash () const;
     
 protected:
     
-    //default constructor
+    // Default constructor
     Item();
     
+    // Constructor
     Item (char, string, int);
     
+    // Year of the publishing the item
     int year;
     
+    // Title of the item
     string title;
     
-    //designates what the item is (in this case 'i' for item)
+    // Type of the item
     char itemType;
     
-    
-    //format is the format of the item (i.e. hardcopy, digital)
+    // Format of the item (i.e. hardcopy, digital)
     char itemFormat;
     
-    //totalcopies keeps track of the number of copies of an item there are
+    // The number of copies of an item
     int totalCopies;
     
-    //checkedoutcopies keeps track of how many of the copies are
-    //checked out
+    // The number of copies which are checked out
     int checkedOutCopies;
     
+    // Static const variables which are used in print methods
+    // to display information in the right format
     const static int
     YEAR_COL_WIDTH = 6,
     MONTH_COL_WIDTH = 5,

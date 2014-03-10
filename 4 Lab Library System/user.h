@@ -1,4 +1,7 @@
-
+//-----------------------------------------------------------------------------
+// USER.H
+// User class
+// Authors: Magdalena Grzmiel and Thomas Petit
 //-----------------------------------------------------------------------------
 // User class: a class to represent the library patrons. Includes the following
 // features:
@@ -22,9 +25,9 @@
 using namespace std;
 class User {
 public:
+    
     // Constructor
     User(int id, string name);
-    //User( int id, string firstName, string lastName);
     
     // Destructor
     ~User( );
@@ -39,24 +42,18 @@ public:
     
     // getHistory
     // Returns user's transaction history
-    History* getHistory();
+    History* getHistory() const;
     
     // setName
     // Changes the user's name
     void setName(string);
     
-    // operator<
-    // Overload < operator
-    //bool operator<(const User&) const; 
-  
 private:
+    
     // a unique identifier
     int userId;          
     
-    // the patron's last name
-    //string lastName;
-    
-    // the patron's first name
+    // the patron's name
     string name;
     
     // the patron's transaction history

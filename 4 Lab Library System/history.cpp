@@ -8,11 +8,9 @@ History:: History( ){
 
 // destructor
 History:: ~History( ){
-    
     for ( list<Transaction*>:: iterator it = data.begin(); it != data.end(); it++){
-        delete *it;
+        delete (*it);
     }
-    
 }
 
 // add a new item

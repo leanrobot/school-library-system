@@ -35,9 +35,9 @@ Manager::~Manager() {
 /*-----------------------------------------------------------------------------
  ===== Build Users
  Descripton: Builds the user collection. The input file is read until there is
-    no data left. it is passed to the userfactory, who constructs the user.
- Pre:
- Post: users are initialized from file. file is ready completely.
+    no data left. It is passed to the userfactory, who constructs the user.
+ Pre
+ Post: users are initialized from file. File is ready completely.
  -----------------------------------------------------------------------------*/
 void Manager::buildUsers(istream& input) {
     while(!input.eof()) {
@@ -53,7 +53,7 @@ void Manager::buildUsers(istream& input) {
 /*-----------------------------------------------------------------------------
  ===== Build Items
  Descripton: Builds the item trees from the input file. The file is read 
-    until it is empty.
+ until it is empty.
  Pre:
  Post:
  -----------------------------------------------------------------------------*/

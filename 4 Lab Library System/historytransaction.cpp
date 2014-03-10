@@ -11,6 +11,7 @@ HistoryTransaction:: HistoryTransaction (){
     transactionType = 'H';
     user = NULL;
 }
+
 /*-----------------------------------------------------------------------------
  ===== Destructor
  Descripton: All items stored in the history transactions are destroyed
@@ -19,7 +20,6 @@ HistoryTransaction:: HistoryTransaction (){
  Post:
  -----------------------------------------------------------------------------*/
 HistoryTransaction:: ~HistoryTransaction (){}
-
 
 /*-----------------------------------------------------------------------------
  ===== Create History Transaction
@@ -38,6 +38,7 @@ Transaction* HistoryTransaction:: create(istream&infile){
     newTransaction->userId = userId;
     return newTransaction;
 }
+
 /*-----------------------------------------------------------------------------
  ===== Execute ( run command )
  Descripton: executes the transaction. For a history transaction, this will 

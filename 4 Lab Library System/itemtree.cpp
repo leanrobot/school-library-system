@@ -1,71 +1,43 @@
-//
-//  ItemTree.cpp
-//  4 Lab Library System
-//
-//  Created by Tom Petit on 3/5/14.
-//  Copyright (c) 2014 University of Washington, Bothell. All rights reserved.
-//
-
 #include "itemtree.h"
 #include <algorithm>
 
-/*
-ItemTree::ItemTree() {
-    //vector is instantiated automatically.
-}
-
-ItemTree::~ItemTree() {
-    items.clear();
-    //vector is destroyed automatically
-}
-
-bool ItemTree::insert(Item* item) {
-    
-    std::vector<Item*>::iterator iter = items.begin();
-    if(items.size() > 0) {
-        for(; iter != items.end() && *(*iter) < *item ; iter++) {
-        }
-        items.insert(iter, item);
-    }
-    else {
-        items.push_back(item);
-    }
-    
-    return true;
-}
-
-Item* ItemTree::retrieve(Item* item) {
-
-    std::vector<Item*>::iterator iter;
-    for(iter=items.begin(); iter != items.end(); iter++) {
-        if(*item == **iter) return *iter;
-    }
-    return NULL;
-}
-
-Item* ItemTree::retrieve(int i) {
-    return items[i];
-}
-
-int ItemTree::size() const {
-    return items.size();
-}
-*/
-
+/*---------------------------------------------------------------------------
+ ===== Constructor
+ Descripton: Create an empty tree
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 ItemTree::ItemTree() {
     root = NULL;
 }
 
+/*---------------------------------------------------------------------------
+ ===== Destructor
+ Descripton:
+ Pre:
+ Post: The tree is deallocated.
+ ----------------------------------------------------------------------------*/
 ItemTree:: ~ItemTree(){
     makeEmpty();
 }
 
-
+/*---------------------------------------------------------------------------
+ ===== makeEmpty
+ Descripton: Remove every Node from tree.
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void ItemTree:: makeEmpty() {
     removeNodes(root);
-    root = NULL; // set up the root to NULL
+    root = NULL;
 }
 
+/*---------------------------------------------------------------------------
+ ===== removeNodes
+ Descripton: Helper method which removes all elements of the ItemTree
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void ItemTree::removeNodes(Node* ptr) {
     if (ptr != NULL) {
         removeNodes(ptr->left);
@@ -75,54 +47,83 @@ void ItemTree::removeNodes(Node* ptr) {
     }
 }
 
+/*---------------------------------------------------------------------------
+ ===== retrive
+ Descripton: Retrieve the ItemTree to check if the given Item is found in the 
+ tree.
+ Pre:
+ Post: Returns pointer to the found Item or NULL if the Item does not appear
+ in the tree
+ ----------------------------------------------------------------------------*/
 Item* ItemTree:: retrieve(const Item* item)const{
+    // check if the given Item is not a NULL
     if (item == NULL){
         return NULL;
     }
-   
+    
     Node* current = root;
-    //Item* findItem = NULL;
-   
-    /*current != NULL && (findItem == NULL || findItem!= item) TODO*/
-    while(current != NULL  /*|| !(findItem != NULL && *findItem == *item)*/){
-       if (*current->itemData == *item){
-           //findItem = current->itemData;
-           return current->itemData;
-           //return findItem;
-           //current = NULL;
-       }
-       else if (*current->itemData < *item){
-           current = current->right;
-       }
-       else {
-           current = current->left;
-       }
+  
+    // retrive the tree to find the given Item,
+    while(current != NULL){
+        if (*current->itemData == *item){
+            // if found, return pointer to that item
+            return current->itemData;
+        }
+        else if (*current->itemData < *item){
+            current = current->right;
+        }
+        else {
+            current = current->left;
+        }
     }
     
-    return NULL; //findItem;
+    // otherwise return NULL
+    return NULL;
 }
 
-
+/*---------------------------------------------------------------------------
+ ===== getHeight
+ Descripton: Calculate the height of the given Node.
+ Pre:
+ Post: Returns the height of the given Item if found, 0 otherwise.
+ ----------------------------------------------------------------------------*/
 int ItemTree:: getHeight()const{
     return getHeightNode(root);
 }
+
+/*---------------------------------------------------------------------------
+ ===== getHeightNode
+ Descripton: Helper method to calculate to the height of the given Node.
+ Pre:
+ Post: Returns the height of the given Item if found, 0 otherwise.
+ ----------------------------------------------------------------------------*/
 int ItemTree:: getHeightNode(Node* ptr)const{
     if (ptr == NULL){
         return 0;
     }
     else{
         return 1+ std::max(getHeightNode(ptr->left),
-                       getHeightNode(ptr->right));
+                           getHeightNode(ptr->right));
     }
 }
 
-
-bool ItemTree:: insert(Item* item){
-    
+/*---------------------------------------------------------------------------
+ ===== insert
+ Descripton: Insert the Item object to the tree only if the elements was not
+ found in that tree. The tree stays balanced after inserting a new Item.
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
+void ItemTree:: insert(Item* item){
     insertHelper(root,item);
-    return true;
 }
 
+/*---------------------------------------------------------------------------
+ ===== insertHelper
+ Descripton: Helper method to insert Item in the Tree.
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void ItemTree:: insertHelper(Node*& current, Item* item){
     
     if (current == NULL){
@@ -131,7 +132,7 @@ void ItemTree:: insertHelper(Node*& current, Item* item){
         current->itemData = item;
         current->left = NULL;
         current->right = NULL;
-    
+        
     // insert into left subtree
     }else if (*item < *current->itemData) {
         insertHelper(current->left, item);
@@ -158,10 +159,17 @@ void ItemTree:: insertHelper(Node*& current, Item* item){
     else
         ;
     
+    // calculate the height of the node
     current->height = max(getHeightNode(current->left ),
                           getHeightNode(current->right) ) + 1;
 }
 
+/*---------------------------------------------------------------------------
+ ===== leftLeft
+ Descripton: Helper method to keep tree balanced after inserting a new Item
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void ItemTree:: leftLeft(Node*& k2) {
     Node* k1 = k2->left;
     k2->left = k1->right;
@@ -171,6 +179,12 @@ void ItemTree:: leftLeft(Node*& k2) {
     k2 = k1;
 }
 
+/*---------------------------------------------------------------------------
+ ===== rightLeft
+ Descripton: Helper method to keep tree balanced after inserting a new Item
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void ItemTree::rightRight(Node*&k2){
     Node* k1 = k2->right;
     k2->right = k1->left;
@@ -180,16 +194,35 @@ void ItemTree::rightRight(Node*&k2){
     k2 = k1;
     
 }
+
+/*---------------------------------------------------------------------------
+ ===== leftRight
+ Descripton: Helper method to keep tree balanced after inserting a new Item
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void ItemTree::leftRight(Node*&k3){
     rightRight(k3->left);
     leftLeft(k3);
 }
+
+/*---------------------------------------------------------------------------
+ ===== rightLeft
+ Descripton: Helper method to keep tree balanced after inserting a new Item
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void ItemTree::rightLeft(Node*&k3){
     leftLeft (k3->right);
     rightRight(k3);
-    
 }
 
+/*---------------------------------------------------------------------------
+ ===== print
+ Descripton: Prints all items from the tree in sorted order.
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void ItemTree:: print()const{
     if(root != NULL) {
         Item* item = root->itemData;
@@ -198,6 +231,12 @@ void ItemTree:: print()const{
     printHelper (root);
 }
 
+/*---------------------------------------------------------------------------
+ ===== printHelper
+ Descripton: Prints each Item from the tree using inorder traversal.
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void ItemTree::printHelper(Node*ptr)const{
     if (ptr != NULL) {
         printHelper(ptr->left);

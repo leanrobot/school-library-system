@@ -12,13 +12,19 @@
 #include "transaction.h"
 #include "hashtable.h"
 using namespace std;
+
+// size of the array
 const int FACTORY_MAX_SIZE = 26;
 
 class TransactionFactory {
     
 public:
+    
+    // Create the instance of transaction 
     static TransactionFactory* instance();
-    ~TransactionFactory( );        // destructor
+    
+    //Destructor
+    ~TransactionFactory( );
     Transaction* createTransaction(istream&); // creates a Transaction of the desired type
   
 private:

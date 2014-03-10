@@ -13,41 +13,41 @@ User::User(int id, string name) {
 }
 
 /*-----------------------------------------------------------------------------
+ ===== Destructor
+ Descripton:
+ Pre:
+ Post:
+ ------------------------------------------------------------------------------*/
+User:: ~User(){
+    delete userHistory;
+}
+
+/*-----------------------------------------------------------------------------
  ===== Get ID
  Descripton: Retrieves the user id.
  Pre:
- Post: returns the user id.
+ Post: Returns the user id.
  -----------------------------------------------------------------------------*/
 int User::getID() const {
     return userId;
 }
 
 /*-----------------------------------------------------------------------------
- ===== Destructor
- Descripton:
- Pre:
- Post:
-------------------------------------------------------------------------------*/
-User:: ~User(){
-    delete userHistory;
-}
-
-/*-----------------------------------------------------------------------------
  ===== Get History
- Descripton: returns the user's history object.
+ Descripton: Retrive the user's history object.
  Pre:
- Post:
+ Post: Returns the user's history object.
  ------------------------------------------------------------------------------*/
-History* User:: getHistory(){
+History* User:: getHistory() const{
     return userHistory;
 }
 
 
 /*-----------------------------------------------------------------------------
  ===== Get Name
- Descripton: returns the user's name.
+ Descripton: retrive the user's name.
  Pre:
- Post:
+ Post: Retrive the user's name.
  -----------------------------------------------------------------------------*/
 string User::getName() const {
     return name;

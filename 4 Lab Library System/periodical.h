@@ -1,11 +1,21 @@
-//----------------------------------------------------------------
-//Periodical is the class for creating objects that are periodicals
-//Includes:
-//--Parent class is book.
-//--Keeps track of all relevant information for a periodical
-//Assumptions:
-//--assumes valid and correct input for data members
-//----------------------------------------------------------------
+//-----------------------------------------------------------------------------
+// PERIODICAL.H
+// Periodical class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// Periodical class: a class to represent the periodical objetcs. It is a child
+// class of Item class. Includes following features:
+// -- Get the month when the book was published
+// -- Set a new publishing month for the book
+// -- Compare operators (==, !=, >, <)to compare two periodicals
+// -- Create periodical object
+// -- Initialized the periodical object
+// -- Print the information about the periodical object
+// -- Print the header
+// -- Print information about the periodical object in user's history
+// Assumptions:
+// --assumes valid and correct input for data members
+//-----------------------------------------------------------------------------
 
 #ifndef PERIODICAL_H
 #define PERIODICAL_H
@@ -17,41 +27,64 @@ class Periodical : public Item{
     
 public:
     
-    //default constructor
+    // Default constructor
     Periodical();
     
-    //constructor with parameters are the title, month, and year
-    //Periodical(string, int, int);
+    // getMonth
+    // Retrieve the month of the book's publishing
+    int getMonth()const;
     
-    //retrieve the month of the book's publishing
-    int getMonth() const;
-    
-    //set the month of the book's publishing parameter is month
+    // setMonth
+    // Set the month of the book's publishing parameter
     void setMonth(int);
     
-    //operators for item comparison
-    virtual bool operator<(const Item&) const;
+    // Overloaded less than operator
+    // Determine if this periodical object is less than the other periodical
+    // object
+    virtual bool operator< (const Item&)const;
     
-    virtual bool operator>(const Item&) const;
-
+    // Overloaded greater than operator
+    // Determine if this periodical object is greater than the other
+    // periodical object
+    virtual bool operator> (const Item&)const;
     
-    virtual bool operator== (const Item&) const;
+    // Overloaded equal operator
+    // Determine if two periodical objects are equal
+    virtual bool operator== (const Item&)const;
     
-     virtual bool operator!= (const Item&) const;
-   
-    //create item
+    // Overloaded not equal operator
+    // Determine if two periodical objects are not equal
+    virtual bool operator!= (const Item&)const;
+    
+    // create
+    // create periodical object
     virtual Item* create();
+    
+    // initialize
+    // Initialized periodical object when new periodical is added to the
+    // library
     virtual void initialize(istream&);
+    
+    // initialize partial
+    // Initialized object peridical to perform given transaction on it
     virtual void initializePartial(istream&);
     
-    virtual void print () const;
+    // print
+    // Print information about the periodical object
+    virtual void print ()const;
+    
+    // printHeader
+    // Print header for the print method
+    virtual void printHeader()const;
+    
+    // display
+    // Print information about the periodical objects which are used
+    // in the print method in the history transaction method
     virtual void display()const;
-    virtual void printHeader() const;
-	
     
 private:
     
-    //month of publication
+    //month of the publication
     int month;
 };
 
