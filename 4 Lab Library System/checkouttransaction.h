@@ -39,6 +39,8 @@ public:
     
     virtual void print() const;
     
+    Item* getItem();
+    
 private:
     
     // Unique identification number of a user

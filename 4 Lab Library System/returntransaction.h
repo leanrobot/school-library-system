@@ -48,7 +48,7 @@ private:
     
     Item* lookUpItem; // item to only find the right item in the item collection
     
-    
+    bool isCheckedOutByUser(Item*, User*);
 };
 
 #endif

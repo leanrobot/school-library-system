@@ -48,7 +48,7 @@ void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & use
             item = items.retrieve(this->lookUpItem); // get the item from itemCollection
             
             if (item != NULL){ // if item exist in the itemCollection
-                int checkout = item->getCheckedOutCopies(); // get the numbero of checkout copies
+                int checkout = item->getCheckedOutCopies(); // get the number of checkout copies
                 
                 if (checkout < item->getTotalCopies()) { // if they are still available copies, perform operation
                     item->setCheckedOutCopies (checkout+1);
@@ -65,6 +65,10 @@ void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & use
             
         }
     }
+}
+
+Item* CheckOutTransaction::getItem() {
+    return this->item;
 }
 
 

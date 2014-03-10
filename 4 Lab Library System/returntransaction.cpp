@@ -1,5 +1,8 @@
 #include "returntransaction.h"
+#include "checkouttransaction.h"
 #include "itemfactory.h"
+//#include "history.h"
+//#include <list>
 
 
 ReturnTransaction:: ReturnTransaction (){
@@ -53,14 +56,14 @@ void ReturnTransaction:: execute(ItemCollection& items, map <int, User*> & userC
                 int checkout = item->getCheckedOutCopies(); // get the numbero of checkout copies
                 
                 // if they are still available copies, perform operation
-                if (checkout > 0 && checkout <= item->getTotalCopies()){
+                if (isCheckedOutByUser(this->item, this->user) && checkout > 0 && checkout <= item->getTotalCopies()){
                     item->setCheckedOutCopies (checkout-1);
                     
                     ReturnTransaction* copy = new ReturnTransaction(*this);
                     user->getHistory()->add(copy); // add trnsaction to user history;
                 }
                 else {
-                    cout << "Command not executed: All copies are returned" << endl;
+                    cout << "Command not executed: Invalid Return" << endl;
                     print();
                 }
             }
@@ -70,6 +73,21 @@ void ReturnTransaction:: execute(ItemCollection& items, map <int, User*> & userC
         }
     }
 }
+
+bool ReturnTransaction::isCheckedOutByUser(Item* item, User* user) {
+    History* history = user->getHistory();
+    list<Transaction*> historyList = history->getHistory();
+    
+    list<Transaction*>::iterator iter = historyList.begin();
+    for(; iter != historyList.end(); iter++) {
+	CheckOutTransaction* checkout = dynamic_cast<CheckOutTransaction*>(*iter);
+	if(checkout != NULL) {
+	    if(*checkout->getItem() == *item) return true;
+	}
+    }
+    return false;
+}
+
 
 void ReturnTransaction:: print() const{
     cout << setw(COMMAND_COL_WIDTH) << "Return";
