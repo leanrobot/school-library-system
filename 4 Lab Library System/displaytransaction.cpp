@@ -1,37 +1,64 @@
-//
-//  displaytransaction.cpp
-//  4 Lab Library System
-//
-//  Created by Tom Petit on 3/6/14.
-//  Copyright (c) 2014 University of Washington, Bothell. All rights reserved.
-//
-
 #include "displaytransaction.h"
 
-
+/*-----------------------------------------------------------------------------
+ ===== Constructor
+ Descripton: sets the specific transaction type for identification purposes.
+ Pre:
+ Post:
+ -----------------------------------------------------------------------------*/
 DisplayTransaction::DisplayTransaction() {
-   transactionType = 'D';
+    transactionType = 'D';
 }
-DisplayTransaction::~DisplayTransaction() {/* do nothing */}
 
+/*-----------------------------------------------------------------------------
+ ===== Destructor
+ Descripton:
+ Pre:
+ Post:
+ -----------------------------------------------------------------------------*/
+DisplayTransaction::~DisplayTransaction() {}
+
+/*-----------------------------------------------------------------------------
+ ===== Create Display Transaction
+ Descripton: This functions creates a new display transaction. The data for the
+ transaction is read from the istream, which points to the command file.
+ Pre:
+ Post: returns an initialized display transaction.
+ -----------------------------------------------------------------------------*/
 Transaction* DisplayTransaction::create(istream& infile) {
     return new DisplayTransaction;
 }
 
-// execute
-// This method executes display operation on an ItemCollection object
-void DisplayTransaction::execute(ItemCollection& items, map<int, User*> & userCollection) {
+/*-----------------------------------------------------------------------------
+ ===== execute ( run command )
+ Descripton: executes the transaction. For a display transaction, this will
+ display all of the items in the ItemCollection object
+ Pre:
+ Post:
+ -----------------------------------------------------------------------------*/
+void DisplayTransaction::execute(ItemCollection& itemCollection,
+                                 map<int, User*> & userCollection) {
+    
     int numCategories;
-    ItemTree** categories = items.retrieveAll(numCategories);
-    for(int i=0; i<numCategories; i++) {
+    
+    // get the array with the pointers to the itemTrees which keep all items
+    ItemTree** categories = itemCollection.retrieveAll(numCategories);
+    // iterate through the array
+    for(int i = 0; i < numCategories; i++) {
         ItemTree* category = categories[i];
+        
+        // if the category of the item is not NULL,
+        //display all item in given category
         if(category != NULL) {
             category->print();
         }
     }
 }
 
-void DisplayTransaction::print() const {
-    //noop
-    //it should never be called since it is never be added to user's history
-}
+/*-----------------------------------------------------------------------------
+ ===== Print
+ Descripton: Not implemented for display transaction, it will never be printed.
+ Pre:
+ Post:
+ -----------------------------------------------------------------------------*/
+void DisplayTransaction::print()const {}
