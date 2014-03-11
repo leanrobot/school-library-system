@@ -21,6 +21,8 @@ Fiction:: Fiction(): Book(){
  false otherwise.
  ----------------------------------------------------------------------------*/
 bool Fiction:: operator< (const Item& item)const{
+    if(item.getItemType() != itemType) return false;
+  
     // cast the item object to the fiction object
     const Fiction& otherFiction = static_cast<const Fiction&>(item);
     
@@ -60,6 +62,8 @@ bool Fiction:: operator> (const Item& item)const{
  ----------------------------------------------------------------------------*/
 bool Fiction:: operator== (const Item& item)const{
     // cast the item object to the fiction object
+    if(item.getItemType() != itemType) return false;
+    
     const Fiction& otherFiction = static_cast<const Fiction&>(item);
     
     return ((this->author.compare(otherFiction.author)== 0) &&

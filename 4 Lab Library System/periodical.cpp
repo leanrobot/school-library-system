@@ -39,7 +39,8 @@ void Periodical:: setMonth(int newMonth){
  Post: Return true if this periodical is less than other, false otherwise
  ----------------------------------------------------------------------------*/
 bool Periodical::operator< (const Item& item) const {
-    
+    if(item.getItemType() != itemType) return false;
+
     // cast the item object to the periodical object
 	const Periodical& otherPeriodical = static_cast<const Periodical&>(item);
     
@@ -83,6 +84,8 @@ bool Periodical::operator> (const Item& item) const {
  Post: Return true if two periodicals objects are equal, false otherwise,
  ----------------------------------------------------------------------------*/
 bool Periodical:: operator== (const Item& item) const{
+    if(item.getItemType() != itemType) return false;
+
     const Periodical& otherPeriodical = static_cast <const Periodical&> (item);
 
     return ((this -> title.compare(otherPeriodical.title)==0)

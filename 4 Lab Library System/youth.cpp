@@ -20,7 +20,8 @@ Youth:: Youth(){
  false otherwise.
  ----------------------------------------------------------------------------*/
 bool Youth:: operator<(const Item& item) const{
-    
+    if(item.getItemType() != itemType) return false;
+
     // cast the item object to the youth object
     const Youth& otherYouth = static_cast<const Youth&>(item);
     
@@ -59,7 +60,8 @@ bool Youth:: operator>(const Item& item) const{
  Post: Return true if two youth objects are equal, false otherwise.
  ----------------------------------------------------------------------------*/
 bool Youth:: operator== (const Item& item)const{
-    
+    if(item.getItemType() != itemType) return false;
+
     // cast the item object to the youth object
     const Youth& otherYouth = static_cast<const Youth&>(item);
     

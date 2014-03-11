@@ -61,7 +61,7 @@ void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & use
                 }
             }
         }else{
-            cout<< "Wrong item type"<<endl;
+            cout<< "Book not found in Library." << endl;
             
         }
     }

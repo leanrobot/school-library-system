@@ -69,7 +69,7 @@ void ReturnTransaction:: execute(ItemCollection& items, map <int, User*> & userC
             }
         }
         else {
-            cout<<"Wrong item type"<<endl;
+            cout<<"Book not found in Library."<<endl;
         }
     }
 }
