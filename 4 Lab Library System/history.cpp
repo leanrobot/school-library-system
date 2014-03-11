@@ -1,23 +1,40 @@
 #include "history.h"
-#include <list>
 
-// constructor
-History:: History( ){
-    
-}
+/*---------------------------------------------------------------------------
+ ===== Constructor
+ Descripton: Doesn't need to do anything
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
+History:: History( ) {}
 
-// destructor
+/*---------------------------------------------------------------------------
+ ===== Destructor
+ Descripton: Iterates through the history list of transactions and deletes
+    each transaction.
+ Post: all history attributes are deallocated.
+ ----------------------------------------------------------------------------*/
 History:: ~History( ){
-    for ( list<Transaction*>:: iterator it = data.begin(); it != data.end(); it++){
+    list<Transaction*>:: iterator it = data.begin();
+    for (; it != data.end(); it++){
         delete (*it);
     }
 }
 
-// add a new item
+/*---------------------------------------------------------------------------
+ ===== Add
+ Descripton: Adds a Transaction to the command history. The new commands is 
+    added to the end of the list, so the order is from oldest -> newest.
+ ----------------------------------------------------------------------------*/
 void History:: add( Transaction* oneTransaction){
     data.push_back(oneTransaction);
 }
 
+/*---------------------------------------------------------------------------
+ ===== Get History
+ Descripton: Returns the list which contains history of commands from
+    oldest -> newest.
+ ----------------------------------------------------------------------------*/
 list<Transaction*>& History::getHistory() {
     return data;
 }

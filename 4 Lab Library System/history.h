@@ -16,12 +16,11 @@
 #define HISTORY_H
 
 #include <list>
-//#include "transaction.h"
 #include <iostream>
 
 
 using namespace std;
-class Transaction;
+class Transaction; // forward reference
 class History {
     
 public:
@@ -38,6 +37,7 @@ public:
     // display the transaction history
     void display( ) const;
     
+    //get the history linked list.
     list<Transaction*>& getHistory();
     
 private:
@@ -47,4 +47,4 @@ private:
     
 };
 
-#endif
+#endif /* HISTORY_H */

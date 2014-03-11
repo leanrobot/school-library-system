@@ -8,9 +8,15 @@
 //-----------------------------------------------------------------------------
 #ifndef TRANSACTION_FACTORY_H
 #define TRANSACTION_FACTORY_H
+
 #include <fstream>
 #include "transaction.h"
 #include "hashtable.h"
+#include "checkouttransaction.h"
+#include "displaytransaction.h"
+#include "returntransaction.h"
+#include "historytransaction.h"
+
 using namespace std;
 
 // size of the array
@@ -25,12 +31,15 @@ public:
     
     //Destructor
     ~TransactionFactory( );
-    Transaction* createTransaction(istream&); // creates a Transaction of the desired type
+    Transaction* createTransaction(istream&);
+                        // creates a Transaction of the desired type
   
 private:
     TransactionFactory( );         // constructor
-    static bool instanceFlag;
-    static TransactionFactory* _instance;
+    
+    // Variables associated with the singleton pattern.
+    static bool instanceFlag;               // true if instance exists
+    static TransactionFactory* _instance;   // pointer to singleton instance.
     
     // Declared, but not implemented, to prevent singleton cloning.
     TransactionFactory(TransactionFactory const&);
@@ -39,4 +48,4 @@ private:
     HashTable transactions;
 };
 
-#endif
+#endif /* TRANSACTION_FACTORY_H */
