@@ -28,4 +28,3 @@ string Book:: getAuthor()const {
 void Book:: setAuthor(string newAuthor){
     this->author = newAuthor;
 }
-

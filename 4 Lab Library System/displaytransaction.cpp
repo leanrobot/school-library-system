@@ -35,8 +35,3 @@ void DisplayTransaction::print() const {
     //noop
     //it should never be called since it is never be added to user's history
 }
- 
-
-
-
-

@@ -29,3 +29,4 @@ private:
 };
 
 #endif /* USER_FACTORY_H */
+

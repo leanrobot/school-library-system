@@ -76,5 +76,3 @@ void CheckOutTransaction:: print() const{
     cout << setw (COMMAND_COL_WIDTH) << "Checkout" ;
     item->display();
 }
-
-

@@ -48,4 +48,4 @@ protected:
     const static int COMMAND_COL_WIDTH = 9;
 };
 
-#endif 
+#endif
