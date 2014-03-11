@@ -7,5 +7,5 @@ R 1000 P H 2010 3 Communications of the ACM,
 R 1000 P H 2010 3 Communications of the ACM,
 R 1000 F H Daheim Mary, Fowl Prey,
 R 1000 F H Daheim Mary, Fowl Prey,
-H
+H 1000
 D
