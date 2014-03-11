@@ -1,16 +1,19 @@
 //-----------------------------------------------------------------------------
+// DISPLAYTRANSACTION.H
+// DisplayTransaction class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
 // DisplayTransaction class: is a class which is responsible for creating
 // DisplayTransaction object and execute display operation on ItemCollection.
 // The class implements following methods:
 // -- create
 // -- execute
+// -- print
 //
 // Assumptions:
 // - the create method creates and returns object DisplayTransaction only if
 //   the provided data is correct, otherwise return NULL
 //-----------------------------------------------------------------------------
-
-
 #ifndef DISPLAYTRANSACTION_H
 #define DISPLAYTRANSACTION_H
 
@@ -31,12 +34,15 @@ public:
 	// This method parses the data out of the string and then checks the data.
 	// If the data is correct, creates the DisplayTransaction object and
 	// returns it, otherwise does not create the object and returns NULL
-	virtual Transaction* create(istream&);
+	virtual Transaction* create(istream& input);
     
 	// execute
-	// This method executes display operation on an ItemCollection object
-    virtual void execute(ItemCollection& items, map<int, User*> & userCollection);
+	// This method executes display operations on an ItemCollection object
+    virtual void execute(ItemCollection& itemCollection,
+                         map<int, User*> & userCollection);
     
+    // print
+    // Not implementd for this class
     virtual void print() const;
     
 };
