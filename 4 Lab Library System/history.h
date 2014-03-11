@@ -16,12 +16,11 @@
 #define HISTORY_H
 
 #include <list>
-//#include "transaction.h"
 #include <iostream>
 
 
 using namespace std;
-class Transaction;
+class Transaction; // forward reference
 class History {
     
 public:

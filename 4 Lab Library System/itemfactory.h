@@ -11,6 +11,10 @@
 #define ITEMFACTORY_H
 #include <string>
 #include "item.h"
+#include "youth.h"
+#include "fiction.h"
+#include "periodical.h"
+
 #include "hashtable.h"
 
 const int MAX_FACTORY_SIZE = 26;

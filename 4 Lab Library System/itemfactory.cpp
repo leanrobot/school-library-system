@@ -1,19 +1,24 @@
-//
-//  itemfactory.cpp
-//  4 Lab Library System
-//
-//  Created by Tom Petit on 3/5/14.
-//  Copyright (c) 2014 University of Washington, Bothell. All rights reserved.
-//
+//-----------------------------------------------------------------------------
+// ItemFactory class: a factory that produces instances of items. Includes the
+// following features:
+//  -- Creates items of a specified type
+// Assumptions:
+//  -- Assumes unique char can be derived from the string passed
+//  -- Assumes no more than 26 item types are present
+//-----------------------------------------------------------------------------
 
 #include "itemfactory.h"
-#include "youth.h"
-#include "fiction.h"
-#include "periodical.h"
 
+// Default values for static class variables for singleton.
 bool ItemFactory::instanceFlag = false;
 ItemFactory* ItemFactory::_instance = NULL;
 
+/*---------------------------------------------------------------------------
+ ===== Instance creation
+ Descripton: This is the "constructor" for the singleton. If an instance
+    doesn't exist, it is created and returned. If it already does exist,
+    it is returned.
+ ----------------------------------------------------------------------------*/
 ItemFactory* ItemFactory::instance() {
     if(!instanceFlag) {
         _instance = new ItemFactory;

@@ -1,10 +1,12 @@
 #include "history.h"
-#include <list>
 
-// constructor
-History:: History( ){
-    
-}
+/*---------------------------------------------------------------------------
+ ===== Constructor
+ Descripton: Doesn't need to do anything
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
+History:: History( ) {}
 
 // destructor
 History:: ~History( ){
@@ -13,11 +15,24 @@ History:: ~History( ){
     }
 }
 
-// add a new item
+/*---------------------------------------------------------------------------
+ ===== Add
+ Descripton: Adds a Transaction to the command history. The new commands is added to
+    the end of the list, so the order is from oldest -> newest.
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void History:: add( Transaction* oneTransaction){
     data.push_back(oneTransaction);
 }
 
+/*---------------------------------------------------------------------------
+ ===== Get History
+ Descripton: Returns the list which contains history of commands from
+    oldest -> newest.
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 list<Transaction*>& History::getHistory() {
     return data;
 }
