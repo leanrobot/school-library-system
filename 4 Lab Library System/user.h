@@ -42,7 +42,7 @@ public:
     
     // getHistory
     // Returns user's transaction history
-    History* getHistory() const;
+    History* getUserHistory() const;
     
     // setName
     // Changes the user's name

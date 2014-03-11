@@ -1,11 +1,23 @@
 #include "checkouttransaction.h"
 #include "itemfactory.h"
 
-
+/*---------------------------------------------------------------------------
+ ===== Default constructor
+ Descripton: sets the specific transaction type for identification purposes.
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 CheckOutTransaction:: CheckOutTransaction (){
     transactionType = 'C';
     user=NULL;
 }
+
+/*---------------------------------------------------------------------------
+ ===== Copy Constructor
+ Descripton: Create chekOutTransaction object the same like rhs object
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 CheckOutTransaction::CheckOutTransaction(const CheckOutTransaction& rhs) {
     user = rhs.user;
     item = rhs.item;
@@ -14,64 +26,118 @@ CheckOutTransaction::CheckOutTransaction(const CheckOutTransaction& rhs) {
     transactionType = 'C';
 }
 
+/*---------------------------------------------------------------------------
+ ===== Destructor
+ Descripton:
+ Pre:
+ Post: Dealocated. 
+ ----------------------------------------------------------------------------*/
 CheckOutTransaction:: ~CheckOutTransaction (){
-    user = NULL;
-    item = NULL;
+    user = NULL;  // handled by other class.
+    item = NULL;  // handled by other class.
     delete lookUpItem;
 }
 
-
-
+/*---------------------------------------------------------------------------
+ ===== create
+ Descripton: This functions creates a new check out transaction. The data for 
+ the transaction is read from the istream, which points to the command file.
+ Pre:
+ Post: returns an initialized checkOut transaction.
+ ----------------------------------------------------------------------------*/
 Transaction* CheckOutTransaction:: create(istream&infile){
     CheckOutTransaction * newTransaction = new CheckOutTransaction;
     
     int userId;
-    infile >>userId;
-    newTransaction->userId = userId;
-    infile.get(); // read the blank space
+    infile >>userId;                 // input user Id
+    newTransaction->userId = userId; // set the user id
+    infile.get();                    //get (and ignore) blank space
+    
+    // Create the item factory object
     ItemFactory* factory = ItemFactory::instance();
+    
+    // create lookUp item
     newTransaction->lookUpItem = factory -> createItem (infile);
+    
+    // check if the lookUp item is not NULL
     if(newTransaction->lookUpItem!=NULL){
+        // initialized lookUp item from data from file
         newTransaction->lookUpItem->initializePartial(infile);
     }
+    
     return newTransaction;
 }
 
-void CheckOutTransaction:: execute(ItemCollection& items, map <int, User*> & userCollection){
+/*-----------------------------------------------------------------------------
+ ===== execute ( run command )
+ Descripton: Executes the transaction, for a checkOut transaction, this will
+ first check if the user with given Id exist in userCollection, then it will
+ find if the item which the user wants to checkOut exist and is available in the
+ library, then it will add this transaction to user' history and change the 
+ number of checkOut copies for the given item.
+ Pre:
+ Post:
+ -----------------------------------------------------------------------------*/
+void CheckOutTransaction:: execute(ItemCollection& itemCollection, map <int,
+                                   User*> & userCollection){
     
-    
-    if (userCollection.count(this->userId)>0) {      // check if the user with
-        //the given id is in the map
-        user = userCollection[this->userId];     // and if exist assign it to the oneUser
+    // check if the user with given ID exist in the userCollection
+    if (userCollection.count(this->userId)>0) {
+        // if exist, assign this user to the user object
+        user = userCollection[this->userId];
         
+        // check if the lookUp item is not NULL
         if (this->lookUpItem !=NULL){
-            item = items.retrieve(this->lookUpItem); // get the item from itemCollection
+            // find the item in itemsCollection
+            item = itemCollection.retrieve(this->lookUpItem);
             
-            if (item != NULL){ // if item exist in the itemCollection
-                int checkout = item->getCheckedOutCopies(); // get the number of checkout copies
+            // if the item exists in itemCollection
+            if (item != NULL){
+                // get the number of check out copies
+                int checkout = item->getCheckedOutCopies();
                 
-                if (checkout < item->getTotalCopies()) { // if they are still available copies, perform operation
+                // check if the item is available and if yes, perform check out
+                // transaction
+                if (checkout < item->getTotalCopies()) {
+                    // set up new number of check out copies
                     item->setCheckedOutCopies (checkout+1);
                     CheckOutTransaction* copy = new CheckOutTransaction(*this);
-                    user->getHistory()->add(copy); // add transaction to user history;
+                   // add transaction to user's hisoty
+                    user->getUserHistory()->add(copy);
                 }
                 else {
+                    // if the item does not exist in the itemCollection,
+                    // print the right information
                     cout << "Command not executed: No copies available\n";
                     print();
                 }
             }
+        
+        // lookUp item is NULL so the item does not exist in the itemCollection
         }else{
+            // print information about it
             cout<< "Book not found in Library." << endl;
             
         }
     }
 }
 
+/*---------------------------------------------------------------------------
+ ===== getItem
+ Descripton: Returns item object on which the cheOutTransaction is performed.
+ Pre:
+ Post: Returns item object on which the cheOutTransaction is performed.
+ ----------------------------------------------------------------------------*/
 Item* CheckOutTransaction::getItem() {
     return this->item;
 }
 
-
+/*---------------------------------------------------------------------------
+ ===== print
+ Descripton: Print information about the checkOutTransaction object
+ Pre:
+ Post:
+ ----------------------------------------------------------------------------*/
 void CheckOutTransaction:: print() const{
     cout << setw (COMMAND_COL_WIDTH) << "Checkout" ;
     item->display();

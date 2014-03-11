@@ -38,7 +38,7 @@ int User::getID() const {
  Pre:
  Post: Returns the user's history object.
  ------------------------------------------------------------------------------*/
-History* User:: getHistory() const{
+History* User:: getUserHistory() const{
     return userHistory;
 }
 
