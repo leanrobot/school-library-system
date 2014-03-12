@@ -50,17 +50,33 @@ to allow different types to be stored.
     the commands/transactions. 
 ==============================================================
 
-
+1. The main instantiates an istream& to the command data.
+2. the main passes this data to manager.processTransactions
+3. while commandData not EOF:
+4.	pass commandData to transactionFactory.createTransaction
+5.	create reads the character, and uses it as key in hashmap
+	to retrieve correct transaction.
+6.	pass the commandData to transaction->create
+7.	transaction instantiates itself and returns
+8.	return the instantiated transaction to the manager
+9.	manager calls execute on the transaction.
+10.	transaction is deleted after execution.
 
 5. Describe any dirty little secrets (e.g., switch used, or
     if-else-if, etc.) If you feel they do not violate the
     open-closed design principle, explain.
 ==============================================================
 
-
+ Everything is beautiful. :)
 
 6. Describe anything you are particularly proud of.
 ==============================================================
+
+ I am proud that we implemented an AVL tree & a HashTable class
+	implemented as seperate c++ classes.
+
+ Also all the blood, sweat, coffee, & tears that went into this assignment.
+ (~30 hours)
 
 
 
