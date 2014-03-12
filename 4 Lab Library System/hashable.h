@@ -4,10 +4,7 @@
 // Authors: Magdalena Grzmiel and Thomas Petit
 //-----------------------------------------------------------------------------
 // Hashable class: is a an abstract class which is a representaion of class
-// which can be hash
-//
-// Assumptions:
-//
+// which can be hashed
 //-----------------------------------------------------------------------------
 #ifndef __HASHABLE_H
 #define __HASHABLE_H
@@ -20,4 +17,4 @@ public:
     virtual char hash() const = 0;
 };
 
-#endif /* __HASHABLE_H */
+#endif /*HASHABLE_H*/
