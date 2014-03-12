@@ -45,7 +45,7 @@ TransactionFactory::TransactionFactory() {
 }
 /*---------------------------------------------------------------------------
  ===== Destructor
-    Descripton: Destructor for factory. delete must be called upon the original
+    Descripton: Destructor for factory. Delete must be called upon the original
     instance call in order to correctly destroy all instances.
  ----------------------------------------------------------------------------*/
 TransactionFactory::~TransactionFactory() {

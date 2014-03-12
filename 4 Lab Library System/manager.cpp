@@ -1,7 +1,6 @@
 #include "manager.h"
 #include "userfactory.h"
 #include "itemfactory.h"
-
 #include "displaytransaction.h"
 #include "checkouttransaction.h"
 

@@ -25,7 +25,6 @@ const int FACTORY_MAX_SIZE = 26;
 class TransactionFactory {
     
 public:
-    
     // Create the instance of transaction 
     static TransactionFactory* instance();
     

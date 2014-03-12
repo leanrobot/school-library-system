@@ -63,8 +63,8 @@ ItemFactory::~ItemFactory() {
  ----------------------------------------------------------------------------*/
 Item* ItemFactory::createItem(istream& input) {
     
-    char itemType = input.get(); //get the item type.
-    input.get(); //throwaway the space.
+    char itemType = input.get(); //get the item type
+    input.get();                 //throwaway the space
     
     //cout << "looking for " << itemType << endl;
     
@@ -75,8 +75,8 @@ Item* ItemFactory::createItem(istream& input) {
         Item* item = static_cast<Item*>(hashed);
         return item->create();
     }
-    else { // not supported, throw away line.
-        // read the rest of the line
+    else { // not supported, throw away line
+           // read the rest of the line
         string throwAway;
         getline(input, throwAway);
     }

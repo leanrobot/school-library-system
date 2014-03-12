@@ -1,32 +1,57 @@
-//
-//  itemcollection.h
-//  4 Lab Library System
-//
-//  Created by Tom Petit on 3/6/14.
-//  Copyright (c) 2014 University of Washington, Bothell. All rights reserved.
-//
+//-----------------------------------------------------------------------------
+// ITEMCOLLECTION.H
+// ItemCollection class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// ItemCollection: is a collection of of the items contained in the library.
+// Includes:
+// -- All of the items are stored in a ballanced BST 
+// -- Contains methods for inserting and retrieving item
+// -- Contain retrive method which return the array with the trees
+// Assumptions:
+// --itemCollection assumes access to itemTree class
+//-----------------------------------------------------------------------------
 
-#ifndef ____Lab_Library_System__itemcollection__
-#define ____Lab_Library_System__itemcollection__
+#ifndef ITEMCOLLECTION_H
+#define ITEMCOLLECTION_H
 
 #include <iostream>
 #include "itemtree.h"
 
 class ItemCollection {
-private:
-    
-    static const int MAX_ITEM_TYPES = 26;
-    ItemTree* items[MAX_ITEM_TYPES];
-    int hash(char ch);
-
 
 public:
+    // Constructor
     ItemCollection();
+    
+    // Destructor
     ~ItemCollection();
-    bool insert(Item*);
+    
+    // insert
+    // Insert item to the right tree
+    void insert(Item*);
+    
+    // retrive
+    // Travers through the tree and if finds the item for which is looking for,
+    // returns pointer to that item
     Item* retrieve(Item*);
-    ItemTree** retrieveAll(int& arraySize); //returns items array.
+    
+    // retriveAll
+    // Returns the array of itemTree with all of the items
+    ItemTree** retrieveAll(int& arraySize);
+    
+private:
+    // the size of the array
+    static const int MAX_ITEM_TYPES = 26;
+    
+    // array which keeps pointers to the tree with items
+    ItemTree* items[MAX_ITEM_TYPES];
+    
+   // hash
+   // Helper method which is used to calculate the index of the array
+   // with the right type tree
+   int hash(char ch);
 
 };
 
-#endif /* defined(____Lab_Library_System__itemcollection__) */
+#endif
