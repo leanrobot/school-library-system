@@ -47,8 +47,8 @@ void ItemCollection::insert(Item* toInsert) {
 
 /*---------------------------------------------------------------------------
  ===== retrive
- Descripton: Travers through the tree and if finds the item for which is looking
- for, returns pointer to that item
+ Descripton: Travers through the tree and if finds the item for which is 
+    looking for, returns pointer to that item
  Pre:
  Post:
  ----------------------------------------------------------------------------*/
@@ -73,7 +73,7 @@ ItemTree** ItemCollection::retrieveAll(int& arraySize) {
 /*---------------------------------------------------------------------------
  ===== hash
  Descripton: Helper method which is used to calculate the index of the array
- with the right type tree
+    with the right type tree
  Pre:
  Post:
  ----------------------------------------------------------------------------*/

@@ -22,37 +22,37 @@ int main() {
 
 	// check if the file with users exists
     //ifstream infile1("testpatrons.txt");
-	ifstream infile1("data4patrons.txt");
-	if (!infile1) {
+	ifstream patronData("data4patrons.txt");
+	if (!patronData) {
 		cout << "File could not be opened." << endl;
 		return 1;
 	}
     
     // build users
-	manager.buildUsers(infile1);
+	manager.buildUsers(patronData);
     
     
 	// check if the file with items exists
     //ifstream infile2("testbooks.txt");
-	ifstream infile2("data4books.txt");
-	if (!infile2) {
+	ifstream itemData("data4books.txt");
+	if (!itemData) {
 		cout << "File could not be opened." << endl;
 		return 1;
 	}
     
     //build items
-	manager.buildItems(infile2);
+	manager.buildItems(itemData);
     
 	// check if the file with transactions exists
     //ifstream infile3("testcommands.txt");
-	ifstream infile3("data4commands.txt");
-	if (!infile3) {
+	ifstream commandData("data4commands.txt");
+	if (!commandData) {
 		cout << "File could not be opened." << endl;
 		return 1;
 	}
     
     // process transactions
-	manager.processTransaction(infile3);
+	manager.processTransaction(commandData);
 	
     return 0;
     

@@ -123,10 +123,14 @@ int HashTable::size() const {
  Post: positive integer, or -1 if not found or error happened.
  ----------------------------------------------------------------------------*/
 int HashTable::indexOf(char key) const {
+    
+    //invalid key
     if(!('A' <= key && key <= 'Z')) return -1;
+    
     int index = (key - 'A') % tableSize;
     
-    //Quadratic probing, closed hashing.
+    //Quadratic probing, closed hashing. Stop when the hash is equal to the
+    //  hash of the value.
     for(int collisions = 1;
         table[index] != NULL && table[index]->hash() != key;
         collisions++)

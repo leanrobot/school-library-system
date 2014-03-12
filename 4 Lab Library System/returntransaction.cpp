@@ -71,12 +71,11 @@ Transaction* ReturnTransaction:: create(istream&infile){
 /*-----------------------------------------------------------------------------
  ===== execute ( run command )
  Descripton: Executes the transaction, for a return transaction, this will
- first check if the user with given Id exist in userCollection, then it will
- find if the item which the user wants to return exist and if the user check out
- that item earlier. Then it will add this transaction to user' history and
- increase the number of available copies for the given item.
- Pre:
- Post:
+     first check if the user with given Id exist in userCollection, then it 
+    will find if the item which the user wants to return exist and if the
+    user check out that item earlier. Then it will add this transaction to
+    user' history and increase the number of available copies for 
+    the given item.
  -----------------------------------------------------------------------------*/
 void ReturnTransaction:: execute(ItemCollection& itemCollection, map <int, User*> & userCollection){
     
