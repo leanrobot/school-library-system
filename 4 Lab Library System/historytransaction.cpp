@@ -1,12 +1,27 @@
+//-----------------------------------------------------------------------------
+// HISTORYTRANSACTION.CPP
+// HistoryTransaction class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// HistoryTransaction class: is a class which is responsible for creating
+// HistoryTransaction object and execute history operation on an UserCollection
+// object. The class implements following methods:
+// -- create
+// -- execute
+// -- print
+//
+// Assumptions:
+// -- the create method creates and returns object HistoryTransaction only if
+//    the provided data is correct, otherwise return NULL
+//-----------------------------------------------------------------------------
+
 #include "historytransaction.h"
 #include "itemfactory.h"
 
 /*-----------------------------------------------------------------------------
  ===== Constructor
  Descripton: sets the specific transaction type for identification purposes.
- Pre:
- Post:
- -----------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 HistoryTransaction:: HistoryTransaction (){
     transactionType = 'H';
     user = NULL;
@@ -16,9 +31,7 @@ HistoryTransaction:: HistoryTransaction (){
  ===== Destructor
  Descripton: All items stored in the history transactions are destroyed
  by other destructors.
- Pre:
- Post:
- -----------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 HistoryTransaction:: ~HistoryTransaction (){}
 
 /*-----------------------------------------------------------------------------
@@ -42,15 +55,12 @@ Transaction* HistoryTransaction:: create(istream&infile){
  ===== Execute ( run command )
  Descripton: executes the transaction. For a history transaction, this will
  display the history for a specific user.
- Pre:
- Post:
- -----------------------------------------------------------------------------*/
-void HistoryTransaction:: execute(
-                                  ItemCollection& itemCollection,
+-----------------------------------------------------------------------------*/
+void HistoryTransaction:: execute(ItemCollection& itemCollection,
                                   map <int, User*> & userCollection) {
     
     // check if the user with given ID exists in the userCollection
-    if (userCollection.count(this->userId)>0) {
+    if (userCollection.count(this->userId) > 0) {
         // if exist, assign this user to the user object
         user = userCollection[this->userId];
         
@@ -72,7 +82,5 @@ void HistoryTransaction:: execute(
 /*-----------------------------------------------------------------------------
  ===== Print
  Descripton: Not implemented for history transaction, it will never be printed.
- Pre:
- Post:
- -----------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 void HistoryTransaction:: print() const{ }

@@ -30,19 +30,19 @@ public:
     
     // Overloaded less than operator
     // Determine if this fiction object is less than the other fiction object
-    virtual bool operator<(const Item&) const;
+    virtual bool operator< (const Item& otherItem)const;
     
     // Overloaded greater than operator
     // Determine if this fiction object is greater than the other fiction object
-    virtual bool operator>(const Item&) const;
+    virtual bool operator> (const Item& otherItem)const;
     
     // Overloaded equal operator
     // Determine if two fiction objects are equal
-    virtual bool operator== (const Item&) const;
+    virtual bool operator== (const Item& otherItem)const;
     
     // Overloaded not equal operator
     // Determine if two fiction objects are not equal
-    virtual bool operator!=(const Item&) const;
+    virtual bool operator!= (const Item& otherItem)const;
 	
     // creat
     // Create fiction object
@@ -51,11 +51,11 @@ public:
     // initialize
     // Initialized fiction object when new fiction oject is added to the
     // library
-    virtual void initialize(istream&);
+    virtual void initialize(istream& infile);
     
     // initialize partial
     // Initialized object fiction to perform given transaction on it
-    virtual void initializePartial(istream&);
+    virtual void initializePartial(istream& infile);
     
     // print
     // Print information about the fiction object
@@ -63,7 +63,7 @@ public:
     
     // printHeader
     // Print header for the print method
-    virtual void printHeader() const;
+    virtual void printHeader()const;
     
     // display
     // Print information about the fiction object which is used in the
@@ -71,4 +71,4 @@ public:
     virtual void display()const;
 };
 
-#endif
+#endif /*FICTION_H*/

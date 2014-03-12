@@ -1,16 +1,22 @@
+//-----------------------------------------------------------------------------
+// HASHABLE.H
+// Hashable Class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// Hashable class: is a an abstract class which is a representaion of class
+// which can be hash
 //
-//  hashable.h
-//  4 Lab Library System
+// Assumptions:
 //
-//  Created by Tom Petit on 3/2/14.
-//  Copyright (c) 2014 University of Washington, Bothell. All rights reserved.
-//
-
+//-----------------------------------------------------------------------------
 #ifndef __HASHABLE_H
 #define __HASHABLE_H
 
 class Hashable {
 public:
+    
+    // hash
+    // Pure virtual method which will be implementd in child classes
     virtual char hash() const = 0;
 };
 

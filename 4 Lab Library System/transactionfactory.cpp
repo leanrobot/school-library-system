@@ -1,4 +1,8 @@
 //-----------------------------------------------------------------------------
+// TRANSACTIONFACTORY.CPP
+// TransactionFactory class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
 // Transaction Factory class: a factory that produces instances of transactions
 // Includes the following features:
 //  -- Creates transactions of a specified type
@@ -16,9 +20,9 @@ TransactionFactory* TransactionFactory::_instance = NULL;
 /*---------------------------------------------------------------------------
  ===== Instance creation
  Descripton: This is the "constructor" for the singleton. If an instance
-    doesn't exist, it is created and returned. If it already does exist,
-    it is returned.
- ----------------------------------------------------------------------------*/
+ doesn't exist, it is created and returned. If it already does exist,
+ it is returned.
+----------------------------------------------------------------------------*/
 TransactionFactory* TransactionFactory::instance() {
     if(!instanceFlag) {
         TransactionFactory::instanceFlag = true;
@@ -29,7 +33,7 @@ TransactionFactory* TransactionFactory::instance() {
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: Constructor for the item factory. The different types of supported
-    items are hardcoded here. They are added manually to the hashtable.
+ items are hardcoded here. They are added manually to the hashtable.
  ----------------------------------------------------------------------------*/
 TransactionFactory::TransactionFactory() {
     Hashable* checkoutTrans = new CheckOutTransaction;
@@ -45,9 +49,9 @@ TransactionFactory::TransactionFactory() {
 }
 /*---------------------------------------------------------------------------
  ===== Destructor
-    Descripton: Destructor for factory. Delete must be called upon the original
-    instance call in order to correctly destroy all instances.
- ----------------------------------------------------------------------------*/
+ Descripton: Destructor for factory. Delete must be called upon the original
+ instance call in order to correctly destroy all instances.
+----------------------------------------------------------------------------*/
 TransactionFactory::~TransactionFactory() {
     if(instanceFlag) {
         instanceFlag = false;
@@ -58,9 +62,9 @@ TransactionFactory::~TransactionFactory() {
 /*---------------------------------------------------------------------------
  ===== Create Transaction
  Descripton: Reads from the input stream to determine the type of transaction
-    to create. The first character is read, and this is used to retrieve the
-    correct type from the hash table.
- ----------------------------------------------------------------------------*/
+ to create. The first character is read, and this is used to retrieve the
+ correct type from the hash table.
+----------------------------------------------------------------------------*/
 Transaction* TransactionFactory::createTransaction(istream& infile) {
     char itemType = infile.get(); //get the item type.
     infile.get(); //throwaway the space.

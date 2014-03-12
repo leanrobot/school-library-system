@@ -1,3 +1,19 @@
+//-----------------------------------------------------------------------------
+// FICTION.CPP
+// Fiction class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// Fiction class: a class to represent the fiction objetcs. It is a child class
+// of Book class. Includes following features:
+// -- Compare operators (==, !=, >, <) to compare two fiction objects
+// -- Create fiction object
+// -- Initialized the fiction object
+// -- Print the information about the fiction object
+// -- Print the header
+// -- Print information about the fiction object in user's history
+// Assumptions:
+// --Assumes correct and valid input from user for datamembers
+//-----------------------------------------------------------------------------
 #include "fiction.h"
 #include <iomanip>
 #include <iostream>
@@ -5,9 +21,7 @@
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: Constructor for Fiction class.
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 Fiction:: Fiction(): Book(){
     itemType = 'F';
 }
@@ -139,8 +153,6 @@ void Fiction:: initializePartial(istream& infile){
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Print information abou the fiction object
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Fiction:: print()const {
     cout <<
@@ -152,8 +164,6 @@ void Fiction:: print()const {
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Print header for the print method
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Fiction:: printHeader()const {
     cout << "Fiction:" << endl;
@@ -168,8 +178,6 @@ void Fiction:: printHeader()const {
  ===== print
  Descripton: Print information about the fiction objects which is used in the
  print method in the history transaction object
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Fiction:: display()const {
     cout <<

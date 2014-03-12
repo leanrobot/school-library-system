@@ -34,19 +34,19 @@ public:
     
     // getId
     // Returns the user ID
-    int getID( ) const;
+    int getID()const;
     
     // getName
     // Return the name
-    string getName() const;
+    string getName()const;
     
     // getHistory
     // Returns user's transaction history
-    History* getUserHistory() const;
+    History* getUserHistory()const;
     
     // setName
     // Changes the user's name
-    void setName(string);
+    void setName(string newName);
     
 private:
     

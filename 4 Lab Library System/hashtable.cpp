@@ -1,4 +1,8 @@
 //-----------------------------------------------------------------------------
+// HASHTABLE.CPP
+// UserFactory Class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
 // HashTable class: is a class which is a hash table container class. It is
 // responsible for holding different types of hashable data.
 //
@@ -12,7 +16,7 @@
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: A hashtable is constructed. The implementation uses and array, and
-    intializes all values to be null to start.
+ intializes all values to be null to start.
  Pre: Default value for initial is 71 (a prime number).
  ----------------------------------------------------------------------------*/
 HashTable::HashTable(int initial) {
@@ -72,7 +76,7 @@ Hashable* HashTable::get(char key) const {
  Descripton: Removes a values from the hashtable, and returns it to the user.
  Pre: char key is in range [A-Z].
  Post: NULL or Hashable* is returned. NULL if item is not in table. Hashable*
-    is item that was removed.
+ is item that was removed.
  ----------------------------------------------------------------------------*/
 Hashable* HashTable::remove(char key) {
     int index = indexOf(key);
@@ -96,7 +100,7 @@ bool HashTable::isEmpty() const {
 /*---------------------------------------------------------------------------
  ===== Contains Item?
  Descripton: Returns whether the hashtable contains a specific value associated
-    with char key.
+ with char key.
  Pre: char key is in range [A-Z].
  Post: true if value associated with key, false otherwise.
  ----------------------------------------------------------------------------*/
@@ -124,13 +128,13 @@ int HashTable::size() const {
  ----------------------------------------------------------------------------*/
 int HashTable::indexOf(char key) const {
     
-    //invalid key
+    // Invalid key
     if(!('A' <= key && key <= 'Z')) return -1;
     
     int index = (key - 'A') % tableSize;
     
-    //Quadratic probing, closed hashing. Stop when the hash is equal to the
-    //  hash of the value.
+    // Quadratic probing, closed hashing. Stop when the hash is equal to the
+    // hash of the value.
     for(int collisions = 1;
         table[index] != NULL && table[index]->hash() != key;
         collisions++)

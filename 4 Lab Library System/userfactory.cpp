@@ -1,9 +1,12 @@
 //-----------------------------------------------------------------------------
+// USERFACTORY.CPP
+// UserFactory Class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
 // User Factory class: a factory that produces instances of users
 // Includes the following features:
 //  -- Creates users of a specified type
 //-----------------------------------------------------------------------------
-
 #include "userfactory.h"
 
 // Sets the default values for the static class information
@@ -13,15 +16,15 @@ UserFactory* UserFactory::_instance = NULL;
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: The constructor is declared private to prevent clients from
-    instantiating extra copies of the singleton.
+ instantiating extra copies of the singleton.
  ----------------------------------------------------------------------------*/
 UserFactory::UserFactory() {}
 
 /*---------------------------------------------------------------------------
  ===== Instance
  Descripton: This is the "constructor" for the singleton. If an instance
-    doesn't exist, it is created and returned. If it already does exist,
-    it is returned.
+ doesn't exist, it is created and returned. If it already does exist,
+ it is returned.
  ----------------------------------------------------------------------------*/
 UserFactory* UserFactory::instance() {
     if(!instanceFlag) {
@@ -49,14 +52,14 @@ UserFactory::~UserFactory() {
  ----------------------------------------------------------------------------*/
 User* UserFactory::createUser(istream& input) {
     int id;
-    string name;//, firstName, lastName;
+    string name;                // firstName, lastName;
     
-    if(input.eof()) return NULL; // insufficient data
-    input >> id; // get the id.
-    input.get(); //throw away the space.
-    if(input.eof()) return NULL; //insufficient data
-    getline(input, name); // read the rest of the line, which is the name.
+    if(input.eof()) return NULL;// insufficient data
+    input >> id;                // get the id
+    input.get();                //throw away the space
+    if(input.eof()) return NULL;//insufficient data
+    getline(input, name);       // read the rest of the line, which is the name
     
-    User* u = new User(id, name); // create the user and return.
+    User* u = new User(id, name);// create the user and return
     return u;
 }

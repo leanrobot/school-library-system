@@ -29,12 +29,12 @@ public:
     
     // insert
     // Insert item to the right tree
-    void insert(Item*);
+    void insert(Item* item);
     
     // retrive
     // Travers through the tree and if finds the item for which is looking for,
     // returns pointer to that item
-    Item* retrieve(Item*);
+    Item* retrieve(Item* item);
     
     // retriveAll
     // Returns the array of itemTree with all of the items
@@ -54,4 +54,4 @@ private:
 
 };
 
-#endif
+#endif /* ITEMCOLLECTION_H*/

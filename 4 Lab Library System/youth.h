@@ -31,19 +31,19 @@ public:
     
     // Overloaded less than operator
     // Determine if this youth object is less than the other youth object
-    virtual bool operator< (const Item&)const;
+    virtual bool operator< (const Item& otherItem)const;
     
     // Overloaded greater than operator
     // Determine if this youth object is greater than the other youth object
-    virtual bool operator> (const Item&)const;
+    virtual bool operator> (const Item& otherItem)const;
 
     // Overloaded equal operator
     // Determine if two youth objects are equal
-    virtual bool operator== (const Item&)const;
+    virtual bool operator== (const Item& otherItem)const;
     
     // Overloaded not equal operator
     // Determine if two youth objects are not equal
-    virtual bool operator!= (const Item&)const;
+    virtual bool operator!= (const Item& otherItem)const;
     
     //create
     // Create youth object
@@ -60,7 +60,7 @@ public:
     
     // print
     // Print information about the youth object
-    virtual void print ()const;
+    virtual void print()const;
     
     // printHeader
     // Print header for the print method
@@ -73,5 +73,5 @@ public:
 	
 };
 
-#endif
+#endif /*YOUTH*/
 

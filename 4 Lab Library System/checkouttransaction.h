@@ -1,6 +1,6 @@
 //-----------------------------------------------------------------------------
-// TRANSACTION.H
-// Transaction class
+// CHECKOUTTRANSACTION.H
+// CheckOutTransaction class
 // Authors: Magdalena Grzmiel and Thomas Petit
 //-----------------------------------------------------------------------------
 // CheckOutTransaction class: is a class which is responsible for creating

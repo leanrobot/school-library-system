@@ -1,4 +1,8 @@
 //-----------------------------------------------------------------------------
+// USERFACTORY.H
+// UserFactory Class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
 // User Factory class: a factory that produces instances of users
 // Includes the following features:
 //  -- Creates users of a specified type
@@ -9,24 +13,30 @@
 
 #include <iostream>
 #include <fstream>
-
 #include "user.h"
 
 class UserFactory {
+
 public:
-    static UserFactory* instance(); // Singleton controlled creation function
-    User* createUser(istream&);
+    // Singleton controlled creation function
+    static UserFactory* instance();
+    
+    // CreateUser
+    User* createUser(istream& infile);
+    
+    // Destructor
     ~UserFactory();
+
 private:
     static bool instanceFlag;
     static UserFactory* _instance;
     
     UserFactory(); // private to prevent singleton creation.
-    //declared, but not implemented, to prevent singleton cloning.
-    UserFactory(UserFactory const&);
-    void operator=(UserFactory const&);
+    //d eclared, but not implemented, to prevent singleton cloning.
+    UserFactory(UserFactory const& );
+    void operator= (UserFactory const&);
     
 };
 
-#endif /* USER_FACTORY_H */
+#endif /* USERFACTORY_H */
 

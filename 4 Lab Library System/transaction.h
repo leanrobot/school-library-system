@@ -35,23 +35,23 @@ public:
 	// create
 	// This is a pure virtual method.
 	// Overridden methods will create the Transaction object
-	virtual Transaction* create(istream&) = 0;
+	virtual Transaction* create(istream& infile) = 0;
     
 	// execute
 	// This is a pure virtual method.
 	// Overridden methods will execute certain actions on ItemCollection
     // and UserCollection objects
 	virtual void execute(ItemCollection& items, map<int,
-                         User*> & userCollection) = 0;
+                         User*>& userCollection) = 0;
     
     // hash
     // Hash function return the type of transaction
-    virtual char hash() const;
+    virtual char hash()const;
     
     // print
     // This is a pure virtual method.
     // Overridden method will displays information about the transaction
-    virtual void print() const =0;
+    virtual void print()const = 0;
     
     
 protected:

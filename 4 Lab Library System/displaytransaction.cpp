@@ -1,11 +1,25 @@
+//-----------------------------------------------------------------------------
+// DISPLAYTRANSACTION.CPP
+// DisplayTransaction class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// DisplayTransaction class: is a class which is responsible for creating
+// DisplayTransaction object and execute display operation on ItemCollection.
+// The class implements following methods:
+// -- create
+// -- execute
+// -- print
+//
+// Assumptions:
+// - the create method creates and returns object DisplayTransaction only if
+//   the provided data is correct, otherwise return NULL
+//-----------------------------------------------------------------------------
 #include "displaytransaction.h"
 
 /*-----------------------------------------------------------------------------
  ===== Constructor
  Descripton: sets the specific transaction type for identification purposes.
- Pre:
- Post:
- -----------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 DisplayTransaction::DisplayTransaction() {
     transactionType = 'D';
 }
@@ -13,9 +27,7 @@ DisplayTransaction::DisplayTransaction() {
 /*-----------------------------------------------------------------------------
  ===== Destructor
  Descripton:
- Pre:
- Post:
- -----------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 DisplayTransaction::~DisplayTransaction() {}
 
 /*-----------------------------------------------------------------------------
@@ -24,7 +36,7 @@ DisplayTransaction::~DisplayTransaction() {}
  transaction is read from the istream, which points to the command file.
  Pre:
  Post: returns an initialized display transaction.
- -----------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 Transaction* DisplayTransaction::create(istream& infile) {
     return new DisplayTransaction;
 }
@@ -33,9 +45,7 @@ Transaction* DisplayTransaction::create(istream& infile) {
  ===== execute ( run command )
  Descripton: executes the transaction. For a display transaction, this will
  display all of the items in the ItemCollection object
- Pre:
- Post:
- -----------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 void DisplayTransaction::execute(ItemCollection& itemCollection,
                                  map<int, User*> & userCollection) {
     
@@ -58,7 +68,5 @@ void DisplayTransaction::execute(ItemCollection& itemCollection,
 /*-----------------------------------------------------------------------------
  ===== Print
  Descripton: Not implemented for display transaction, it will never be printed.
- Pre:
- Post:
- -----------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 void DisplayTransaction::print()const {}

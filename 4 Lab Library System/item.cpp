@@ -1,12 +1,31 @@
+//-----------------------------------------------------------------------------
+// ITEM.CPP
+// Item class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// Item class: is an abstract class that defines an item object
+// -- it is a parent class of Book and Periodical classes
+// Includes following features:
+// -- Get and set methods for private data members
+// -- Pure virtual methods for comparing two objects (==, !=, >, <)
+// -- Pure virtual method for creating an item object which is implemented in
+//    each child class
+// -- Pure virtual methods for initializing the item object which are
+//    implementd in each child class
+// -- Pure virtual method for printing information about the given type of the
+//    item which is implemented in each child class.
+// -- Pure virtual method for printing information about the item object in
+//     user's history
+// Assumptions:
+// -- Assumes that valid input is given for datamembers
+//-----------------------------------------------------------------------------
 #include "item.h"
 
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: Constructor for Item class. Set the number of total copies to 5, 
  the bumber of checkout copies to 0 and item formato to 'H' (hardcopy)
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 Item:: Item(){
     totalCopies = 5;
     checkedOutCopies = 0;
@@ -36,8 +55,6 @@ char Item:: getItemType()const{
 /*---------------------------------------------------------------------------
  ===== setItemType
  Descripton: Set the item type
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Item:: setItemType(char type){
     itemType = type;
@@ -56,9 +73,7 @@ int Item:: getTotalCopies() const{
 /*---------------------------------------------------------------------------
  ===== setTotalCopies
  Descripton: Set the total number of copies of item
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 void Item:: setTotalCopies(int newTotalCopies){
     totalCopies = newTotalCopies;
 }
@@ -76,8 +91,6 @@ int Item:: getCheckedOutCopies() const{
 /*---------------------------------------------------------------------------
  ===== setCheckedOutCopies
  Descripton: Set the number of copies checked out
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Item:: setCheckedOutCopies(int newCheckOutCopies){
     checkedOutCopies = newCheckOutCopies;
@@ -96,9 +109,7 @@ int Item:: getYear() const{
 /*---------------------------------------------------------------------------
  ===== setYear
  Descripton: Set the publication year
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 void Item:: setYear(int newYear){
     year = newYear;
 }
@@ -116,8 +127,6 @@ string Item:: getTitle() const{
 /*---------------------------------------------------------------------------
  ===== setTitle
  Descripton: Set the title of the item
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Item:: setTitle(string newTitle){
     title = newTitle;

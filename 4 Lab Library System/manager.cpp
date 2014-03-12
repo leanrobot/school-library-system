@@ -1,3 +1,25 @@
+//-----------------------------------------------------------------------------
+// MANAGER.CPP
+// Manager class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// Manager class: is a class which reads data from files and create users,
+// items and transactions objects. The User objects are added to the
+// UserCollection users and the items objects are added to the ItemCollection
+// items. Transaction objects are created and the the function execute is
+// called on them. The class implements following methods:
+// -- buildUsers
+// -- buildItems
+// -- processTransaction
+//
+// Assumptions:
+// -- three data files will be provided, one contains information of users, one
+//    contains information about items, and one contains transactions that
+//    users performed.
+// -- the data in each file is in the correct format.
+// -- if the data contain incorrect values (e.g. wrong type of book),
+//    the object will not be created and therefore added/executed.
+//-----------------------------------------------------------------------------
 #include "manager.h"
 #include "userfactory.h"
 #include "itemfactory.h"

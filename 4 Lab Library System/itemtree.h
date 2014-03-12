@@ -85,15 +85,15 @@ private:
     
     // rightRight
     // RightRight rotation to keep the tree balanced
-    void rightRight(Node*&k2);
+    void rightRight(Node*& k2);
     
     // leftRight
     // LeftRight rotation to keep the tree balanced
-    void leftRight(Node*&k3);
+    void leftRight(Node*& k3);
     
     // rightLeft
     // RightLeft rotation to keep the tree balanced
-    void rightLeft(Node*&k3);
+    void rightLeft(Node*& k3);
     
     // removesNodes
     // Helper method which removes all nodes from the ItemTree
@@ -101,4 +101,4 @@ private:
     
 };
 
-#endif
+#endif /*ITEMTREE_H*/

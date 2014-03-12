@@ -1,11 +1,25 @@
+//-----------------------------------------------------------------------------
+// YOUTH.CPP
+// Youth class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// Youth class: a class to represent the youth objetcs. It is a child class
+// of Book class. Includes following features:
+// -- Compare operators (==, !=, >, <)to compare two youths
+// -- Create youth object
+// -- Initialized the youth object
+// -- Print the information about the youth object
+// -- Print the header
+// -- Print information about the youth object in user's history
+// Assumptions:
+// --Assumes correct and valid input from user for datamembers
+//-----------------------------------------------------------------------------
 #include "youth.h"
 #include <iomanip>
 
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: Constructor for Youth class.
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 Youth:: Youth(){
     itemType = 'Y';
@@ -139,8 +153,6 @@ void Youth::initializePartial(istream& infile) {
 /*----------------------------------------------------------------------------
  ===== print
  Descripton: Print information abou the youth object
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Youth:: print() const {
     cout <<
@@ -153,8 +165,6 @@ void Youth:: print() const {
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Print header for the print method
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Youth:: printHeader()const {
     cout << "Youth:" << endl;
@@ -169,8 +179,6 @@ void Youth:: printHeader()const {
  ===== print
  Descripton: Print information about the youth objects which is used in the
  print method in the history transaction object
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Youth:: display()const {
     cout <<

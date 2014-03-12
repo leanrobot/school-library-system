@@ -1,4 +1,7 @@
-
+//-----------------------------------------------------------------------------
+// History.H
+// History class
+// Authors: Magdalena Grzmiel and Thomas Petit
 //-----------------------------------------------------------------------------
 // History class: Represents the history of a patron's transactions. Includes
 // the following features:
@@ -25,18 +28,21 @@ class History {
     
 public:
     
-	// constructor
+	// Constructor
     History( );
     
-    // destructor
+    // Destructor
     ~History( );
     
+    // add
     // add a new item
-    void add(Transaction* );
+    void add(Transaction* oneTransaction);
     
+    // display
     // display the transaction history
-    void display( ) const;
+    void display( )const;
     
+    // getHistory
     //get the history linked list.
     list<Transaction*>& getHistory();
     
