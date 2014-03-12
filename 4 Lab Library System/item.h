@@ -42,6 +42,10 @@ public:
     // setItemType
     // Set the itemtype
     void setItemType(char itemType);
+    
+    // getItemFormat
+    // retrieves the item format (this better be an H!)
+    char getItemFormat() const;
 
     // getTotalCopies
     // Returns the number of copies of the item

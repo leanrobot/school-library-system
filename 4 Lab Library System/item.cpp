@@ -60,6 +60,11 @@ void Item:: setItemType(char type){
     itemType = type;
 }
 
+char Item::getItemFormat() const {
+    return itemFormat;
+}
+
+
 /*---------------------------------------------------------------------------
  ===== getTotalCopies
  Descripton: Retrieve the total copies of item
@@ -141,4 +146,6 @@ void Item:: setTitle(string newTitle){
 char Item:: hash()const{
     return itemType;
 }
+
+
 

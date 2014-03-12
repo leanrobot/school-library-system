@@ -97,8 +97,16 @@ void CheckOutTransaction:: execute(ItemCollection& itemCollection, map <int,
         // if exist, assign this user to the user object
         user = userCollection[this->userId];
         
+	
+	
         // check if the lookUp item is not NULL
         if (this->lookUpItem !=NULL){
+	    
+	    // If there is an invalid item format, abort command.
+	    if(this->lookUpItem->getItemFormat() != 'H') {
+		cout << "Command not executed: Invalid item format" << endl;
+	    }
+	    
             // find the item in itemsCollection
             item = itemCollection.retrieve(this->lookUpItem);
             

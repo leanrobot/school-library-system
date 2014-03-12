@@ -138,8 +138,8 @@ void Youth::initialize(istream& infile) {
 void Youth::initializePartial(istream& infile) {
     string title, author;
     
-    infile.get();                  // discard hardcopy and space
-    infile.get();
+    itemFormat = infile.get(); // set item format
+    infile.get();		// discard trailing space.
     getline(infile, title, ',');   // input title, looks for comma terminator
     infile.get();
     getline(infile, author, ',');  // input author

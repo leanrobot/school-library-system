@@ -167,7 +167,8 @@ void Periodical::initializePartial(istream& infile) {
     string  title;
     int year, month;
     
-    infile.get(); infile.get();  // discard the 'H' char and extra space
+    itemFormat = infile.get();
+    infile.get();  // discard space
     infile >> year;              // input the month,
     infile >> month;             // then the year
     infile.get();                // discard the extra space

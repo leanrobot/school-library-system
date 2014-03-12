@@ -138,8 +138,8 @@ void Fiction:: initialize(istream& infile){
 void Fiction:: initializePartial(istream& infile){
     string author, title;
     
-    infile.get();                 // discard hardcopy and space
-    infile.get();
+    itemFormat = infile.get();                
+    infile.get();			 // discard space
     getline(infile, author, ','); // input author, looks for comma terminator
     infile.get();                 // get (and ignore) blank before title
     getline(infile, title, ',');  // input title
