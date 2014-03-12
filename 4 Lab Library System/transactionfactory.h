@@ -1,4 +1,8 @@
 //-----------------------------------------------------------------------------
+// TRANSACTIONFACTORY.H
+// TransactionFactory class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
 // Transaction Factory class: a factory that produces instances of transactions
 // Includes the following features:
 //  -- Creates transactions of a specified type
@@ -28,13 +32,16 @@ public:
     // Create the instance of transaction 
     static TransactionFactory* instance();
     
-    //Destructor
+    // Destructor
     ~TransactionFactory( );
-    Transaction* createTransaction(istream&);
-                        // creates a Transaction of the desired type
+    
+    // Creates a Transaction of the desired type
+    Transaction* createTransaction(istream& infile);
+    
   
 private:
-    TransactionFactory( );         // constructor
+    // Constructor
+    TransactionFactory( );
     
     // Variables associated with the singleton pattern.
     static bool instanceFlag;               // true if instance exists

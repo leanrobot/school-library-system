@@ -36,25 +36,25 @@ public:
     
     // setMonth
     // Set the month of the book's publishing parameter
-    void setMonth(int);
+    void setMonth(int newMonth);
     
     // Overloaded less than operator
     // Determine if this periodical object is less than the other periodical
     // object
-    virtual bool operator< (const Item&)const;
+    virtual bool operator< (const Item& otherItem)const;
     
     // Overloaded greater than operator
     // Determine if this periodical object is greater than the other
     // periodical object
-    virtual bool operator> (const Item&)const;
+    virtual bool operator> (const Item& otherItem)const;
     
     // Overloaded equal operator
     // Determine if two periodical objects are equal
-    virtual bool operator== (const Item&)const;
+    virtual bool operator== (const Item& otherItem)const;
     
     // Overloaded not equal operator
     // Determine if two periodical objects are not equal
-    virtual bool operator!= (const Item&)const;
+    virtual bool operator!= (const Item& otherItem)const;
     
     // create
     // create periodical object
@@ -63,11 +63,11 @@ public:
     // initialize
     // Initialized periodical object when new periodical is added to the
     // library
-    virtual void initialize(istream&);
+    virtual void initialize(istream& infile);
     
     // initialize partial
     // Initialized object peridical to perform given transaction on it
-    virtual void initializePartial(istream&);
+    virtual void initializePartial(istream& infile);
     
     // print
     // Print information about the periodical object
@@ -88,4 +88,4 @@ private:
     int month;
 };
 
-#endif
+#endif /* PERIODICAL_H */

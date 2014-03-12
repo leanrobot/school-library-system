@@ -34,7 +34,7 @@ public:
 	// This method parses the data out of the string and then checks the data.
 	// If the data is correct, creates the DisplayTransaction object and
 	// returns it, otherwise does not create the object and returns NULL
-	virtual Transaction* create(istream& input);
+	virtual Transaction* create(istream& infile);
     
 	// execute
 	// This method executes display operations on an ItemCollection object
@@ -43,8 +43,8 @@ public:
     
     // print
     // Not implementd for this class
-    virtual void print() const;
+    virtual void print()const;
     
 };
 
-#endif
+#endif /*DISPLAYTRANSACTION_H*/

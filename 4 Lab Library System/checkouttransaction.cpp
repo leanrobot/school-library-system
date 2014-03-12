@@ -1,12 +1,27 @@
+//-----------------------------------------------------------------------------
+// CHECKOUTTRANSACTION.H
+// CheckOutTransaction class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// CheckOutTransaction class: is a class which is responsible for creating
+// CheckOutTransaction object and execute checkOut opertions on itemsCollection
+// and UserCollection objects. The class implements following methods:
+// -- create a checkOut transaction object
+// -- execute the operation
+// -- print information about the checkOut transaction object
+// -- getItem
+//
+// Assumptions:
+// -- the create method creates and returns object CheckOutTransaction only if
+//    the provided data is correct, otherwise return NULL
+//-----------------------------------------------------------------------------
 #include "checkouttransaction.h"
 #include "itemfactory.h"
 
 /*---------------------------------------------------------------------------
  ===== Default constructor
  Descripton: sets the specific transaction type for identification purposes.
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 CheckOutTransaction:: CheckOutTransaction (){
     transactionType = 'C';
     user=NULL;
@@ -15,9 +30,7 @@ CheckOutTransaction:: CheckOutTransaction (){
 /*---------------------------------------------------------------------------
  ===== Copy Constructor
  Descripton: Create chekOutTransaction object the same like rhs object
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 CheckOutTransaction::CheckOutTransaction(const CheckOutTransaction& rhs) {
     user = rhs.user;
     item = rhs.item;
@@ -75,9 +88,7 @@ Transaction* CheckOutTransaction:: create(istream&infile){
  find if the item which the user wants to checkOut exist and is available in the
  library, then it will add this transaction to user' history and change the 
  number of checkOut copies for the given item.
- Pre:
- Post:
- -----------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 void CheckOutTransaction:: execute(ItemCollection& itemCollection, map <int,
                                    User*> & userCollection){
     
@@ -135,9 +146,7 @@ Item* CheckOutTransaction::getItem() {
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Print information about the checkOutTransaction object
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 void CheckOutTransaction:: print() const{
     cout << setw (COMMAND_COL_WIDTH) << "Checkout" ;
     item->display();

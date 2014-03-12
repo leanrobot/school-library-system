@@ -1,11 +1,27 @@
+//-----------------------------------------------------------------------------
+// PERIODICAL.CPP
+// Periodical class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// Periodical class: a class to represent the periodical objetcs. It is a child
+// class of Item class. Includes following features:
+// -- Get the month when the book was published
+// -- Set a new publishing month for the book
+// -- Compare operators (==, !=, >, <)to compare two periodicals
+// -- Create periodical object
+// -- Initialized the periodical object
+// -- Print the information about the periodical object
+// -- Print the header
+// -- Print information about the periodical object in user's history
+// Assumptions:
+// --assumes valid and correct input for data members
+//-----------------------------------------------------------------------------
 #include "periodical.h"
 #include <iomanip>
 
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: Constructor for Periodical class.
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 Periodical:: Periodical(){
     itemType = 'P';
@@ -25,10 +41,12 @@ int Periodical:: getMonth() const{
  ===== setMonth
  Descripton: Set up the month of publishing
  Pre:
- Post:
+ Post: Set up the month only if the given month is between 1 and 12
  ----------------------------------------------------------------------------*/
 void Periodical:: setMonth(int newMonth){
+    if (newMonth >= 1 && newMonth <= 12){
     this->month = newMonth;
+    }
 }
 
 /*---------------------------------------------------------------------------
@@ -165,8 +183,6 @@ void Periodical::initializePartial(istream& infile) {
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Print information about the periodical object
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Periodical:: print()const {
     cout <<
@@ -179,8 +195,6 @@ void Periodical:: print()const {
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Print header for the print method
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Periodical:: printHeader() const {
     cout << "Periodical:" << endl;
@@ -195,8 +209,6 @@ void Periodical:: printHeader() const {
  ===== print
  Descripton: Print information about the periodical which are used in the
  print method in the history transaction object
- Pre:
- Post:
  ----------------------------------------------------------------------------*/
 void Periodical:: display()const {
     cout <<

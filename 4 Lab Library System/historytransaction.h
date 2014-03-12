@@ -27,7 +27,6 @@
 class HistoryTransaction: public Transaction {
 
 public:
-
     // Default constructor
     HistoryTransaction();
 
@@ -38,7 +37,7 @@ public:
     // This method parses the date out of the string and then checks the data.
     // If the data is correct, creates the HistoryTransaction object and
     // returns it, otherwise does not create the object and returns NULL
-    virtual Transaction* create(istream& input);
+    virtual Transaction* create(istream& infile);
 
     // execute
     // This method executes history operation on an UserCollection object
@@ -59,4 +58,4 @@ private:
 
 };
 
-#endif
+#endif /*HISTORYTRANSACTION_H*/

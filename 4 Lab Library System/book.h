@@ -26,7 +26,7 @@
 
 using namespace std;
 
-class Book : public Item{
+class Book: public Item{
 
 public:
     // getAuthor
@@ -40,22 +40,22 @@ public:
     // Overloaded less than operator
     // Pure virtul method which will be implemented by child classes
     // to determine if given object is less than the other given object
-    virtual bool operator< (const Item&)const = 0;
+    virtual bool operator< (const Item& otherItem)const = 0;
     
     // Overloaded greater than operator
     // Pure virtul method which will be implemented by child class
     // to determine if given object is greater than the other given object
-    virtual bool operator> (const Item&)const = 0 ;
+    virtual bool operator> (const Item& otherItem)const = 0 ;
     
     // Overloaded equal operator
     // Pure virtul method which will be implemented by child classes
     // to determine if two given objects are equal
-    virtual bool operator== (const Item&)const = 0;
+    virtual bool operator== (const Item&otherItem)const = 0;
     
     // Overloaded not equal operator
     // Pure virtul method which will be implemented by child classes
     // to determine if two given objects are not equal
-    virtual bool operator!= (const Item&)const = 0 ;
+    virtual bool operator!= (const Item& otherItem)const = 0 ;
 
     // create
     // Pure virtul method which will be implemented by child classes
@@ -66,12 +66,12 @@ public:
     // Pure virtual method which will implemented by child classes
     // to initialized object when new object is added to the
     // library
-    virtual void initialize(istream&) = 0;
+    virtual void initialize(istream& infile) = 0;
     
     // initialize partial
     // Pure virtual method which will implemented by child classes
     // to initialized object to perform given transaction on it
-    virtual void initializePartial(istream&) = 0;
+    virtual void initializePartial(istream& infile) = 0;
 	
     // print
     // Pure virtual method which will be implemented by child classes
@@ -93,4 +93,4 @@ protected:
     string author;
 };
 
-#endif
+#endif /*BOOK_H*/

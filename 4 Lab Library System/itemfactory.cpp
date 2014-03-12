@@ -1,4 +1,8 @@
 //-----------------------------------------------------------------------------
+// ITEMFACTORY.CPP
+// ItemTree Class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
 // ItemFactory class: a factory that produces instances of items. Includes the
 // following features:
 //  -- Creates items of a specified type
@@ -16,8 +20,8 @@ ItemFactory* ItemFactory::_instance = NULL;
 /*---------------------------------------------------------------------------
  ===== Instance creation
  Descripton: This is the "constructor" for the singleton. If an instance
-    doesn't exist, it is created and returned. If it already does exist,
-    it is returned.
+ doesn't exist, it is created and returned. If it already does exist,
+ it is returned.
  ----------------------------------------------------------------------------*/
 ItemFactory* ItemFactory::instance() {
     if(!instanceFlag) {
@@ -29,7 +33,7 @@ ItemFactory* ItemFactory::instance() {
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: Constructor for the item factory. The different types of supported
-    items are hardcoded here. They are added manually to the hashtable.
+ items are hardcoded here. They are added manually to the hashtable.
  ----------------------------------------------------------------------------*/
 ItemFactory::ItemFactory() {
     // create the different types
@@ -46,7 +50,7 @@ ItemFactory::ItemFactory() {
 /*---------------------------------------------------------------------------
  ===== Destructor
  Descripton: Destructor for factory. delete must be called upon the original
-    instance call in order to correctly destroy all instances.
+ instance call in order to correctly destroy all instances.
  ----------------------------------------------------------------------------*/
 ItemFactory::~ItemFactory() {
     if(instanceFlag) {
@@ -58,15 +62,13 @@ ItemFactory::~ItemFactory() {
 /*---------------------------------------------------------------------------
  ===== Create Item
  Descripton: Reads from the input stream to determine the type of item to
-    create. The first character is read, and this is used to retrieve the
-    correct type from the hash table.
+ create. The first character is read, and this is used to retrieve the
+ correct type from the hash table.
  ----------------------------------------------------------------------------*/
 Item* ItemFactory::createItem(istream& input) {
     
     char itemType = input.get(); //get the item type
     input.get();                 //throwaway the space
-    
-    //cout << "looking for " << itemType << endl;
     
     //read the first character
     if(itemTable.contains(itemType)) {

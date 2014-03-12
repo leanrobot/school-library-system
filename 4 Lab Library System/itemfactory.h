@@ -1,4 +1,8 @@
 //-----------------------------------------------------------------------------
+// ITEMTFACTORY.H
+// ItemTree Class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
 // ItemFactory class: a factory that produces instances of items. Includes the
 // following features:
 //  -- Creates items of a specified type
@@ -14,9 +18,9 @@
 #include "youth.h"
 #include "fiction.h"
 #include "periodical.h"
-
 #include "hashtable.h"
 
+// size of the array
 const int MAX_FACTORY_SIZE = 26;
 
 class ItemFactory {
@@ -32,11 +36,11 @@ private:
     static ItemFactory* _instance;
     
     ItemFactory();   // constructor
-    //These are declared, but not implemented to prevent copies of
-    //  the singleton from being made.
+    // These are declared, but not implemented to prevent copies of
+    // the singleton from being made.
     ItemFactory(ItemFactory& copy);
     void operator=(ItemFactory& copy);
     
 };
 
-#endif /* ITEM_FACTORY_H */
+#endif /* ITEMFACTORY_H */

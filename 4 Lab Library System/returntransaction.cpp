@@ -1,3 +1,20 @@
+//-----------------------------------------------------------------------------
+// RETURNTRANSACTION.H
+// ReturnTransaction class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
+// ReturnTransaction class: is a class which is responsible for creating
+// ReturnTransaction object and execute return operation on ItemCollection
+// and UserCollection objects. The class implements following methods:
+// -- create return transaction object
+// -- execute the operation
+// -- print information about the return transaction object
+//
+// Assumptions:
+// -- the create method creates and returns object ReturnTransaction only if
+//    the provided data is correct, otherwise return NULL
+//-----------------------------------------------------------------------------
+
 #include "returntransaction.h"
 #include "checkouttransaction.h"
 #include "itemfactory.h"
@@ -5,9 +22,7 @@
 /*---------------------------------------------------------------------------
  ===== Default constructor
  Descripton: sets the specific transaction type for identification purposes.
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 ReturnTransaction:: ReturnTransaction (){
     transactionType = 'R';
     user = NULL;
@@ -16,9 +31,7 @@ ReturnTransaction:: ReturnTransaction (){
 /*---------------------------------------------------------------------------
  ===== Copy Constructor
  Descripton: Create chekOutTransaction object the same like rhs object
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 ReturnTransaction::ReturnTransaction(const ReturnTransaction& rhs) {
     item = rhs.item;
     user = rhs.user;
@@ -71,13 +84,14 @@ Transaction* ReturnTransaction:: create(istream&infile){
 /*-----------------------------------------------------------------------------
  ===== execute ( run command )
  Descripton: Executes the transaction, for a return transaction, this will
-     first check if the user with given Id exist in userCollection, then it 
-    will find if the item which the user wants to return exist and if the
-    user check out that item earlier. Then it will add this transaction to
-    user' history and increase the number of available copies for 
-    the given item.
+ first check if the user with given Id exist in userCollection, then it
+ will find if the item which the user wants to return exist and if the
+ user check out that item earlier. Then it will add this transaction to
+ user' history and increase the number of available copies for
+ the given item.
  -----------------------------------------------------------------------------*/
-void ReturnTransaction:: execute(ItemCollection& itemCollection, map <int, User*> & userCollection){
+void ReturnTransaction:: execute(ItemCollection& itemCollection,
+                                 map <int, User*> & userCollection){
     
     // check if the user with given ID exist in the userCollection
     if (userCollection.count(this->userId)>0){
@@ -156,9 +170,7 @@ bool ReturnTransaction::isCheckedOutByUser(Item* item, User* user) {
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Print information about the returnTransaction object
- Pre:
- Post:
- ----------------------------------------------------------------------------*/
+----------------------------------------------------------------------------*/
 void ReturnTransaction:: print() const{
     cout << setw(COMMAND_COL_WIDTH) << "Return";
     item->display();

@@ -36,13 +36,13 @@ public:
 	// This method parses the date out of the string and then checks the data.
 	// If the data is correct, creates the ReturnTransaction object and
 	// returns it, otherwise does not create the object and returns NULL
-	virtual Transaction* create(istream&);
+	virtual Transaction* create(istream& infile);
     
 	// execute
 	// This method execute return operation on a ItemCollection and
     // UserCollection objects.
     virtual void execute(ItemCollection& itemCollection,
-                         map <int, User*> & userCollection);
+                         map <int, User*>& userCollection);
     
     // print
     // Prints information about the return Transaction object
@@ -68,7 +68,7 @@ private:
     // isCheckOutByUser
     // Helper methos which is used during return operation to make sure that
     // the user who wants to return book, checkout that item before returing it
-    bool isCheckedOutByUser(Item*, User*);
+    bool isCheckedOutByUser(Item* item, User* user);
 };
 
-#endif
+#endif /*RETURNTRANSACTION_H*/

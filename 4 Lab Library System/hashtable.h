@@ -1,4 +1,8 @@
 //-----------------------------------------------------------------------------
+// HASHTABLE.H
+// UserFactory Class
+// Authors: Magdalena Grzmiel and Thomas Petit
+//-----------------------------------------------------------------------------
 // HashTable class: is a class which is a hash table container class. It is
 // responsible for holding different types of hashable data.
 //
@@ -32,36 +36,53 @@
 
 class HashTable {
 public:
-    // constructor
+    // Constructor
     HashTable(int initialSize = 71); // prime #.
-    // destructor
+    
+    // Destructor
     virtual ~HashTable();
     
-    // impl of add, adds an item.
+    // add
+    // Impl of add, adds an item.
     bool add(char key, Hashable* value);
-    // impl of remove, removes an item.
+    
+    // remove
+    // Impl of remove, removes an item.
     Hashable* remove(char key);
-    // impl of clear, clears the table.
+    
+    // clear
+    // Impl of clear, clears the table.
     void clear();
     
-    // impl of getItem in ADT, retrieves a values associated with key.
-    Hashable* get(char key) const;
+    //get
+    // Impl of getItem in ADT, retrieves a values associated with key.
+    Hashable* get(char key)const;
     
-    // impl of isEmpty, true if empty, false otherwise.
-    bool isEmpty() const;
-    // impl of contains, returns whether there is values associated with key.
-    bool contains(char key) const;
+    // isEmpty
+    // Impl of isEmpty, true if empty, false otherwise.
+    bool isEmpty()const;
     
-    // impl of getNumberOfItem in ADT, returns amount of values in table.
-    int size() const;
+    // contains
+    // Impl of contains, returns whether there is values associated with key.
+    bool contains(char key)const;
+    
+    //size
+    // Impl of getNumberOfItem in ADT, returns amount of values in table.
+    int size()const;
 
 private:
-    Hashable** table; //array used for underlying table in the hashtable.
-    int tableSize; // size of the table.
-    int elementCount; // number of values in the table.
+    //array used for underlying table in the hashtable
+    Hashable** table;
     
-    int indexOf(char key) const; // private helper for determining indexes
-                        // all operations.
+    // size of the table
+    int tableSize;
+    
+    // number of values in the table
+    int elementCount;
+    
+    // private helper for determining indexes all operations
+    int indexOf(char key)const;
+
 };
 
 #endif /* HASHTABLE_H */
