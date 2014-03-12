@@ -66,12 +66,12 @@ TransactionFactory::~TransactionFactory() {
  correct type from the hash table.
 ----------------------------------------------------------------------------*/
 Transaction* TransactionFactory::createTransaction(istream& infile) {
-    char itemType = infile.get(); //get the item type.
+    char transactionType = infile.get(); //get the item type.
     infile.get(); //throwaway the space.
         
     //read the first character
-    if(transactions.contains(itemType)) {
-        Hashable* hashed = transactions.get(itemType);
+    if(transactions.contains(transactionType)) {
+        Hashable* hashed = transactions.get(transactionType);
         //downcast to item class
         Transaction* trans = static_cast<Transaction*>(hashed);
         return trans->create(infile);
