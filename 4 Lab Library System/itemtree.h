@@ -27,7 +27,7 @@ class ItemTree {
 public:
     // Constructor
     ItemTree();
-   
+    
     // Destructor
     ~ItemTree();
     
@@ -55,7 +55,7 @@ public:
     // makeEmpty()
     // Remove every Node from tree.
     void makeEmpty();
-  
+    
 private:
     struct Node{
         Item* itemData; // pointer to Item object

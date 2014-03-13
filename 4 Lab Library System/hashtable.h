@@ -30,9 +30,9 @@
  traverse(visit(item: ItemType): void): void
  
  Carrano, Frank M. (2012-11-05). Data Abstraction & Problem Solving with C++:
- Walls and Mirrors (2-download) (6th Edition) (Page 529). Prentice Hall. 
+ Walls and Mirrors (2-download) (6th Edition) (Page 529). Prentice Hall.
  Kindle Edition.
-*/
+ */
 
 class HashTable {
 public:
@@ -69,7 +69,7 @@ public:
     //size
     // Impl of getNumberOfItem in ADT, returns amount of values in table.
     int size()const;
-
+    
 private:
     //array used for underlying table in the hashtable
     Hashable** table;
@@ -82,7 +82,7 @@ private:
     
     // private helper for determining indexes all operations
     int indexOf(char key)const;
-
+    
 };
 
 #endif /* HASHTABLE_H */

@@ -64,11 +64,11 @@ private:
     // transaction command
     Item* lookUpItem;
     
-    
     // isCheckOutByUser
     // Helper methos which is used during return operation to make sure that
     // the user who wants to return book, checkout that item before returing it
     bool isCheckedOutByUser(Item* item, User* user);
+    
 };
 
 #endif /*RETURNTRANSACTION_H*/

@@ -21,14 +21,14 @@
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: Constructor for Fiction class.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 Fiction:: Fiction(): Book(){
     itemType = 'F';
 }
 
 /*---------------------------------------------------------------------------
  ===== operator<
- Descripton: Overloaded less than operator. Determine if this fiction's 
+ Descripton: Overloaded less than operator. Determine if this fiction's
  object is less than the other fiction's object.
  Pre:
  Post: Return true if this fiction object is less than other fiction object,
@@ -36,7 +36,7 @@ Fiction:: Fiction(): Book(){
  ----------------------------------------------------------------------------*/
 bool Fiction:: operator< (const Item& item)const{
     if(item.getItemType() != itemType) return false;
-  
+    
     // cast the item object to the fiction object
     const Fiction& otherFiction = static_cast<const Fiction&>(item);
     
@@ -60,7 +60,7 @@ bool Fiction:: operator< (const Item& item)const{
  Descripton: Overloaded greater than operator. Determine if this fiction's
  object is greater than the other fition's object.
  Pre:
- Post: Return true if this fiction object is greater than other fiction 
+ Post: Return true if this fiction object is greater than other fiction
  object, false otherwise
  ----------------------------------------------------------------------------*/
 bool Fiction:: operator> (const Item& item)const{
@@ -138,7 +138,7 @@ void Fiction:: initialize(istream& infile){
 void Fiction:: initializePartial(istream& infile){
     string author, title;
     
-    itemFormat = infile.get();                
+    itemFormat = infile.get();
     infile.get();			 // discard space
     getline(infile, author, ','); // input author, looks for comma terminator
     infile.get();                 // get (and ignore) blank before title

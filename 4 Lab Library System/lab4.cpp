@@ -17,12 +17,11 @@
 using namespace std;
 
 int main() {
-
+    
 	Manager manager;
-
+    
 	// check if the file with users exists
-    //ifstream infile1("testpatrons.txt");
-	ifstream patronData("data4patrons.txt");
+    ifstream patronData("data4patrons.txt");
 	if (!patronData) {
 		cout << "File could not be opened." << endl;
 		return 1;
@@ -33,22 +32,20 @@ int main() {
     
     
 	// check if the file with items exists
-    //ifstream infile2("testbooks.txt");
 	ifstream itemData("data4books.txt");
 	if (!itemData) {
 		cout << "File could not be opened." << endl;
-		return 1;
+		return 2;
 	}
     
     //build items
 	manager.buildItems(itemData);
     
 	// check if the file with transactions exists
-    //ifstream infile3("testcommands.txt");
 	ifstream commandData("data4commands.txt");
 	if (!commandData) {
 		cout << "File could not be opened." << endl;
-		return 1;
+		return 3;
 	}
     
     // process transactions

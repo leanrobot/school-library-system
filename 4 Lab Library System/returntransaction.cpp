@@ -22,7 +22,7 @@
 /*---------------------------------------------------------------------------
  ===== Default constructor
  Descripton: sets the specific transaction type for identification purposes.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 ReturnTransaction:: ReturnTransaction (){
     transactionType = 'R';
     user = NULL;
@@ -31,7 +31,7 @@ ReturnTransaction:: ReturnTransaction (){
 /*---------------------------------------------------------------------------
  ===== Copy Constructor
  Descripton: Create chekOutTransaction object the same like rhs object
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 ReturnTransaction::ReturnTransaction(const ReturnTransaction& rhs) {
     item = rhs.item;
     user = rhs.user;
@@ -100,12 +100,12 @@ void ReturnTransaction:: execute(ItemCollection& itemCollection,
         
         // check if the lookUp item is not NULL
         if (this->lookUpItem!= NULL){
-	  
-	    // If there is an invalid item format, abort command.
-	    if(this->lookUpItem->getItemFormat() != 'H') {
-		cout << "Command not executed: Invalid item format" << endl;
-	    }
-	    
+            
+            // If there is an invalid item format, abort command.
+            if(this->lookUpItem->getItemFormat() != 'H') {
+                cout << "Command not executed: Invalid item format" << endl;
+            }
+            
             // find the item in itemsCollection
             item = itemCollection.retrieve(this->lookUpItem);
             
@@ -139,6 +139,8 @@ void ReturnTransaction:: execute(ItemCollection& itemCollection,
             // print information about it
             cout<<"Book not found in Library."<<endl;
         }
+    }else{
+        cout << "Command not executed: Invalid User ["<<userId<<"].\n";
     }
 }
 
@@ -155,8 +157,13 @@ bool ReturnTransaction::isCheckedOutByUser(Item* item, User* user) {
     History* history = user->getUserHistory();
     list<Transaction*> historyList = history->getHistory();
     
-    // iterate through the user's history list to find if the user check out
-    // the given item which now wants to return
+    // variable to count if the number of checkOut operation perform on given
+    // item is greater than return operations
+    int checkOutBook = 0;
+    
+    // iterate through the user's history list to find if the number of
+    // checkOut operation perform on given item is greater than return
+    // operations
     list<Transaction*>::iterator iter = historyList.begin();
     for(; iter != historyList.end(); iter++) {
         
@@ -165,18 +172,26 @@ bool ReturnTransaction::isCheckedOutByUser(Item* item, User* user) {
         
         if(checkout != NULL) {
             // compare the items and if they are the same, return true,
-            if(*checkout->getItem() == *item) return true;
+            if(*checkout->getItem() == *item){
+                checkOutBook++;
+            }
+        }else{
+            // cast the trasnaction object to returnTransaction object
+            ReturnTransaction* returnT = dynamic_cast<ReturnTransaction*>(*iter);
+            if (*returnT->item == *item){
+                checkOutBook--;
+            }
         }
     }
     
-    // false otherwise
-    return false;
+    // return if the user still should return this item
+    return checkOutBook > 0;
 }
 
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Print information about the returnTransaction object
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ReturnTransaction:: print() const{
     cout << setw(COMMAND_COL_WIDTH) << "Return";
     item->display();

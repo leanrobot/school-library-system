@@ -24,10 +24,8 @@
 class Youth : public Book{
     
 public:
-	
     // Default constructor
     Youth();
-	
     
     // Overloaded less than operator
     // Determine if this youth object is less than the other youth object
@@ -36,7 +34,7 @@ public:
     // Overloaded greater than operator
     // Determine if this youth object is greater than the other youth object
     virtual bool operator> (const Item& otherItem)const;
-
+    
     // Overloaded equal operator
     // Determine if two youth objects are equal
     virtual bool operator== (const Item& otherItem)const;

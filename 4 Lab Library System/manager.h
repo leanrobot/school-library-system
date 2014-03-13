@@ -37,24 +37,25 @@
 using namespace std;
 
 class Manager {
+    
 public:
 	// Default constructor
 	Manager();
-
+    
 	// Destructor
 	~Manager();
-
+    
 	// buildUsers
 	// This method reads data from file and parse each line to extract user Id,
 	// name and creates a new User object. Then insert the user to the users map
 	void buildUsers(istream& infile);
-
+    
 	// buildItems
 	// This method reads data from file and passes each line to the ItemFactory
 	// which creates Item object out of it. Then calls method insert from
 	// ItemCollection class.
     void buildItems(istream& infile);
-
+    
 	// ProcessTransaction
 	// This method read data from file and pass each line to the
 	// TransactionFactory object which creates Transaction object out of it.
@@ -77,6 +78,7 @@ private:
     
     // ItemCollection keeps all Item objects
     ItemCollection itemCollection;
+    
 };
 
 #endif /*MANAGER_H*/

@@ -58,7 +58,7 @@ void DisplayTransaction::execute(ItemCollection& itemCollection,
         ItemTree* category = categories[i];
         
         // if the category of the item is not NULL,
-        //display all item in given category
+        // display all item in given category
         if(category != NULL) {
             category->print();
         }

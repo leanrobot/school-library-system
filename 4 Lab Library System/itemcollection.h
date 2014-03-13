@@ -5,7 +5,7 @@
 //-----------------------------------------------------------------------------
 // ItemCollection: is a collection of of the items contained in the library.
 // Includes:
-// -- All of the items are stored in a ballanced BST 
+// -- All of the items are stored in a ballanced BST
 // -- Contains methods for inserting and retrieving item
 // -- Contain retrive method which return the array with the trees
 // Assumptions:
@@ -19,7 +19,7 @@
 #include "itemtree.h"
 
 class ItemCollection {
-
+    
 public:
     // Constructor
     ItemCollection();
@@ -47,11 +47,11 @@ private:
     // array which keeps pointers to the tree with items
     ItemTree* items[MAX_ITEM_TYPES];
     
-   // hash
-   // Helper method which is used to calculate the index of the array
-   // with the right type tree
-   int hash(char ch);
-
+    // hash
+    // Helper method which is used to calculate the index of the array
+    // with the right type tree
+    int hash(char ch);
+    
 };
 
-#endif /* ITEMCOLLECTION_H*/
+#endif /*ITEMCOLLECTION_H*/

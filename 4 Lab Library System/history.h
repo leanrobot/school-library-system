@@ -27,7 +27,6 @@ class Transaction; // forward reference
 class History {
     
 public:
-    
 	// Constructor
     History( );
     
@@ -47,7 +46,6 @@ public:
     list<Transaction*>& getHistory();
     
 private:
-    
     // list of transaction history items
     list <Transaction*> data;
     

@@ -111,7 +111,7 @@ bool HashTable::contains(char key) const {
 /*---------------------------------------------------------------------------
  ===== Size
  Descripton: Returns the amount of values associated with unique keys in the
-    hashtable.
+ hashtable.
  Post: Returns the int amount of elements in the table.
  ----------------------------------------------------------------------------*/
 int HashTable::size() const {
@@ -121,8 +121,8 @@ int HashTable::size() const {
 /*---------------------------------------------------------------------------
  ===== Index to Insert | Retrieve (Private helper)
  Descripton: Given a key, it will return the index associated with the key. If
-    used in getting, it returns the index where the value associated with the
-    key is stored.
+ used in getting, it returns the index where the value associated with the
+ key is stored.
  Pre: char key is in range [A-Z]
  Post: positive integer, or -1 if not found or error happened.
  ----------------------------------------------------------------------------*/

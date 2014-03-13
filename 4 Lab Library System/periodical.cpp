@@ -45,7 +45,7 @@ int Periodical:: getMonth() const{
  ----------------------------------------------------------------------------*/
 void Periodical:: setMonth(int newMonth){
     if (newMonth >= 1 && newMonth <= 12){
-    this->month = newMonth;
+        this->month = newMonth;
     }
 }
 
@@ -58,7 +58,7 @@ void Periodical:: setMonth(int newMonth){
  ----------------------------------------------------------------------------*/
 bool Periodical::operator< (const Item& item) const {
     if(item.getItemType() != itemType) return false;
-
+    
     // cast the item object to the periodical object
 	const Periodical& otherPeriodical = static_cast<const Periodical&>(item);
     
@@ -73,7 +73,7 @@ bool Periodical::operator< (const Item& item) const {
         // if this periodical moth is less than other, return trus
 		if (this->month < otherPeriodical.month) {
 			return true;
-        // if the moths are equal
+            // if the moths are equal
 		} else if (this->month == otherPeriodical.month) {
             // compare titles
 			if (this->title.compare(otherPeriodical.title) < 0)
@@ -85,7 +85,7 @@ bool Periodical::operator< (const Item& item) const {
 
 /*---------------------------------------------------------------------------
  ===== operator>
- Descripton: Overloaded greater than operator. Determine if this periodical 
+ Descripton: Overloaded greater than operator. Determine if this periodical
  object is grater than the other periodical object.
  Pre:
  Post: Return true if this periodical is greater than other, false otherwise.
@@ -103,9 +103,9 @@ bool Periodical::operator> (const Item& item) const {
  ----------------------------------------------------------------------------*/
 bool Periodical:: operator== (const Item& item) const{
     if(item.getItemType() != itemType) return false;
-
+    
     const Periodical& otherPeriodical = static_cast <const Periodical&> (item);
-
+    
     return ((this -> title.compare(otherPeriodical.title)==0)
             && this->month == otherPeriodical.month
             && this->year == otherPeriodical.year);
@@ -148,7 +148,7 @@ void Periodical::initialize(istream& infile) {
     infile >> month;               // iput the month,
     infile >> year;                // then the year
     infile.get();                  // discard the newline character
-
+    
     
     // set up title, month and year of this periodical object
     this->setTitle(title);
@@ -200,10 +200,10 @@ void Periodical:: print()const {
 void Periodical:: printHeader() const {
     cout << "Periodical:" << endl;
     cout <<
-        setw(AVAILABLE_COL_WIDTH+2) << "AVAIL" <<
-        setw(YEAR_COL_WIDTH+1) << "YEAR" <<
-        setw(MONTH_COL_WIDTH+1) << "MONTH" <<
-        setw(TITLE_COL_WIDTH+1) << "TITLE" << endl;
+    setw(AVAILABLE_COL_WIDTH+2) << "AVAIL" <<
+    setw(YEAR_COL_WIDTH+1) << "YEAR" <<
+    setw(MONTH_COL_WIDTH+1) << "MONTH" <<
+    setw(TITLE_COL_WIDTH+1) << "TITLE" << endl;
 }
 
 /*---------------------------------------------------------------------------

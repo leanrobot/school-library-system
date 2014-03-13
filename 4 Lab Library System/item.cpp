@@ -23,9 +23,9 @@
 
 /*---------------------------------------------------------------------------
  ===== Constructor
- Descripton: Constructor for Item class. Set the number of total copies to 5, 
+ Descripton: Constructor for Item class. Set the number of total copies to 5,
  the bumber of checkout copies to 0 and item formato to 'H' (hardcopy)
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 Item:: Item(){
     totalCopies = 5;
     checkedOutCopies = 0;
@@ -78,7 +78,7 @@ int Item:: getTotalCopies() const{
 /*---------------------------------------------------------------------------
  ===== setTotalCopies
  Descripton: Set the total number of copies of item
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void Item:: setTotalCopies(int newTotalCopies){
     totalCopies = newTotalCopies;
 }
@@ -114,7 +114,7 @@ int Item:: getYear() const{
 /*---------------------------------------------------------------------------
  ===== setYear
  Descripton: Set the publication year
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void Item:: setYear(int newYear){
     year = newYear;
 }

@@ -30,12 +30,12 @@ Youth:: Youth(){
  Descripton: Overloaded less than operator. Determine if this youth's object
  is less than the other youth's object.
  Pre:
- Post: Return true if this youth object is less than other youth object, 
+ Post: Return true if this youth object is less than other youth object,
  false otherwise.
  ----------------------------------------------------------------------------*/
 bool Youth:: operator<(const Item& item) const{
     if(item.getItemType() != itemType) return false;
-
+    
     // cast the item object to the youth object
     const Youth& otherYouth = static_cast<const Youth&>(item);
     
@@ -59,7 +59,7 @@ bool Youth:: operator<(const Item& item) const{
  Descripton: Overloaded greater than operator. Determine if this youth's
  object is greater than the other youth's object.
  Pre:
- Post: Return true if this youth object is greater than other youth object, 
+ Post: Return true if this youth object is greater than other youth object,
  false otherwise.
  ----------------------------------------------------------------------------*/
 bool Youth:: operator>(const Item& item) const{
@@ -68,14 +68,14 @@ bool Youth:: operator>(const Item& item) const{
 
 /*---------------------------------------------------------------------------
  ===== operator==
- Descripton: Overloaded equal operator. Determine if two youth objects are 
+ Descripton: Overloaded equal operator. Determine if two youth objects are
  equal.
  Pre:
  Post: Return true if two youth objects are equal, false otherwise.
  ----------------------------------------------------------------------------*/
 bool Youth:: operator== (const Item& item)const{
     if(item.getItemType() != itemType) return false;
-
+    
     // cast the item object to the youth object
     const Youth& otherYouth = static_cast<const Youth&>(item);
     
@@ -114,7 +114,7 @@ Item* Youth:: create(){
  ----------------------------------------------------------------------------*/
 void Youth::initialize(istream& infile) {
     string author, title;
-
+    
     getline(infile, author, ','); // input author, looks for comma terminator
     infile.get();                 // get (and ignore) blank before title
     getline(infile, title, ',');  // input title

@@ -21,7 +21,7 @@
 /*-----------------------------------------------------------------------------
  ===== Constructor
  Descripton: sets the specific transaction type for identification purposes.
------------------------------------------------------------------------------*/
+ -----------------------------------------------------------------------------*/
 HistoryTransaction:: HistoryTransaction (){
     transactionType = 'H';
     user = NULL;
@@ -31,7 +31,7 @@ HistoryTransaction:: HistoryTransaction (){
  ===== Destructor
  Descripton: All items stored in the history transactions are destroyed
  by other destructors.
------------------------------------------------------------------------------*/
+ -----------------------------------------------------------------------------*/
 HistoryTransaction:: ~HistoryTransaction (){}
 
 /*-----------------------------------------------------------------------------
@@ -55,7 +55,7 @@ Transaction* HistoryTransaction:: create(istream&infile){
  ===== Execute ( run command )
  Descripton: executes the transaction. For a history transaction, this will
  display the history for a specific user.
------------------------------------------------------------------------------*/
+ -----------------------------------------------------------------------------*/
 void HistoryTransaction:: execute(ItemCollection& itemCollection,
                                   map <int, User*> & userCollection) {
     
@@ -66,15 +66,16 @@ void HistoryTransaction:: execute(ItemCollection& itemCollection,
         
         // get user history list
         list<Transaction*>& userHistory = user->getUserHistory()->getHistory();
-        // iterate through the list and print all of the user's transaction
-        list<Transaction*>::iterator iter = userHistory.begin();
+        
         cout<< "*** Patron ID = " << userId << " " <<user->getName() << endl;
         
-        for(; iter!=userHistory.end(); iter++) {
+        // iterate through the list and print all of the user's transaction
+        for(list<Transaction*>::iterator iter = userHistory.begin();
+            iter != userHistory.end(); iter++) {
             (*iter)->print();
         }
         
-    // user with given Id does not exist, so print information about it
+        // user with given Id does not exist, so print information about it
     }else {
         cout << "Command not executed: Invalid User ["<<userId<<"].\n";
     }
@@ -82,5 +83,5 @@ void HistoryTransaction:: execute(ItemCollection& itemCollection,
 /*-----------------------------------------------------------------------------
  ===== Print
  Descripton: Not implemented for history transaction, it will never be printed.
------------------------------------------------------------------------------*/
+ -----------------------------------------------------------------------------*/
 void HistoryTransaction:: print() const{ }

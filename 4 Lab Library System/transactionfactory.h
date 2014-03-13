@@ -29,7 +29,7 @@ const int FACTORY_MAX_SIZE = 26;
 class TransactionFactory {
     
 public:
-    // Create the instance of transaction 
+    // Create the instance of transaction
     static TransactionFactory* instance();
     
     // Destructor
@@ -38,7 +38,7 @@ public:
     // Creates a Transaction of the desired type
     Transaction* createTransaction(istream& infile);
     
-  
+    
 private:
     // Constructor
     TransactionFactory( );

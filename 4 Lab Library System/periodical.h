@@ -26,7 +26,6 @@
 class Periodical : public Item{
     
 public:
-    
     // Default constructor
     Periodical();
     
@@ -83,7 +82,6 @@ public:
     virtual void display()const;
     
 private:
-    
     //month of the publication
     int month;
 };

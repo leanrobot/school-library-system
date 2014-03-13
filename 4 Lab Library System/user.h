@@ -23,9 +23,10 @@
 #include "history.h"
 
 using namespace std;
+
 class User {
-public:
     
+public:
     // Constructor
     User(int id, string name);
     
@@ -49,9 +50,8 @@ public:
     void setName(string newName);
     
 private:
-    
     // a unique identifier
-    int userId;          
+    int userId;
     
     // the patron's name
     string name;

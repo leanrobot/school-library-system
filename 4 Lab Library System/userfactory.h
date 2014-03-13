@@ -16,7 +16,7 @@
 #include "user.h"
 
 class UserFactory {
-
+    
 public:
     // Singleton controlled creation function
     static UserFactory* instance();
@@ -26,7 +26,7 @@ public:
     
     // Destructor
     ~UserFactory();
-
+    
 private:
     static bool instanceFlag;
     static UserFactory* _instance;

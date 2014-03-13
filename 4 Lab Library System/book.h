@@ -27,7 +27,7 @@
 using namespace std;
 
 class Book: public Item{
-
+    
 public:
     // getAuthor
     // Returns the author of the book
@@ -56,7 +56,7 @@ public:
     // Pure virtul method which will be implemented by child classes
     // to determine if two given objects are not equal
     virtual bool operator!= (const Item& otherItem)const = 0 ;
-
+    
     // create
     // Pure virtul method which will be implemented by child classes
     // to create a given object
@@ -83,8 +83,8 @@ public:
     // to print information about the object which is used in the
     // print method in the history transaction method
     virtual void display()const = 0;
-   
-
+    
+    
 protected:
     // Default Constructor
     Book();

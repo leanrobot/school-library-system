@@ -20,7 +20,7 @@
 /*---------------------------------------------------------------------------
  ===== Constructor
  Descripton: Doesn't need to do anything
-  ----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 History:: History( ) {}
 
 /*---------------------------------------------------------------------------
@@ -38,7 +38,7 @@ History:: ~History( ){
 
 /*---------------------------------------------------------------------------
  ===== Add
- Descripton: Adds a Transaction to the command history. The new commands is 
+ Descripton: Adds a Transaction to the command history. The new commands is
  added to the end of the list, so the order is from oldest -> newest.
  ----------------------------------------------------------------------------*/
 void History:: add( Transaction* oneTransaction){

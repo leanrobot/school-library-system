@@ -20,9 +20,9 @@
 #include "user.h"
 
 /*-----------------------------------------------------------------------------
-===== Constructor
+ ===== Constructor
  Descripton: Constructor for User class.
-------------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------------*/
 User::User(int id, string name) {
     this->userId = id;
     this->name = name;
@@ -31,7 +31,7 @@ User::User(int id, string name) {
 
 /*-----------------------------------------------------------------------------
  ===== Destructor
-------------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------------*/
 User:: ~User(){
     delete userHistory;
 }
@@ -41,7 +41,7 @@ User:: ~User(){
  Descripton: Retrieves the user id.
  Pre:
  Post: Returns the user id.
------------------------------------------------------------------------------*/
+ -----------------------------------------------------------------------------*/
 int User::getID() const {
     return userId;
 }
@@ -51,7 +51,7 @@ int User::getID() const {
  Descripton: Retrive the user's history object.
  Pre:
  Post: Returns the user's history object.
-------------------------------------------------------------------------------*/
+ ------------------------------------------------------------------------------*/
 History* User:: getUserHistory() const{
     return userHistory;
 }
@@ -62,7 +62,7 @@ History* User:: getUserHistory() const{
  Descripton: retrive the user's name.
  Pre:
  Post: Retrive the user's name.
------------------------------------------------------------------------------*/
+ -----------------------------------------------------------------------------*/
 string User::getName() const {
     return name;
 }
@@ -70,7 +70,7 @@ string User::getName() const {
 /*-----------------------------------------------------------------------------
  ===== Set Name
  Descripton: sets the user's name.
------------------------------------------------------------------------------*/
+ -----------------------------------------------------------------------------*/
 void User:: setName(string newName){
     name = newName;
 }

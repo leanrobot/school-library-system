@@ -21,7 +21,7 @@
 /*---------------------------------------------------------------------------
  ===== Default constructor
  Descripton: sets the specific transaction type for identification purposes.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 CheckOutTransaction:: CheckOutTransaction (){
     transactionType = 'C';
     user=NULL;
@@ -30,7 +30,7 @@ CheckOutTransaction:: CheckOutTransaction (){
 /*---------------------------------------------------------------------------
  ===== Copy Constructor
  Descripton: Create chekOutTransaction object the same like rhs object
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 CheckOutTransaction::CheckOutTransaction(const CheckOutTransaction& rhs) {
     user = rhs.user;
     item = rhs.item;
@@ -43,7 +43,7 @@ CheckOutTransaction::CheckOutTransaction(const CheckOutTransaction& rhs) {
  ===== Destructor
  Descripton:
  Pre:
- Post: Dealocated. 
+ Post: Dealocated.
  ----------------------------------------------------------------------------*/
 CheckOutTransaction:: ~CheckOutTransaction (){
     user = NULL;  // handled by other class.
@@ -53,7 +53,7 @@ CheckOutTransaction:: ~CheckOutTransaction (){
 
 /*---------------------------------------------------------------------------
  ===== create
- Descripton: This functions creates a new check out transaction. The data for 
+ Descripton: This functions creates a new check out transaction. The data for
  the transaction is read from the istream, which points to the command file.
  Pre:
  Post: returns an initialized checkOut transaction.
@@ -86,9 +86,9 @@ Transaction* CheckOutTransaction:: create(istream&infile){
  Descripton: Executes the transaction, for a checkOut transaction, this will
  first check if the user with given Id exist in userCollection, then it will
  find if the item which the user wants to checkOut exist and is available in the
- library, then it will add this transaction to user' history and change the 
+ library, then it will add this transaction to user' history and change the
  number of checkOut copies for the given item.
------------------------------------------------------------------------------*/
+ -----------------------------------------------------------------------------*/
 void CheckOutTransaction:: execute(ItemCollection& itemCollection, map <int,
                                    User*> & userCollection){
     
@@ -97,16 +97,16 @@ void CheckOutTransaction:: execute(ItemCollection& itemCollection, map <int,
         // if exist, assign this user to the user object
         user = userCollection[this->userId];
         
-	
-	
+        
+        
         // check if the lookUp item is not NULL
         if (this->lookUpItem !=NULL){
-	    
-	    // If there is an invalid item format, abort command.
-	    if(this->lookUpItem->getItemFormat() != 'H') {
-		cout << "Command not executed: Invalid item format" << endl;
-	    }
-	    
+            
+            // If there is an invalid item format, abort command.
+            if(this->lookUpItem->getItemFormat() != 'H') {
+                cout << "Command not executed: Invalid item format" << endl;
+            }
+            
             // find the item in itemsCollection
             item = itemCollection.retrieve(this->lookUpItem);
             
@@ -121,7 +121,7 @@ void CheckOutTransaction:: execute(ItemCollection& itemCollection, map <int,
                     // set up new number of check out copies
                     item->setCheckedOutCopies (checkout+1);
                     CheckOutTransaction* copy = new CheckOutTransaction(*this);
-                   // add transaction to user's hisoty
+                    // add transaction to user's hisoty
                     user->getUserHistory()->add(copy);
                 }
                 else {
@@ -131,13 +131,15 @@ void CheckOutTransaction:: execute(ItemCollection& itemCollection, map <int,
                     print();
                 }
             }
-        
+            
         // lookUp item is NULL so the item does not exist in the itemCollection
         }else{
             // print information about it
             cout<< "Book not found in Library." << endl;
             
         }
+    } else {
+        cout << "Command not executed: Invalid User ["<<userId<<"].\n";
     }
 }
 
@@ -154,7 +156,7 @@ Item* CheckOutTransaction::getItem() {
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Print information about the checkOutTransaction object
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void CheckOutTransaction:: print() const{
     cout << setw (COMMAND_COL_WIDTH) << "Checkout" ;
     item->display();

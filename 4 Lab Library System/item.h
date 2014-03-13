@@ -29,16 +29,15 @@
 using namespace std;
 
 class Item: public Hashable {
-
+    
 public:
-	
 	// Virtual destructor
 	virtual ~Item();
     
     // getItemType
     // Returns the item type
     char getItemType()const;
-
+    
     // setItemType
     // Set the itemtype
     void setItemType(char itemType);
@@ -46,7 +45,7 @@ public:
     // getItemFormat
     // retrieves the item format (this better be an H!)
     char getItemFormat() const;
-
+    
     // getTotalCopies
     // Returns the number of copies of the item
     int getTotalCopies()const;
@@ -54,7 +53,7 @@ public:
     // setTotalCopies
     // Set the number of total copies of item
     void setTotalCopies(int totalCopies);
-
+    
     // getCheckOutCopies
     // Returns the number of check out copies of item
     int getCheckedOutCopies()const;
@@ -78,7 +77,7 @@ public:
     // setTitle
     // Set the title of the item
     void setTitle(string newTitle);
-
+    
     // Overloaded less than operator
     // Pure virtul method which will be implemented by child classes
     // to determine if given object is less than the other given object
@@ -88,7 +87,7 @@ public:
     // Pure virtul method which will be implemented by child classes
     // to determine if given object is greater than the other given object
     virtual bool operator> (const Item& otherItem)const = 0;
-
+    
     // Overloaded equal operator
     // Pure virtul method which will be implemented by child classes
     // to determine if two given objects are equal
@@ -114,7 +113,7 @@ public:
     // Pure virtual method which will implemented by child classes
     // to initialized object to perform given transaction on it
     virtual void initializePartial(istream&) = 0;
-
+    
     // print
     // Pure virtual method which will be implemented by child classes
     // to print information about the object
@@ -136,7 +135,6 @@ public:
     char hash () const;
     
 protected:
-    
     // Default constructor
     Item();
     

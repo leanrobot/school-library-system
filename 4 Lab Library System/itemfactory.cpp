@@ -68,7 +68,7 @@ ItemFactory::~ItemFactory() {
 Item* ItemFactory::createItem(istream& input) {
     
     char itemType = input.get(); //get the item type
-    input.get();                 //throwaway the space
+    input.get();                 //throw away the space
     
     //read the first character
     if(itemTable.contains(itemType)) {
@@ -78,7 +78,7 @@ Item* ItemFactory::createItem(istream& input) {
         return item->create();
     }
     else { // not supported, throw away line
-           // read the rest of the line
+        // read the rest of the line
         string throwAway;
         getline(input, throwAway);
     }

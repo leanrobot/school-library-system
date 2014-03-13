@@ -11,7 +11,6 @@
 
 class Hashable {
 public:
-    
     // hash
     // Pure virtual method which will be implementd in child classes
     virtual char hash() const = 0;

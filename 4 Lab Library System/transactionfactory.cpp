@@ -22,7 +22,7 @@ TransactionFactory* TransactionFactory::_instance = NULL;
  Descripton: This is the "constructor" for the singleton. If an instance
  doesn't exist, it is created and returned. If it already does exist,
  it is returned.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 TransactionFactory* TransactionFactory::instance() {
     if(!instanceFlag) {
         TransactionFactory::instanceFlag = true;
@@ -51,7 +51,7 @@ TransactionFactory::TransactionFactory() {
  ===== Destructor
  Descripton: Destructor for factory. Delete must be called upon the original
  instance call in order to correctly destroy all instances.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 TransactionFactory::~TransactionFactory() {
     if(instanceFlag) {
         instanceFlag = false;
@@ -64,11 +64,11 @@ TransactionFactory::~TransactionFactory() {
  Descripton: Reads from the input stream to determine the type of transaction
  to create. The first character is read, and this is used to retrieve the
  correct type from the hash table.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 Transaction* TransactionFactory::createTransaction(istream& infile) {
     char transactionType = infile.get(); //get the item type.
     infile.get(); //throwaway the space.
-        
+    
     //read the first character
     if(transactions.contains(transactionType)) {
         Hashable* hashed = transactions.get(transactionType);

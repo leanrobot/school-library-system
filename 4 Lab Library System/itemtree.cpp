@@ -41,7 +41,7 @@ ItemTree:: ~ItemTree(){
 /*---------------------------------------------------------------------------
  ===== makeEmpty
  Descripton: Remove every Node from tree.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree:: makeEmpty() {
     removeNodes(root);
     root = NULL;
@@ -50,7 +50,7 @@ void ItemTree:: makeEmpty() {
 /*---------------------------------------------------------------------------
  ===== removeNodes
  Descripton: Helper method which removes all elements of the ItemTree
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree::removeNodes(Node* ptr) {
     if (ptr != NULL) {
         removeNodes(ptr->left);
@@ -62,7 +62,7 @@ void ItemTree::removeNodes(Node* ptr) {
 
 /*---------------------------------------------------------------------------
  ===== retrive
- Descripton: Retrieve the ItemTree to check if the given Item is found in the 
+ Descripton: Retrieve the ItemTree to check if the given Item is found in the
  tree.
  Pre:
  Post: Returns pointer to the found Item or NULL if the Item does not appear
@@ -75,7 +75,7 @@ Item* ItemTree:: retrieve(const Item* item)const{
     }
     
     Node* current = root;
-  
+    
     // retrive the tree to find the given Item,
     while(current != NULL){
         if (*current->itemData == *item){
@@ -124,7 +124,7 @@ int ItemTree:: getHeightNode(Node* ptr)const{
  ===== insert
  Descripton: Insert the Item object to the tree only if the elements was not
  found in that tree. The tree stays balanced after inserting a new Item.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree:: insert(Item* item){
     insertHelper(root,item);
 }
@@ -132,7 +132,7 @@ void ItemTree:: insert(Item* item){
 /*---------------------------------------------------------------------------
  ===== insertHelper
  Descripton: Helper method to insert Item in the Tree.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree:: insertHelper(Node*& current, Item* item){
     
     if (current == NULL){
@@ -142,7 +142,7 @@ void ItemTree:: insertHelper(Node*& current, Item* item){
         current->left = NULL;
         current->right = NULL;
         
-    // insert into left subtree
+        // insert into left subtree
     }else if (*item < *current->itemData) {
         insertHelper(current->left, item);
         if (getHeightNode(current->left) - getHeightNode(current->right) == 2) {
@@ -176,7 +176,7 @@ void ItemTree:: insertHelper(Node*& current, Item* item){
 /*---------------------------------------------------------------------------
  ===== leftLeft
  Descripton: Helper method to keep tree balanced after inserting a new Item
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree:: leftLeft(Node*& k2) {
     Node* k1 = k2->left;
     k2->left = k1->right;
@@ -189,7 +189,7 @@ void ItemTree:: leftLeft(Node*& k2) {
 /*---------------------------------------------------------------------------
  ===== rightLeft
  Descripton: Helper method to keep tree balanced after inserting a new Item
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree::rightRight(Node*&k2){
     Node* k1 = k2->right;
     k2->right = k1->left;
@@ -203,7 +203,7 @@ void ItemTree::rightRight(Node*&k2){
 /*---------------------------------------------------------------------------
  ===== leftRight
  Descripton: Helper method to keep tree balanced after inserting a new Item
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree::leftRight(Node*&k3){
     rightRight(k3->left);
     leftLeft(k3);
@@ -212,7 +212,7 @@ void ItemTree::leftRight(Node*&k3){
 /*---------------------------------------------------------------------------
  ===== rightLeft
  Descripton: Helper method to keep tree balanced after inserting a new Item
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree::rightLeft(Node*&k3){
     leftLeft (k3->right);
     rightRight(k3);
@@ -221,7 +221,7 @@ void ItemTree::rightLeft(Node*&k3){
 /*---------------------------------------------------------------------------
  ===== print
  Descripton: Prints all items from the tree in sorted order.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree:: print()const{
     if(root != NULL) {
         Item* item = root->itemData;
@@ -233,7 +233,7 @@ void ItemTree:: print()const{
 /*---------------------------------------------------------------------------
  ===== printHelper
  Descripton: Prints each Item from the tree using inorder traversal.
-----------------------------------------------------------------------------*/
+ ----------------------------------------------------------------------------*/
 void ItemTree::printHelper(Node*ptr)const{
     if (ptr != NULL) {
         printHelper(ptr->left);

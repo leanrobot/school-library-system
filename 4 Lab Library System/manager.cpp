@@ -48,7 +48,7 @@ Manager::~Manager() {
     // retrive the users (map) and delete all users from the map
     for (std::map<int,User*>::iterator it=userCollection.begin();
          it!=userCollection.end(); ++it)
-         delete it->second;
+        delete it->second;
     
     delete userFactory;
     delete itemFactory;
@@ -76,24 +76,25 @@ void Manager::buildUsers(istream& input) {
             if (userCollection.count(user->getID())>0){
                 cout<< "Patron with ID "<< user->getID()<< " already exists."
                 <<endl;
+            } else {
+                // otherwise, add user to userCollection
+                userCollection[user->getID()] = user;
             }
-            // otherwise, add user to userCollection
-            userCollection[user->getID()] = user;
-        }
+        }else
+            cout<< "User not created: Invalid user data"<<endl;
     }
-   // cout << userCollection.size() << " users added\n";
 }
 
 /*-----------------------------------------------------------------------------
  ===== Build Items
  Descripton: Builds the itemCollection. The input file is read until there is
- no data left. It is passed to the itemfactory, which constructs the right type 
+ no data left. It is passed to the itemfactory, which constructs the right type
  of item.
  Pre:
  Post:file is read, and all correct items are created
  -----------------------------------------------------------------------------*/
 void Manager::buildItems(istream& input) {
-   
+    
     // read the file until there is no data left
     while(!input.eof()) {
         // creat the right type of item
@@ -106,6 +107,8 @@ void Manager::buildItems(istream& input) {
             // add the item to itemCollection
             itemCollection.insert(item);
         }
+        else
+            cout<< "Item not created: Invalid item data"<<endl;
     }
 }
 
@@ -129,7 +132,8 @@ void Manager::processTransaction(istream& infile) {
             trans->execute(itemCollection, userCollection);
             // delete the transaction
             delete trans;
-        }
+        }else
+            cout<<"Transaction not executed: Invalid transaction data"<<endl;
     }
 }
 
