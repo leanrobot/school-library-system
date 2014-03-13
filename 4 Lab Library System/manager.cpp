@@ -132,9 +132,12 @@ void Manager::processTransaction(istream& infile) {
             trans->execute(itemCollection, userCollection);
             // delete the transaction
             delete trans;
-        }else
-            cout<<"Transaction not executed: Invalid transaction data"<< endl
-            << endl;
+        } else {
+            if(!infile.eof()) {
+                cout<<"Transaction not executed: Invalid transaction data"<< endl
+                << endl;
+            }
+        }
     }
 }
 
