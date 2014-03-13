@@ -24,6 +24,8 @@
  Descripton: Constructor for Periodical class.
  ----------------------------------------------------------------------------*/
 Periodical:: Periodical(){
+    totalCopies = 1;
+    checkedOutCopies = 0;
     itemType = 'P';
 }
 

@@ -27,8 +27,6 @@
  the bumber of checkout copies to 0 and item formato to 'H' (hardcopy)
  ----------------------------------------------------------------------------*/
 Item:: Item(){
-    totalCopies = 5;
-    checkedOutCopies = 0;
     itemFormat = 'H';
     cout.setf(ios::left, ios::adjustfield);
 }
