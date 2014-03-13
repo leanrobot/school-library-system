@@ -75,13 +75,13 @@ void Manager::buildUsers(istream& input) {
             // the userCollection and if exists print information about it
             if (userCollection.count(user->getID())>0){
                 cout<< "Patron with ID "<< user->getID()<< " already exists."
-                <<endl;
+                << endl << endl;
             } else {
                 // otherwise, add user to userCollection
                 userCollection[user->getID()] = user;
             }
         }else
-            cout<< "User not created: Invalid user data"<<endl;
+            cout<< "User not created: Invalid user data"<< endl << endl;
     }
 }
 
@@ -108,7 +108,7 @@ void Manager::buildItems(istream& input) {
             itemCollection.insert(item);
         }
         else
-            cout<< "Item not created: Invalid item data"<<endl;
+            cout<< "Item not created: Invalid item data"<< endl << endl;
     }
 }
 
@@ -133,7 +133,8 @@ void Manager::processTransaction(istream& infile) {
             // delete the transaction
             delete trans;
         }else
-            cout<<"Transaction not executed: Invalid transaction data"<<endl;
+            cout<<"Transaction not executed: Invalid transaction data"<< endl
+            << endl;
     }
 }
 

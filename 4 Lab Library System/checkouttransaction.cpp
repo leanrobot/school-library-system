@@ -103,8 +103,10 @@ void CheckOutTransaction:: execute(ItemCollection& itemCollection, map <int,
         if (this->lookUpItem !=NULL){
             
             // If there is an invalid item format, abort command.
-            if(this->lookUpItem->getItemFormat() != 'H') {
-                cout << "Command not executed: Invalid item format" << endl;
+            char lookupItemFormat = this->lookUpItem->getItemFormat();
+            if(lookupItemFormat != 'H') {
+                cout << "Command not executed: Invalid item format ["
+                <<lookupItemFormat << "]" << endl << endl;
             }
             
             // find the item in itemsCollection
@@ -127,19 +129,20 @@ void CheckOutTransaction:: execute(ItemCollection& itemCollection, map <int,
                 else {
                     // if the item does not exist in the itemCollection,
                     // print the right information
-                    cout << "Command not executed: No copies available\n";
+                    cout << "Command not executed: No copies available" << endl;
                     print();
+                    cout << endl;
                 }
             }
             
         // lookUp item is NULL so the item does not exist in the itemCollection
         }else{
             // print information about it
-            cout<< "Book not found in Library." << endl;
+            cout<< "Book not found in Library: No extra data available." << endl << endl;
             
         }
     } else {
-        cout << "Command not executed: Invalid User ["<<userId<<"].\n";
+        cout << "Command not executed: Invalid User ["<<userId<<"]." << endl << endl;
     }
 }
 

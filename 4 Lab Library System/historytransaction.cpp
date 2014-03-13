@@ -69,15 +69,20 @@ void HistoryTransaction:: execute(ItemCollection& itemCollection,
         
         cout<< "*** Patron ID = " << userId << " " <<user->getName() << endl;
         
+        if(userHistory.begin() == userHistory.end()) {
+            cout << "No User History." << endl;
+        }
+        
         // iterate through the list and print all of the user's transaction
         for(list<Transaction*>::iterator iter = userHistory.begin();
             iter != userHistory.end(); iter++) {
             (*iter)->print();
         }
+        cout << endl;
         
         // user with given Id does not exist, so print information about it
     }else {
-        cout << "Command not executed: Invalid User ["<<userId<<"].\n";
+        cout << "Command not executed: Invalid User ["<<userId<<"]." << endl << endl;
     }
 }
 /*-----------------------------------------------------------------------------

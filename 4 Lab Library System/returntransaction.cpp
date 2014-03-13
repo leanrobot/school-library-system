@@ -103,7 +103,8 @@ void ReturnTransaction:: execute(ItemCollection& itemCollection,
             
             // If there is an invalid item format, abort command.
             if(this->lookUpItem->getItemFormat() != 'H') {
-                cout << "Command not executed: Invalid item format" << endl;
+                cout << "Command not executed: Invalid item format"
+                << endl << endl;
             }
             
             // find the item in itemsCollection
@@ -129,7 +130,8 @@ void ReturnTransaction:: execute(ItemCollection& itemCollection,
                 // if the item does not exist in the itemCollection,
                 // print the right information
                 else {
-                    cout << "Command not executed: Invalid Return" << endl;
+                    cout << "Command not executed: Invalid Return"
+                    << endl << endl;
                     print();
                 }
             }
@@ -137,10 +139,11 @@ void ReturnTransaction:: execute(ItemCollection& itemCollection,
         // lookUp item is NULL so the item does not exist in the itemCollection
         else {
             // print information about it
-            cout<<"Book not found in Library."<<endl;
+            cout<<"Book not found in Library." << endl << endl;
         }
     }else{
-        cout << "Command not executed: Invalid User ["<<userId<<"].\n";
+        cout << "Command not executed: Invalid User ["<<userId<<"]."
+        << endl << endl;
     }
 }
 
